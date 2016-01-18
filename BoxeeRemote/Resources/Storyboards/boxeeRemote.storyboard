@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uMu-TM-lyC">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Boxee Remote Launch-->
+        <scene sceneID="gLu-wO-IeQ">
+            <objects>
+                <viewController title="Boxee Remote Launch" id="uMu-TM-lyC" customClass="AppBaseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EOB-zQ-SYU"/>
+                        <viewControllerLayoutGuide type="bottom" id="mwm-vG-J2S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Sp-lC-BiR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BoxeeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0au-kP-Ieb">
+                                <rect key="frame" x="90" y="173" width="141" height="167"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sCt-fC-JFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189" y="410.99999999999994"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BoxeeLogo" width="141" height="167"/>
+    </resources>
+</document>

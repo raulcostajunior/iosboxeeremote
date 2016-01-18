@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AppBaseViewController.h
 //  BoxeeRemote
 //
 //  Created by Raul Costa Junior on 1/17/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface AppBaseViewController : UIViewController
 
 @end
-
