@@ -9,8 +9,8 @@
 #import "AppBaseViewController.h"
 
 
-// TODO: implement BoxeeConnectionDelegate. Assign itself as the BoxeeConnectionManager delegate on ViewDidLoad and unassign (if it is the delegate on dealloc).
-//       All the controllers will inherit that behavior from the base and will be able to route to the appropriate controller.
+// TODO: implement BoxeeConnectionDelegate. Assign itself as the BoxeeConnectionManager delegate on ViewDidLoad and unassign it (if it is the delegate) on dealloc.
+//       All the controllers will inherit that delegate behavior from the base and will be able to route to the appropriate controller.
 
 @interface AppBaseViewController ()
 
