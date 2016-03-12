@@ -10,3 +10,26 @@
 
 #import "BoxeeConnection.h"
 #import "BoxeeConnectionManager.h"
+
+
+@implementation BoxeeConnectionManager
+
++(instancetype) sharedManager {
+    // TODO: implement actual body
+    return nil;
+}
+
+
+-(BoxeeConnection *) lastSuccessfulConnection {
+    // TODO: implement actual body
+    return nil;
+}
+
+
+-(void) connectToBoxee:(BoxeeConnection *)connectionParams {
+    // TODO: implement actual body
+}
+
+// TODO: implement connection keepalive - piggyback on the keepalive response for a BoxeeState refresh.
+
+@end

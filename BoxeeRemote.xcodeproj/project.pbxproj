@@ -17,6 +17,7 @@
 		CB8DE7BF1C4BCCCD004D8C67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */; };
 		CBA0634A1C4BDE1900CEBCA7 /* boxeeRemote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA063491C4BDE1900CEBCA7 /* boxeeRemote.storyboard */; };
 		CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */; };
+		CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		CB8DE7CB1C4BCCCE004D8C67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBA063491C4BDE1900CEBCA7 /* boxeeRemote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = boxeeRemote.storyboard; sourceTree = "<group>"; };
 		CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = appAssets.xcassets; sourceTree = "<group>"; };
+		CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerRouter.h; sourceTree = "<group>"; };
+		CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRouter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */,
 				CB3CA7B81C691AF6007D48EA /* RemoteStandardViewController.h */,
 				CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */,
+				CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */,
+				CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB3CA7B41C69168C007D48EA /* ConnectingViewController.m in Sources */,
+				CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */,
 				CB3CA7BA1C691AF6007D48EA /* RemoteStandardViewController.m in Sources */,
 				CB66515D1C7A400D004ABF96 /* BoxeeConnectionManager.m in Sources */,
 				CB879BFA1C4C60F800B1CDB9 /* AppBaseViewController.m in Sources */,

@@ -9,14 +9,14 @@
 #ifndef BoxeeState_h
 #define BoxeeState_h
 
-NS_ENUM(NSInteger, BoxeeMode) {
+typedef NS_ENUM(NSInteger, BoxeeMode) {
     BoxeeModeStandard,
     BoxeeModePlaying,
     BoxeeModeTextEntry
 };
 
 
-NS_ENUM(NSInteger, BoxeeMediaType) {
+typedef NS_ENUM(NSInteger, BoxeeMediaType) {
     BoxeeMediaNone,
     BoxeeMediaAudio,
     BoxeeMediaVideo,

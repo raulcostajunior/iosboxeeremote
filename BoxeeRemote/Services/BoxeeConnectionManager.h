@@ -10,10 +10,11 @@
 #define BoxeeConnectionManager_h
 
 @class BoxeeConnection;
-
 @protocol BoxeeConnectionDelegate;
 
+
 @interface BoxeeConnectionManager: NSObject
+
 
 +(instancetype) sharedManager;
 
