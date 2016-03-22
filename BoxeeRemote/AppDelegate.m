@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "BoxeeConnectionManager.h"
+#import "ViewControllerRouter.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+    ViewControllerRouter *_appViewControllerRouter;
+}
 
 @end
 
@@ -16,7 +20,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    _appViewControllerRouter = [[ViewControllerRouter alloc] init];
+    // TODO: set the root view controller to the one returned by [_appViewControllerRouter initialViewController]
+    [BoxeeConnectionManager sharedManager].delegate = _appViewControllerRouter;
+
     return YES;
 }
 
@@ -26,8 +34,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[BoxeeConnectionManager sharedManager] disconnectFromBoxee];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -35,7 +42,11 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    BoxeeConnection *lastConnection = [BoxeeConnectionManager sharedManager].lastSuccessfulConnection;
+    if (lastConnection) {
+        // There's a connection that is known to have worked at least once - tries to reestabilish it
+        [[BoxeeConnectionManager sharedManager] connectToBoxee:lastConnection];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

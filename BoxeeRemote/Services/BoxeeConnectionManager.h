@@ -24,6 +24,8 @@
 
 -(void) connectToBoxee:(BoxeeConnection *)connectionParams;
 
+-(void) disconnectFromBoxee;
+
 
 @end
 

@@ -1,6 +1,6 @@
 //
 //  ViewControllerRouter.h
-//  BoxeeRemote
+//  Orchestrates the application view controllers in response to events communicated by the BoxeeConnectionManager.
 //
 //  Created by Raul Costa Junior on 3/12/16.
 //  Copyright © 2016 Digital Streams. All rights reserved.
@@ -9,21 +9,11 @@
 #ifndef ViewControllerRouter_h
 #define ViewControllerRouter_h
 
-@class BoxeeState;
+#import "BoxeeConnectionDelegate.h"
 
-typedef NS_ENUM(NSInteger, BoxeeConnectionEvent) {
-    
-    ConnectionEventConnecting,
-    ConnectionEventConnected,
-    ConnectionEventConnectFailed,
-    ConnectionEventLostConnection,
-    ConnectionEventStateChanged
-};
+@interface ViewControllerRouter: NSObject<BoxeeConnectionDelegate>
 
-
-@interface ViewControllerRouter: NSObject
-
-+(void) routeToViewControllerForEvent:(BoxeeConnectionEvent)event andState:(BoxeeState *)state;
+-(UIViewController *) initialViewController;
 
 @end
 

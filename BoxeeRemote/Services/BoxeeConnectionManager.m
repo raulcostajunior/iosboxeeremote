@@ -30,6 +30,12 @@
     // TODO: implement actual body
 }
 
+
+-(void) disconnectFromBoxee {
+    // TODO: Stop the connection keepalive pulse
+}
+
+
 // TODO: implement connection keepalive - piggyback on the keepalive response for a BoxeeState refresh.
 
 @end

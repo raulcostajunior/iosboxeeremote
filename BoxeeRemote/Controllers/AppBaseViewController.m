@@ -7,12 +7,10 @@
 //
 
 #import "AppBaseViewController.h"
-#import "BoxeeConnectionDelegate.h"
-#import "BoxeeConnectionManager.h"
 #import "ViewControllerRouter.h"
 
 
-@interface AppBaseViewController () <BoxeeConnectionDelegate>
+@interface AppBaseViewController ()
 
 @end
 
@@ -27,8 +25,6 @@
     if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_7_0) {
         [self setNeedsStatusBarAppearanceUpdate];
     }
-    
-    [BoxeeConnectionManager sharedManager].delegate = self;
     
 }
 
@@ -46,38 +42,7 @@
 
 
 
-#pragma mark - BoxeeConnectionDelegate methods
 
-
--(void) connectingToBoxee:(BoxeeConnection *)connectingBoxee {
-    
-    
-}
-
-
--(void) connectedToBoxee:(BoxeeConnection *)connectedBoxee {
-    
-    
-}
-
-
--(void) failedConnectingToBoxee:(BoxeeConnection *)failedConnection withError:(NSError *)error {
-    
-    
-}
-
-
-
--(void) lostConnectionToBoxee:(BoxeeConnection *)lostConnection {
-    
-    
-}
-
-
--(void) connectedBoxeeStateChanged:(BoxeeState *)newState {
-    
-    
-}
 
 
 @end
