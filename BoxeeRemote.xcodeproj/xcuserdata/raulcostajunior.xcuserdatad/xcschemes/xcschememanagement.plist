@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BoxeeRemote.xcscheme</key>
+		<key>BoxeeRemote iPhone5c.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>BoxeeRemote iPod_iOS6.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>CB8DE7B61C4BCCCC004D8C67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CBD0FBD51CA731F500C26FF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

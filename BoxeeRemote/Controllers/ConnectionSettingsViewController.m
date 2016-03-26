@@ -10,28 +10,57 @@
 
 @interface ConnectionSettingsViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *txtBoxeeHost;
+
+@property (weak, nonatomic) IBOutlet UITextField *txtBoxeePort;
+
+@property (weak, nonatomic) IBOutlet UITextField *txtBoxeePassword;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnScanBoxees;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnConnectBoxee;
+
+
 @end
 
 @implementation ConnectionSettingsViewController
 
+
+#pragma mark - View life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self setupButtons];
+    [self setupTextFields];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Internal UI setup methods
+
+
+-(void) setupButtons {
+    
+    self.btnScanBoxees.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.btnScanBoxees.layer.borderWidth = 1.0;
+    self.btnScanBoxees.layer.cornerRadius = 5.0;
+    
+    self.btnConnectBoxee.layer.borderColor = [[UIColor colorWithRed:174.0/255.0 green:254.0/255.0 blue:133.0/255.0 alpha:1.0] CGColor];
+    self.btnConnectBoxee.layer.borderWidth = 1.0;
+    self.btnConnectBoxee.layer.cornerRadius = 5.0;
 }
-*/
+
+
+-(void) setupTextFields {
+    
+    
+}
+
 
 @end

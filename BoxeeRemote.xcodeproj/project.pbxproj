@@ -16,6 +16,16 @@
 		CB8DE7BC1C4BCCCD004D8C67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BB1C4BCCCD004D8C67 /* main.m */; };
 		CB8DE7BF1C4BCCCD004D8C67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */; };
 		CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */; };
+		CBD0FBD71CA731F500C26FF3 /* ConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */; };
+		CBD0FBD81CA731F500C26FF3 /* ViewControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */; };
+		CBD0FBD91CA731F500C26FF3 /* RemoteStandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */; };
+		CBD0FBDA1CA731F500C26FF3 /* BoxeeConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */; };
+		CBD0FBDB1CA731F500C26FF3 /* AppBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */; };
+		CBD0FBDC1CA731F500C26FF3 /* ConnectionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */; };
+		CBD0FBDD1CA731F500C26FF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */; };
+		CBD0FBDE1CA731F500C26FF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BB1C4BCCCD004D8C67 /* main.m */; };
+		CBD0FBE11CA731F500C26FF3 /* ConnectionSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5A82451CA703CC008BCE15 /* ConnectionSettingsViewController.xib */; };
+		CBD0FBE21CA731F500C26FF3 /* appAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */; };
 		CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */; };
 /* End PBXBuildFile section */
 
@@ -34,18 +44,27 @@
 		CB66515F1C7A4EA7004ABF96 /* BoxeeConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnectionDelegate.h; sourceTree = "<group>"; };
 		CB879BF81C4C60F800B1CDB9 /* AppBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBaseViewController.h; sourceTree = "<group>"; };
 		CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBaseViewController.m; sourceTree = "<group>"; };
-		CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxeeRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote iPod_iOS6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoxeeRemote iPod_iOS6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8DE7BB1C4BCCCD004D8C67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CB8DE7BD1C4BCCCD004D8C67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CB8DE7CB1C4BCCCE004D8C67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = appAssets.xcassets; sourceTree = "<group>"; };
+		CBD0FBE61CA731F500C26FF3 /* BoxeeRemote iPhone5c.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoxeeRemote iPhone5c.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBD0FBE71CA731F500C26FF3 /* BoxeeRemote copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BoxeeRemote copy-Info.plist"; path = "/Users/raulcostajunior/Projects/boxee_remote_iOS/BoxeeRemote/BoxeeRemote copy-Info.plist"; sourceTree = "<absolute>"; };
 		CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerRouter.h; sourceTree = "<group>"; };
 		CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRouter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CB8DE7B41C4BCCCC004D8C67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBD0FBDF1CA731F500C26FF3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,13 +96,15 @@
 			children = (
 				CB8DE7B91C4BCCCD004D8C67 /* BoxeeRemote */,
 				CB8DE7B81C4BCCCD004D8C67 /* Products */,
+				CBD0FBE71CA731F500C26FF3 /* BoxeeRemote copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		CB8DE7B81C4BCCCD004D8C67 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote.app */,
+				CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote iPod_iOS6.app */,
+				CBD0FBE61CA731F500C26FF3 /* BoxeeRemote iPhone5c.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,9 +171,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CB8DE7B61C4BCCCC004D8C67 /* BoxeeRemote */ = {
+		CB8DE7B61C4BCCCC004D8C67 /* BoxeeRemote iPod_iOS6 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB8DE7CE1C4BCCCE004D8C67 /* Build configuration list for PBXNativeTarget "BoxeeRemote" */;
+			buildConfigurationList = CB8DE7CE1C4BCCCE004D8C67 /* Build configuration list for PBXNativeTarget "BoxeeRemote iPod_iOS6" */;
 			buildPhases = (
 				CB8DE7B31C4BCCCC004D8C67 /* Sources */,
 				CB8DE7B41C4BCCCC004D8C67 /* Frameworks */,
@@ -162,9 +183,26 @@
 			);
 			dependencies = (
 			);
-			name = BoxeeRemote;
+			name = "BoxeeRemote iPod_iOS6";
 			productName = BoxeeRemote;
-			productReference = CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote.app */;
+			productReference = CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote iPod_iOS6.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBD0FBD51CA731F500C26FF3 /* BoxeeRemote iPhone5c */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBD0FBE31CA731F500C26FF3 /* Build configuration list for PBXNativeTarget "BoxeeRemote iPhone5c" */;
+			buildPhases = (
+				CBD0FBD61CA731F500C26FF3 /* Sources */,
+				CBD0FBDF1CA731F500C26FF3 /* Frameworks */,
+				CBD0FBE01CA731F500C26FF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BoxeeRemote iPhone5c";
+			productName = BoxeeRemote;
+			productReference = CBD0FBE61CA731F500C26FF3 /* BoxeeRemote iPhone5c.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -179,6 +217,9 @@
 				TargetAttributes = {
 					CB8DE7B61C4BCCCC004D8C67 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7G8JJ3WHW6;
+					};
+					CBD0FBD51CA731F500C26FF3 = {
 						DevelopmentTeam = 7G8JJ3WHW6;
 					};
 				};
@@ -196,7 +237,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CB8DE7B61C4BCCCC004D8C67 /* BoxeeRemote */,
+				CB8DE7B61C4BCCCC004D8C67 /* BoxeeRemote iPod_iOS6 */,
+				CBD0FBD51CA731F500C26FF3 /* BoxeeRemote iPhone5c */,
 			);
 		};
 /* End PBXProject section */
@@ -208,6 +250,15 @@
 			files = (
 				CB5A82461CA703CC008BCE15 /* ConnectionSettingsViewController.xib in Resources */,
 				CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBD0FBE01CA731F500C26FF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBD0FBE11CA731F500C26FF3 /* ConnectionSettingsViewController.xib in Resources */,
+				CBD0FBE21CA731F500C26FF3 /* appAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +277,21 @@
 				CB3CA7B71C6917EB007D48EA /* ConnectionSettingsViewController.m in Sources */,
 				CB8DE7BF1C4BCCCD004D8C67 /* AppDelegate.m in Sources */,
 				CB8DE7BC1C4BCCCD004D8C67 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBD0FBD61CA731F500C26FF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBD0FBD71CA731F500C26FF3 /* ConnectingViewController.m in Sources */,
+				CBD0FBD81CA731F500C26FF3 /* ViewControllerRouter.m in Sources */,
+				CBD0FBD91CA731F500C26FF3 /* RemoteStandardViewController.m in Sources */,
+				CBD0FBDA1CA731F500C26FF3 /* BoxeeConnectionManager.m in Sources */,
+				CBD0FBDB1CA731F500C26FF3 /* AppBaseViewController.m in Sources */,
+				CBD0FBDC1CA731F500C26FF3 /* ConnectionSettingsViewController.m in Sources */,
+				CBD0FBDD1CA731F500C26FF3 /* AppDelegate.m in Sources */,
+				CBD0FBDE1CA731F500C26FF3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,11 +385,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BoxeeRemote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.BoxeeRemote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -333,11 +402,48 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BoxeeRemote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.BoxeeRemote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CBD0FBE41CA731F500C26FF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "BoxeeRemote copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.boxeeRemoteControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBD0FBE51CA731F500C26FF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "BoxeeRemote copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.boxeeRemoteControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -354,11 +460,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CB8DE7CE1C4BCCCE004D8C67 /* Build configuration list for PBXNativeTarget "BoxeeRemote" */ = {
+		CB8DE7CE1C4BCCCE004D8C67 /* Build configuration list for PBXNativeTarget "BoxeeRemote iPod_iOS6" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB8DE7CF1C4BCCCE004D8C67 /* Debug */,
 				CB8DE7D01C4BCCCE004D8C67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBD0FBE31CA731F500C26FF3 /* Build configuration list for PBXNativeTarget "BoxeeRemote iPhone5c" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBD0FBE41CA731F500C26FF3 /* Debug */,
+				CBD0FBE51CA731F500C26FF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
