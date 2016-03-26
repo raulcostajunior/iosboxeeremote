@@ -23,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile~ipad</key>
-	<string>boxeeRemote.ipad</string>
+	<string></string>
 	<key>UIMainStoryboardFile</key>
-	<string>boxeeRemote</string>
+	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -10,12 +10,11 @@
 		CB3CA7B41C69168C007D48EA /* ConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */; };
 		CB3CA7B71C6917EB007D48EA /* ConnectionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */; };
 		CB3CA7BA1C691AF6007D48EA /* RemoteStandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */; };
+		CB5A82461CA703CC008BCE15 /* ConnectionSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB5A82451CA703CC008BCE15 /* ConnectionSettingsViewController.xib */; };
 		CB66515D1C7A400D004ABF96 /* BoxeeConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */; };
-		CB879BF51C4C421A00B1CDB9 /* boxeeRemote.ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB879BF41C4C421A00B1CDB9 /* boxeeRemote.ipad.storyboard */; };
 		CB879BFA1C4C60F800B1CDB9 /* AppBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */; };
 		CB8DE7BC1C4BCCCD004D8C67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BB1C4BCCCD004D8C67 /* main.m */; };
 		CB8DE7BF1C4BCCCD004D8C67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */; };
-		CBA0634A1C4BDE1900CEBCA7 /* boxeeRemote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA063491C4BDE1900CEBCA7 /* boxeeRemote.storyboard */; };
 		CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */; };
 		CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */; };
 /* End PBXBuildFile section */
@@ -27,12 +26,12 @@
 		CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionSettingsViewController.m; sourceTree = "<group>"; };
 		CB3CA7B81C691AF6007D48EA /* RemoteStandardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteStandardViewController.h; sourceTree = "<group>"; };
 		CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteStandardViewController.m; sourceTree = "<group>"; };
+		CB5A82451CA703CC008BCE15 /* ConnectionSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionSettingsViewController.xib; sourceTree = "<group>"; };
 		CB6651581C7A3B40004ABF96 /* BoxeeState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeState.h; sourceTree = "<group>"; };
 		CB6651591C7A3DA6004ABF96 /* BoxeeConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnection.h; sourceTree = "<group>"; };
 		CB66515B1C7A3ED7004ABF96 /* BoxeeConnectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnectionManager.h; sourceTree = "<group>"; };
 		CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeConnectionManager.m; sourceTree = "<group>"; };
 		CB66515F1C7A4EA7004ABF96 /* BoxeeConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnectionDelegate.h; sourceTree = "<group>"; };
-		CB879BF41C4C421A00B1CDB9 /* boxeeRemote.ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = boxeeRemote.ipad.storyboard; sourceTree = "<group>"; };
 		CB879BF81C4C60F800B1CDB9 /* AppBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBaseViewController.h; sourceTree = "<group>"; };
 		CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBaseViewController.m; sourceTree = "<group>"; };
 		CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxeeRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,7 +39,6 @@
 		CB8DE7BD1C4BCCCD004D8C67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CB8DE7CB1C4BCCCE004D8C67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CBA063491C4BDE1900CEBCA7 /* boxeeRemote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = boxeeRemote.storyboard; sourceTree = "<group>"; };
 		CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = appAssets.xcassets; sourceTree = "<group>"; };
 		CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerRouter.h; sourceTree = "<group>"; };
 		CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRouter.m; sourceTree = "<group>"; };
@@ -115,6 +113,7 @@
 				CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */,
 				CB3CA7B51C6917EB007D48EA /* ConnectionSettingsViewController.h */,
 				CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */,
+				CB5A82451CA703CC008BCE15 /* ConnectionSettingsViewController.xib */,
 				CB3CA7B81C691AF6007D48EA /* RemoteStandardViewController.h */,
 				CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */,
 				CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */,
@@ -136,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				CBA063471C4BDDB200CEBCA7 /* Catalogs */,
-				CBA063481C4BDDB200CEBCA7 /* Storyboards */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -147,15 +145,6 @@
 				CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */,
 			);
 			path = Catalogs;
-			sourceTree = "<group>";
-		};
-		CBA063481C4BDDB200CEBCA7 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				CBA063491C4BDE1900CEBCA7 /* boxeeRemote.storyboard */,
-				CB879BF41C4C421A00B1CDB9 /* boxeeRemote.ipad.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,9 +206,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB879BF51C4C421A00B1CDB9 /* boxeeRemote.ipad.storyboard in Resources */,
+				CB5A82461CA703CC008BCE15 /* ConnectionSettingsViewController.xib in Resources */,
 				CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */,
-				CBA0634A1C4BDE1900CEBCA7 /* boxeeRemote.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

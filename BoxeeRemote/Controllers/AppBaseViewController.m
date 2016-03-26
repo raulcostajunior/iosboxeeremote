@@ -22,9 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /*
     if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_7_0) {
         [self setNeedsStatusBarAppearanceUpdate];
     }
+    */
     
 }
 

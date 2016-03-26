@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AppBaseViewController.h"
 #import "BoxeeState.h"
 #import "BoxeeConnection.h"
 #import "ConnectionSettingsViewController.h"
@@ -17,7 +18,7 @@
 
 @implementation ViewControllerRouter
 
--(UIViewController *) initialViewController {
+-(AppBaseViewController *) initialViewController {
     
     ConnectionSettingsViewController *initialVc = [[ConnectionSettingsViewController alloc] init];
     return initialVc;

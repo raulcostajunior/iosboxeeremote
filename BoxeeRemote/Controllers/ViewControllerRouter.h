@@ -11,10 +11,14 @@
 
 #import "BoxeeConnectionDelegate.h"
 
+@class AppBaseViewController;
+
+
 @interface ViewControllerRouter: NSObject<BoxeeConnectionDelegate>
 
--(UIViewController *) initialViewController;
+-(AppBaseViewController *) initialViewController;
 
 @end
+
 
 #endif /* ViewControllerRouter_h */
