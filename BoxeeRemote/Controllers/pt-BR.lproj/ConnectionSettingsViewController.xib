@@ -35,17 +35,7 @@
                         <constraint firstAttribute="width" constant="44" id="eGU-Yq-g6R"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boxee Host" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-fs-L2a">
-                    <rect key="frame" x="16" y="78" width="181" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="mpo-lJ-qfN"/>
-                        <constraint firstAttribute="width" constant="181" id="uEf-NA-Mx1"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boxee Port" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNl-AI-mnT">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Porta Boxee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNl-AI-mnT">
                     <rect key="frame" x="16" y="150" width="96" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Dj3-N6-EKg"/>
@@ -55,7 +45,7 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-eT-W3d">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-eT-W3d">
                     <rect key="frame" x="133" y="150" width="171" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="F3j-gQ-tNx"/>
@@ -71,11 +61,11 @@
                         <constraint firstAttribute="width" constant="136" id="oxp-rV-nYs"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="Connect Boxee">
+                    <state key="normal" title="Conectar Boxee">
                         <color key="titleColor" red="0.68235294117647061" green="0.99607843137254903" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hostname or IP address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r6I-AQ-eU9">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nome ou endereço IP" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r6I-AQ-eU9">
                     <rect key="frame" x="16" y="104" width="288" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="hlj-w2-lF6"/>
@@ -91,11 +81,11 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
-                    <state key="normal" title="Search Boxees">
+                    <state key="normal" title="Achar Boxees">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="optional password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvj-C9-Aod">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="senha opcional" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvj-C9-Aod">
                     <rect key="frame" x="129" y="176" width="175" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Sg1-UC-gwb"/>
@@ -112,6 +102,16 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Servidor Boxee " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-fs-L2a">
+                    <rect key="frame" x="16" y="78" width="181" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="mpo-lJ-qfN"/>
+                        <constraint firstAttribute="width" constant="181" id="uEf-NA-Mx1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
