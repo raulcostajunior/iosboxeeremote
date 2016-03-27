@@ -8,7 +8,7 @@
 
 #import "ConnectionSettingsViewController.h"
 
-@interface ConnectionSettingsViewController ()
+@interface ConnectionSettingsViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *txtBoxeeHost;
 
@@ -25,6 +25,9 @@
 
 @implementation ConnectionSettingsViewController
 
+static const NSInteger TXT_HOST_TAG = 1;
+static const NSInteger TXT_PORT_TAG = 2;
+static const NSInteger TXT_PASSWORD_TAG = 3;
 
 #pragma mark - View life cycle
 
@@ -42,11 +45,16 @@
 }
 
 
+
+#pragma mark - UITextFieldDelegate methods
+
+
+
+
 #pragma mark - Internal UI setup methods
 
 
 -(void) setupButtons {
-    
     self.btnScanBoxees.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.btnScanBoxees.layer.borderWidth = 1.0;
     self.btnScanBoxees.layer.cornerRadius = 5.0;
@@ -57,9 +65,39 @@
 }
 
 
+
 -(void) setupTextFields {
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.view addGestureRecognizer:tapRecognizer];
+    
+    self.txtBoxeeHost.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.txtBoxeeHost.keyboardType = UIKeyboardTypeDefault;
+    self.txtBoxeePort.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.txtBoxeeHost.tag = TXT_HOST_TAG;
+    self.txtBoxeeHost.delegate = self;
+    
+    self.txtBoxeePort.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.txtBoxeePort.keyboardType = UIKeyboardTypeNumberPad;
+    self.txtBoxeePort.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.txtBoxeePort.tag = TXT_PORT_TAG;
+    self.txtBoxeePort.delegate = self;
+    
+    self.txtBoxeePassword.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.txtBoxeePassword.keyboardType = UIKeyboardTypeDefault;
+    self.txtBoxeePassword.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.txtBoxeePassword.secureTextEntry = YES;
+    self.txtBoxeePassword.tag = TXT_PASSWORD_TAG;
+    self.txtBoxeePassword.delegate = self;
     
     
+}
+
+
+
+-(void) hideKeyboard {
+    [self.txtBoxeeHost resignFirstResponder];
+    [self.txtBoxeePort resignFirstResponder];
+    [self.txtBoxeePassword resignFirstResponder];
 }
 
 

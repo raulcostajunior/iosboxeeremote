@@ -140,6 +140,7 @@
                 <constraint firstItem="jCN-nd-jgB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ytF-DC-5VL"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="-48" y="294"/>
         </view>
     </objects>
     <resources>

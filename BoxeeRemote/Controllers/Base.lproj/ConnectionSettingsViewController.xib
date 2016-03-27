@@ -35,75 +35,8 @@
                         <constraint firstAttribute="width" constant="44" id="eGU-Yq-g6R"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Porta Boxee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNl-AI-mnT">
-                    <rect key="frame" x="16" y="150" width="96" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="Dj3-N6-EKg"/>
-                        <constraint firstAttribute="width" constant="96" id="ErW-Uq-63S"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-eT-W3d">
-                    <rect key="frame" x="133" y="150" width="171" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="F3j-gQ-tNx"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrU-Ot-sS4">
-                    <rect key="frame" x="16" y="234" width="136" height="36"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="36" id="WwX-uR-hel"/>
-                        <constraint firstAttribute="width" constant="136" id="oxp-rV-nYs"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="Conectar Boxee">
-                        <color key="titleColor" red="0.68235294117647061" green="0.99607843137254903" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nome ou endereço IP" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r6I-AQ-eU9">
-                    <rect key="frame" x="16" y="104" width="288" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="hlj-w2-lF6"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dL8-a4-qEh">
-                    <rect key="frame" x="168" y="234" width="136" height="36"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="36" id="Fjr-cd-HfZ"/>
-                        <constraint firstAttribute="width" constant="136" id="Jws-Pd-96O"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
-                    <state key="normal" title="Achar Boxees">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="senha opcional" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvj-C9-Aod">
-                    <rect key="frame" x="129" y="176" width="175" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Sg1-UC-gwb"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8800" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hQ7-9P-lCk">
-                    <rect key="frame" x="16" y="176" width="97" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="97" id="Zkf-sK-BaB"/>
-                        <constraint firstAttribute="height" constant="30" id="luM-S3-vdQ"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Servidor Boxee " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-fs-L2a">
-                    <rect key="frame" x="16" y="78" width="181" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boxee Host" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-fs-L2a">
+                    <rect key="frame" x="16" y="74" width="181" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="mpo-lJ-qfN"/>
                         <constraint firstAttribute="width" constant="181" id="uEf-NA-Mx1"/>
@@ -112,13 +45,91 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boxee Port" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNl-AI-mnT">
+                    <rect key="frame" x="16" y="135" width="96" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Dj3-N6-EKg"/>
+                        <constraint firstAttribute="width" constant="96" id="ErW-Uq-63S"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-eT-W3d">
+                    <rect key="frame" x="133" y="135" width="171" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="F3j-gQ-tNx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrU-Ot-sS4">
+                    <rect key="frame" x="16" y="206" width="136" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="WwX-uR-hel"/>
+                        <constraint firstAttribute="width" constant="136" id="oxp-rV-nYs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="Connect Boxee">
+                        <color key="titleColor" red="0.68235294117647061" green="0.99607843137254903" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hostname or IP address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r6I-AQ-eU9">
+                    <rect key="frame" x="16" y="97" width="288" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="hlj-w2-lF6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dL8-a4-qEh">
+                    <rect key="frame" x="168" y="206" width="136" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="Fjr-cd-HfZ"/>
+                        <constraint firstAttribute="width" constant="136" id="Jws-Pd-96O"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="2"/>
+                    <state key="normal" title="Find Boxees">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="optional password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvj-C9-Aod">
+                    <rect key="frame" x="129" y="158" width="175" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Sg1-UC-gwb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8800" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hQ7-9P-lCk">
+                    <rect key="frame" x="16" y="158" width="97" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="97" id="Zkf-sK-BaB"/>
+                        <constraint firstAttribute="height" constant="30" id="luM-S3-vdQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by raulcostajunior@gmail.com in 04/2016." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ep1-x4-QDY">
+                    <rect key="frame" x="16" y="531" width="288" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="5TN-bX-jyA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="sNl-AI-mnT" firstAttribute="top" secondItem="r6I-AQ-eU9" secondAttribute="bottom" constant="16" id="2nH-Ln-Q2u"/>
+                <constraint firstItem="sNl-AI-mnT" firstAttribute="top" secondItem="r6I-AQ-eU9" secondAttribute="bottom" constant="8" id="2nH-Ln-Q2u"/>
+                <constraint firstItem="ep1-x4-QDY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="3WD-gw-tA8"/>
                 <constraint firstItem="w5C-5Z-esu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="5GY-ee-bqg"/>
-                <constraint firstItem="r6I-AQ-eU9" firstAttribute="top" secondItem="i7f-fs-L2a" secondAttribute="bottom" constant="5" id="6nT-Oj-wbi"/>
-                <constraint firstItem="dL8-a4-qEh" firstAttribute="top" secondItem="nvj-C9-Aod" secondAttribute="bottom" constant="28" id="8Le-Nr-oMZ"/>
+                <constraint firstItem="r6I-AQ-eU9" firstAttribute="top" secondItem="i7f-fs-L2a" secondAttribute="bottom" constant="2" id="6nT-Oj-wbi"/>
+                <constraint firstItem="dL8-a4-qEh" firstAttribute="top" secondItem="nvj-C9-Aod" secondAttribute="bottom" constant="18" id="8Le-Nr-oMZ"/>
+                <constraint firstAttribute="trailing" secondItem="ep1-x4-QDY" secondAttribute="trailing" constant="16" id="9J7-MG-bea"/>
                 <constraint firstAttribute="trailing" secondItem="dL8-a4-qEh" secondAttribute="trailing" constant="16" id="CyD-Z5-JF2"/>
                 <constraint firstItem="Faf-eT-W3d" firstAttribute="leading" secondItem="hQ7-9P-lCk" secondAttribute="trailing" constant="20" id="G9v-1F-D72"/>
                 <constraint firstItem="nvj-C9-Aod" firstAttribute="leading" secondItem="hQ7-9P-lCk" secondAttribute="trailing" constant="16" id="I2e-Bw-fRP"/>
@@ -129,14 +140,15 @@
                 <constraint firstAttribute="trailing" secondItem="nvj-C9-Aod" secondAttribute="trailing" constant="16" id="W0k-Lo-LG6"/>
                 <constraint firstAttribute="trailing" secondItem="r6I-AQ-eU9" secondAttribute="trailing" constant="16" id="YIO-Vc-6Gw"/>
                 <constraint firstItem="r6I-AQ-eU9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="ar1-72-5XZ"/>
-                <constraint firstItem="nvj-C9-Aod" firstAttribute="top" secondItem="Faf-eT-W3d" secondAttribute="bottom" constant="5" id="b8m-ao-9Mz"/>
-                <constraint firstItem="zrU-Ot-sS4" firstAttribute="top" secondItem="nvj-C9-Aod" secondAttribute="bottom" constant="28" id="eyy-EQ-RqM"/>
+                <constraint firstItem="nvj-C9-Aod" firstAttribute="top" secondItem="Faf-eT-W3d" secondAttribute="bottom" constant="2" id="b8m-ao-9Mz"/>
+                <constraint firstItem="zrU-Ot-sS4" firstAttribute="top" secondItem="nvj-C9-Aod" secondAttribute="bottom" constant="18" id="eyy-EQ-RqM"/>
                 <constraint firstItem="zrU-Ot-sS4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="fLM-BH-YA1"/>
-                <constraint firstItem="hQ7-9P-lCk" firstAttribute="top" secondItem="sNl-AI-mnT" secondAttribute="bottom" constant="5" id="iAa-TP-Tno"/>
-                <constraint firstItem="i7f-fs-L2a" firstAttribute="top" secondItem="w5C-5Z-esu" secondAttribute="bottom" constant="20" id="niL-FK-9nv"/>
+                <constraint firstAttribute="bottom" secondItem="ep1-x4-QDY" secondAttribute="bottom" constant="16" id="hlO-ya-UEd"/>
+                <constraint firstItem="hQ7-9P-lCk" firstAttribute="top" secondItem="sNl-AI-mnT" secondAttribute="bottom" constant="2" id="iAa-TP-Tno"/>
+                <constraint firstItem="i7f-fs-L2a" firstAttribute="top" secondItem="w5C-5Z-esu" secondAttribute="bottom" constant="16" id="niL-FK-9nv"/>
                 <constraint firstItem="i7f-fs-L2a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="qUh-Mx-ElG"/>
                 <constraint firstAttribute="trailing" secondItem="Faf-eT-W3d" secondAttribute="trailing" constant="16" id="qhh-fO-Hra"/>
-                <constraint firstItem="Faf-eT-W3d" firstAttribute="top" secondItem="r6I-AQ-eU9" secondAttribute="bottom" constant="16" id="wl9-yf-eoC"/>
+                <constraint firstItem="Faf-eT-W3d" firstAttribute="top" secondItem="r6I-AQ-eU9" secondAttribute="bottom" constant="8" id="wl9-yf-eoC"/>
                 <constraint firstItem="jCN-nd-jgB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ytF-DC-5VL"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
