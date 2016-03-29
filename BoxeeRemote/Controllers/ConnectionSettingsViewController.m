@@ -85,6 +85,8 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) doConnectToBoxee {
     
+    // TODO: add field validation - display error messages using UIView+Toast. If everything is fine, go ahead and use BoxeeConnectionManager to get things going
+    
 }
 
 
