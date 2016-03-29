@@ -48,7 +48,49 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 #pragma mark - UITextFieldDelegate methods
 
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    
+    NSInteger txtFieldTag = textField.tag;
+    BOOL shouldReturn = YES;
+    
+    switch (txtFieldTag) {
+        case TXT_HOST_TAG:
+            if (self.txtBoxeeHost.text.length > 0) {
+                [self.txtBoxeeHost resignFirstResponder];
+                [self.txtBoxeePort becomeFirstResponder];
+            }
+            shouldReturn = NO;
+            break;
+        case TXT_PORT_TAG:
+            if (self.txtBoxeePort.text.length > 0) {
+                [self.txtBoxeePort resignFirstResponder];
+                [self.txtBoxeePassword becomeFirstResponder];
+            }
+            shouldReturn = NO;
+            break;
+        case TXT_PASSWORD_TAG:
+            [self.txtBoxeePassword resignFirstResponder];
+            if (self.txtBoxeeHost.text.length > 0 && self.txtBoxeePort.text.length > 0) {
+                [self doConnectToBoxee];
+            }
+            shouldReturn = NO;
+    }
+    
+    return shouldReturn;
+}
 
+
+#pragma mark - Action methods
+
+
+-(void) doConnectToBoxee {
+    
+}
+
+
+-(void) doFindBoxees {
+    
+}
 
 
 #pragma mark - Internal UI setup methods
@@ -74,12 +116,14 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     self.txtBoxeeHost.keyboardType = UIKeyboardTypeDefault;
     self.txtBoxeePort.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.txtBoxeeHost.tag = TXT_HOST_TAG;
+    self.txtBoxeeHost.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.txtBoxeeHost.delegate = self;
     
     self.txtBoxeePort.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.txtBoxeePort.keyboardType = UIKeyboardTypeNumberPad;
+    self.txtBoxeePort.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     self.txtBoxeePort.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.txtBoxeePort.tag = TXT_PORT_TAG;
+    self.txtBoxeePort.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.txtBoxeePort.delegate = self;
     
     self.txtBoxeePassword.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -87,9 +131,8 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     self.txtBoxeePassword.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.txtBoxeePassword.secureTextEntry = YES;
     self.txtBoxeePassword.tag = TXT_PASSWORD_TAG;
+    self.txtBoxeePassword.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.txtBoxeePassword.delegate = self;
-    
-    
 }
 
 
