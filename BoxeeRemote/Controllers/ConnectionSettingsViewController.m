@@ -20,7 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnConnectBoxee;
 
-
 @end
 
 @implementation ConnectionSettingsViewController
