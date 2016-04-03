@@ -1,1291 +1,597 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>47B56DFB175BFFA070A87D92</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>53941A891E2B39BEFEB9A696</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6E6DC7E0735D797325BE70C9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>705362119A6FCE1736ED86E6</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>87938D2B0FF02A772F164502</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9DCF8D67FBD7770448FEC473</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>53941A891E2B39BEFEB9A696</string>
-				<string>87938D2B0FF02A772F164502</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ADE93F5ECA22AA8B7DC80F23</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>705362119A6FCE1736ED86E6</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB34DB371CA81FDF00B9D5C3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB34DB3A1CA81FDF00B9D5C3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB34DB381CA81FDF00B9D5C3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB34DB3A1CA81FDF00B9D5C3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB34DB3A1CA81FDF00B9D5C3</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CBE14F671CA8746200C76936</string>
-				<string>CBE14F691CA89E1100C76936</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>ConnectionSettingsViewController.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB3CA7B21C69168C007D48EA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ConnectingViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB3CA7B31C69168C007D48EA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ConnectingViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB3CA7B41C69168C007D48EA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB3CA7B31C69168C007D48EA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB3CA7B51C6917EB007D48EA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ConnectionSettingsViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB3CA7B61C6917EB007D48EA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ConnectionSettingsViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB3CA7B71C6917EB007D48EA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB3CA7B61C6917EB007D48EA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB3CA7B81C691AF6007D48EA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>RemoteStandardViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB3CA7B91C691AF6007D48EA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>RemoteStandardViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB3CA7BA1C691AF6007D48EA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB3CA7B91C691AF6007D48EA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB6651581C7A3B40004ABF96</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BoxeeState.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB6651591C7A3DA6004ABF96</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BoxeeConnection.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB66515A1C7A3EA9004ABF96</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CB66515B1C7A3ED7004ABF96</string>
-				<string>CB66515C1C7A400D004ABF96</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Services</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB66515B1C7A3ED7004ABF96</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BoxeeConnectionManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB66515C1C7A400D004ABF96</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>BoxeeConnectionManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB66515D1C7A400D004ABF96</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB66515C1C7A400D004ABF96</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB66515E1C7A4B34004ABF96</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CB66515F1C7A4EA7004ABF96</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Delegates</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB66515F1C7A4EA7004ABF96</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BoxeeConnectionDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB879BF81C4C60F800B1CDB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AppBaseViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB879BF91C4C60F800B1CDB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AppBaseViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB879BFA1C4C60F800B1CDB9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB879BF91C4C60F800B1CDB9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB8DE7AE1C4BCCCC004D8C67</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CB8DE7B91C4BCCCD004D8C67</string>
-				<string>CB8DE7B81C4BCCCD004D8C67</string>
-				<string>9DCF8D67FBD7770448FEC473</string>
-				<string>ADE93F5ECA22AA8B7DC80F23</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB8DE7AF1C4BCCCC004D8C67</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string></string>
-				<key>LastUpgradeCheck</key>
-				<string>0720</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Digital Streams</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>CB8DE7B61C4BCCCC004D8C67</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.2</string>
-						<key>DevelopmentTeam</key>
-						<string>7G8JJ3WHW6</string>
-					</dict>
-					<key>CBD0FBD51CA731F500C26FF3</key>
-					<dict>
-						<key>DevelopmentTeam</key>
-						<string>7G8JJ3WHW6</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>CB8DE7B21C4BCCCC004D8C67</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-				<string>pt-BR</string>
-			</array>
-			<key>mainGroup</key>
-			<string>CB8DE7AE1C4BCCCC004D8C67</string>
-			<key>productRefGroup</key>
-			<string>CB8DE7B81C4BCCCD004D8C67</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>CB8DE7B61C4BCCCC004D8C67</string>
-				<string>CBD0FBD51CA731F500C26FF3</string>
-			</array>
-		</dict>
-		<key>CB8DE7B21C4BCCCC004D8C67</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>CB8DE7CC1C4BCCCE004D8C67</string>
-				<string>CB8DE7CD1C4BCCCE004D8C67</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>CB8DE7B31C4BCCCC004D8C67</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>CB3CA7B41C69168C007D48EA</string>
-				<string>CBD5CEE41C9465FD005966BC</string>
-				<string>CB3CA7BA1C691AF6007D48EA</string>
-				<string>CB66515D1C7A400D004ABF96</string>
-				<string>CB879BFA1C4C60F800B1CDB9</string>
-				<string>CB3CA7B71C6917EB007D48EA</string>
-				<string>CB8DE7BF1C4BCCCD004D8C67</string>
-				<string>CB8DE7BC1C4BCCCD004D8C67</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CB8DE7B41C4BCCCC004D8C67</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>DB1A8D3C1BE60135ADBF3107</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CB8DE7B51C4BCCCC004D8C67</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>CB34DB371CA81FDF00B9D5C3</string>
-				<string>CBA0634C1C4BE74600CEBCA7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CB8DE7B61C4BCCCC004D8C67</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>CB8DE7CE1C4BCCCE004D8C67</string>
-			<key>buildPhases</key>
-			<array>
-				<string>6E6DC7E0735D797325BE70C9</string>
-				<string>CB8DE7B31C4BCCCC004D8C67</string>
-				<string>CB8DE7B41C4BCCCC004D8C67</string>
-				<string>CB8DE7B51C4BCCCC004D8C67</string>
-				<string>D294A3DA6DB47EA6A20A6DB9</string>
-				<string>47B56DFB175BFFA070A87D92</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>BoxeeRemote iPod_iOS6</string>
-			<key>productName</key>
-			<string>BoxeeRemote</string>
-			<key>productReference</key>
-			<string>CB8DE7B71C4BCCCD004D8C67</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>CB8DE7B71C4BCCCD004D8C67</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>BoxeeRemote iPod_iOS6.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>CB8DE7B81C4BCCCD004D8C67</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CB8DE7B71C4BCCCD004D8C67</string>
-				<string>CBD0FBE61CA731F500C26FF3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB8DE7B91C4BCCCD004D8C67</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CBA063441C4BDD5600CEBCA7</string>
-				<string>CB66515E1C7A4B34004ABF96</string>
-				<string>CBA063451C4BDD8500CEBCA7</string>
-				<string>CBA063461C4BDDB200CEBCA7</string>
-				<string>CB66515A1C7A3EA9004ABF96</string>
-				<string>CB8DE7BD1C4BCCCD004D8C67</string>
-				<string>CB8DE7BE1C4BCCCD004D8C67</string>
-				<string>CB8DE7CB1C4BCCCE004D8C67</string>
-				<string>CB8DE7BB1C4BCCCD004D8C67</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>BoxeeRemote</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB8DE7BB1C4BCCCD004D8C67</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB8DE7BC1C4BCCCD004D8C67</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB8DE7BB1C4BCCCD004D8C67</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB8DE7BD1C4BCCCD004D8C67</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB8DE7BE1C4BCCCD004D8C67</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB8DE7BF1C4BCCCD004D8C67</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB8DE7BE1C4BCCCD004D8C67</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB8DE7CB1C4BCCCE004D8C67</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CB8DE7CC1C4BCCCE004D8C67</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>CB8DE7CD1C4BCCCE004D8C67</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>CB8DE7CE1C4BCCCE004D8C67</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>CB8DE7CF1C4BCCCE004D8C67</string>
-				<string>CB8DE7D01C4BCCCE004D8C67</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>CB8DE7CF1C4BCCCE004D8C67</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>53941A891E2B39BEFEB9A696</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>BoxeeRemote/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.1</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>br.com.dstreams.BoxeeRemote</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>CB8DE7D01C4BCCCE004D8C67</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>87938D2B0FF02A772F164502</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>BoxeeRemote/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>6.1</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>br.com.dstreams.BoxeeRemote</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>CBA063441C4BDD5600CEBCA7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CB879BF81C4C60F800B1CDB9</string>
-				<string>CB879BF91C4C60F800B1CDB9</string>
-				<string>CB3CA7B21C69168C007D48EA</string>
-				<string>CB3CA7B31C69168C007D48EA</string>
-				<string>CB3CA7B51C6917EB007D48EA</string>
-				<string>CB3CA7B61C6917EB007D48EA</string>
-				<string>CB34DB3A1CA81FDF00B9D5C3</string>
-				<string>CB3CA7B81C691AF6007D48EA</string>
-				<string>CB3CA7B91C691AF6007D48EA</string>
-				<string>CBD5CEE21C94656D005966BC</string>
-				<string>CBD5CEE31C9465FD005966BC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Controllers</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBA063451C4BDD8500CEBCA7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CB6651591C7A3DA6004ABF96</string>
-				<string>CB6651581C7A3B40004ABF96</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Models</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBA063461C4BDDB200CEBCA7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CBA063471C4BDDB200CEBCA7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBA063471C4BDDB200CEBCA7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>CBA0634B1C4BE74600CEBCA7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Catalogs</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBA0634B1C4BE74600CEBCA7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>appAssets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBA0634C1C4BE74600CEBCA7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CBA0634B1C4BE74600CEBCA7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBD51CA731F500C26FF3</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>CBD0FBE31CA731F500C26FF3</string>
-			<key>buildPhases</key>
-			<array>
-				<string>CBD0FBD61CA731F500C26FF3</string>
-				<string>CBD0FBDF1CA731F500C26FF3</string>
-				<string>CBD0FBE01CA731F500C26FF3</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>BoxeeRemote iPhone5c</string>
-			<key>productName</key>
-			<string>BoxeeRemote</string>
-			<key>productReference</key>
-			<string>CBD0FBE61CA731F500C26FF3</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>CBD0FBD61CA731F500C26FF3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>CBD0FBD71CA731F500C26FF3</string>
-				<string>CBD0FBD81CA731F500C26FF3</string>
-				<string>CBD0FBD91CA731F500C26FF3</string>
-				<string>CBD0FBDA1CA731F500C26FF3</string>
-				<string>CBD0FBDB1CA731F500C26FF3</string>
-				<string>CBD0FBDC1CA731F500C26FF3</string>
-				<string>CBD0FBDD1CA731F500C26FF3</string>
-				<string>CBD0FBDE1CA731F500C26FF3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CBD0FBD71CA731F500C26FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB3CA7B31C69168C007D48EA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBD81CA731F500C26FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CBD5CEE31C9465FD005966BC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBD91CA731F500C26FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB3CA7B91C691AF6007D48EA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBDA1CA731F500C26FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB66515C1C7A400D004ABF96</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBDB1CA731F500C26FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB879BF91C4C60F800B1CDB9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBDC1CA731F500C26FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB3CA7B61C6917EB007D48EA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBDD1CA731F500C26FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB8DE7BE1C4BCCCD004D8C67</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBDE1CA731F500C26FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CB8DE7BB1C4BCCCD004D8C67</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBDF1CA731F500C26FF3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CBD0FBE01CA731F500C26FF3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>CB34DB381CA81FDF00B9D5C3</string>
-				<string>CBD0FBE21CA731F500C26FF3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>CBD0FBE21CA731F500C26FF3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CBA0634B1C4BE74600CEBCA7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBD0FBE31CA731F500C26FF3</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>CBD0FBE41CA731F500C26FF3</string>
-				<string>CBD0FBE51CA731F500C26FF3</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>CBD0FBE41CA731F500C26FF3</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>BoxeeRemote/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>br.com.dstreams.boxeeRemoteControl</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>CBD0FBE51CA731F500C26FF3</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>BoxeeRemote/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>br.com.dstreams.boxeeRemoteControl</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>CBD0FBE61CA731F500C26FF3</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>BoxeeRemote iPhone5c.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>CBD5CEE21C94656D005966BC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ViewControllerRouter.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBD5CEE31C9465FD005966BC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ViewControllerRouter.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBD5CEE41C9465FD005966BC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CBD5CEE31C9465FD005966BC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBE14F671CA8746200C76936</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/ConnectionSettingsViewController.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBE14F691CA89E1100C76936</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>pt-BR</string>
-			<key>path</key>
-			<string>pt-BR.lproj/ConnectionSettingsViewController.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D294A3DA6DB47EA6A20A6DB9</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>DB1A8D3C1BE60135ADBF3107</key>
-		<dict>
-			<key>fileRef</key>
-			<string>705362119A6FCE1736ED86E6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>CB8DE7AF1C4BCCCC004D8C67</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB34DB371CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB34DB3A1CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib */; };
+		CB34DB381CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB34DB3A1CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib */; };
+		CB3CA7B41C69168C007D48EA /* ConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */; };
+		CB3CA7B71C6917EB007D48EA /* ConnectionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */; };
+		CB3CA7BA1C691AF6007D48EA /* RemoteStandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */; };
+		CB66515D1C7A400D004ABF96 /* BoxeeConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */; };
+		CB86B7141CB0210C0069530D /* AppMessages.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB86B7171CB0210C0069530D /* AppMessages.strings */; };
+		CB86B7151CB0210C0069530D /* AppMessages.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB86B7171CB0210C0069530D /* AppMessages.strings */; };
+		CB879BFA1C4C60F800B1CDB9 /* AppBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */; };
+		CB8DE7BC1C4BCCCD004D8C67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BB1C4BCCCD004D8C67 /* main.m */; };
+		CB8DE7BF1C4BCCCD004D8C67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */; };
+		CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */; };
+		CBD0FBD71CA731F500C26FF3 /* ConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */; };
+		CBD0FBD81CA731F500C26FF3 /* ViewControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */; };
+		CBD0FBD91CA731F500C26FF3 /* RemoteStandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */; };
+		CBD0FBDA1CA731F500C26FF3 /* BoxeeConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */; };
+		CBD0FBDB1CA731F500C26FF3 /* AppBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */; };
+		CBD0FBDC1CA731F500C26FF3 /* ConnectionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */; };
+		CBD0FBDD1CA731F500C26FF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */; };
+		CBD0FBDE1CA731F500C26FF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BB1C4BCCCD004D8C67 /* main.m */; };
+		CBD0FBE21CA731F500C26FF3 /* appAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */; };
+		CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */; };
+		DB1A8D3C1BE60135ADBF3107 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 705362119A6FCE1736ED86E6 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		53941A891E2B39BEFEB9A696 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		705362119A6FCE1736ED86E6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		87938D2B0FF02A772F164502 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CB3CA7B21C69168C007D48EA /* ConnectingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectingViewController.h; sourceTree = "<group>"; };
+		CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectingViewController.m; sourceTree = "<group>"; };
+		CB3CA7B51C6917EB007D48EA /* ConnectionSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionSettingsViewController.h; sourceTree = "<group>"; };
+		CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionSettingsViewController.m; sourceTree = "<group>"; };
+		CB3CA7B81C691AF6007D48EA /* RemoteStandardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteStandardViewController.h; sourceTree = "<group>"; };
+		CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteStandardViewController.m; sourceTree = "<group>"; };
+		CB6651581C7A3B40004ABF96 /* BoxeeState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeState.h; sourceTree = "<group>"; };
+		CB6651591C7A3DA6004ABF96 /* BoxeeConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnection.h; sourceTree = "<group>"; };
+		CB66515B1C7A3ED7004ABF96 /* BoxeeConnectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnectionManager.h; sourceTree = "<group>"; };
+		CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeConnectionManager.m; sourceTree = "<group>"; };
+		CB66515F1C7A4EA7004ABF96 /* BoxeeConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnectionDelegate.h; sourceTree = "<group>"; };
+		CB86B7161CB0210C0069530D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/AppMessages.strings; sourceTree = "<group>"; };
+		CB86B7181CB021210069530D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/AppMessages.strings"; sourceTree = "<group>"; };
+		CB879BF81C4C60F800B1CDB9 /* AppBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBaseViewController.h; sourceTree = "<group>"; };
+		CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBaseViewController.m; sourceTree = "<group>"; };
+		CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote iPod_iOS6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoxeeRemote iPod_iOS6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB8DE7BB1C4BCCCD004D8C67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CB8DE7BD1C4BCCCD004D8C67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CB8DE7CB1C4BCCCE004D8C67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = appAssets.xcassets; sourceTree = "<group>"; };
+		CBD0FBE61CA731F500C26FF3 /* BoxeeRemote iPhone5c.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoxeeRemote iPhone5c.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerRouter.h; sourceTree = "<group>"; };
+		CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRouter.m; sourceTree = "<group>"; };
+		CBE14F671CA8746200C76936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConnectionSettingsViewController.xib; sourceTree = "<group>"; };
+		CBE14F691CA89E1100C76936 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ConnectionSettingsViewController.strings"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB8DE7B41C4BCCCC004D8C67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB1A8D3C1BE60135ADBF3107 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBD0FBDF1CA731F500C26FF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DCF8D67FBD7770448FEC473 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53941A891E2B39BEFEB9A696 /* Pods.debug.xcconfig */,
+				87938D2B0FF02A772F164502 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ADE93F5ECA22AA8B7DC80F23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				705362119A6FCE1736ED86E6 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB66515A1C7A3EA9004ABF96 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CB66515B1C7A3ED7004ABF96 /* BoxeeConnectionManager.h */,
+				CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CB66515E1C7A4B34004ABF96 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				CB66515F1C7A4EA7004ABF96 /* BoxeeConnectionDelegate.h */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		CB86B7101CB020940069530D /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				CB86B7171CB0210C0069530D /* AppMessages.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		CB8DE7AE1C4BCCCC004D8C67 = {
+			isa = PBXGroup;
+			children = (
+				CB8DE7B91C4BCCCD004D8C67 /* BoxeeRemote */,
+				CB8DE7B81C4BCCCD004D8C67 /* Products */,
+				9DCF8D67FBD7770448FEC473 /* Pods */,
+				ADE93F5ECA22AA8B7DC80F23 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CB8DE7B81C4BCCCD004D8C67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote iPod_iOS6.app */,
+				CBD0FBE61CA731F500C26FF3 /* BoxeeRemote iPhone5c.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB8DE7B91C4BCCCD004D8C67 /* BoxeeRemote */ = {
+			isa = PBXGroup;
+			children = (
+				CBA063441C4BDD5600CEBCA7 /* Controllers */,
+				CB66515E1C7A4B34004ABF96 /* Delegates */,
+				CBA063451C4BDD8500CEBCA7 /* Models */,
+				CBA063461C4BDDB200CEBCA7 /* Resources */,
+				CB66515A1C7A3EA9004ABF96 /* Services */,
+				CB8DE7BD1C4BCCCD004D8C67 /* AppDelegate.h */,
+				CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */,
+				CB8DE7CB1C4BCCCE004D8C67 /* Info.plist */,
+				CB8DE7BB1C4BCCCD004D8C67 /* main.m */,
+			);
+			path = BoxeeRemote;
+			sourceTree = "<group>";
+		};
+		CBA063441C4BDD5600CEBCA7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB879BF81C4C60F800B1CDB9 /* AppBaseViewController.h */,
+				CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */,
+				CB3CA7B21C69168C007D48EA /* ConnectingViewController.h */,
+				CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */,
+				CB3CA7B51C6917EB007D48EA /* ConnectionSettingsViewController.h */,
+				CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */,
+				CB34DB3A1CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib */,
+				CB3CA7B81C691AF6007D48EA /* RemoteStandardViewController.h */,
+				CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */,
+				CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */,
+				CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CBA063451C4BDD8500CEBCA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB6651591C7A3DA6004ABF96 /* BoxeeConnection.h */,
+				CB6651581C7A3B40004ABF96 /* BoxeeState.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CBA063461C4BDDB200CEBCA7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CB86B7101CB020940069530D /* Strings */,
+				CBA063471C4BDDB200CEBCA7 /* Catalogs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CBA063471C4BDDB200CEBCA7 /* Catalogs */ = {
+			isa = PBXGroup;
+			children = (
+				CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */,
+			);
+			path = Catalogs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB8DE7B61C4BCCCC004D8C67 /* BoxeeRemote iPod_iOS6 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB8DE7CE1C4BCCCE004D8C67 /* Build configuration list for PBXNativeTarget "BoxeeRemote iPod_iOS6" */;
+			buildPhases = (
+				6E6DC7E0735D797325BE70C9 /* Check Pods Manifest.lock */,
+				CB8DE7B31C4BCCCC004D8C67 /* Sources */,
+				CB8DE7B41C4BCCCC004D8C67 /* Frameworks */,
+				CB8DE7B51C4BCCCC004D8C67 /* Resources */,
+				D294A3DA6DB47EA6A20A6DB9 /* Embed Pods Frameworks */,
+				47B56DFB175BFFA070A87D92 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BoxeeRemote iPod_iOS6";
+			productName = BoxeeRemote;
+			productReference = CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote iPod_iOS6.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBD0FBD51CA731F500C26FF3 /* BoxeeRemote iPhone5c */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBD0FBE31CA731F500C26FF3 /* Build configuration list for PBXNativeTarget "BoxeeRemote iPhone5c" */;
+			buildPhases = (
+				CBD0FBD61CA731F500C26FF3 /* Sources */,
+				CBD0FBDF1CA731F500C26FF3 /* Frameworks */,
+				CBD0FBE01CA731F500C26FF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BoxeeRemote iPhone5c";
+			productName = BoxeeRemote;
+			productReference = CBD0FBE61CA731F500C26FF3 /* BoxeeRemote iPhone5c.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB8DE7AF1C4BCCCC004D8C67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = "";
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Digital Streams";
+				TargetAttributes = {
+					CB8DE7B61C4BCCCC004D8C67 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7G8JJ3WHW6;
+					};
+					CBD0FBD51CA731F500C26FF3 = {
+						DevelopmentTeam = 7G8JJ3WHW6;
+					};
+				};
+			};
+			buildConfigurationList = CB8DE7B21C4BCCCC004D8C67 /* Build configuration list for PBXProject "BoxeeRemote" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"pt-BR",
+			);
+			mainGroup = CB8DE7AE1C4BCCCC004D8C67;
+			productRefGroup = CB8DE7B81C4BCCCD004D8C67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB8DE7B61C4BCCCC004D8C67 /* BoxeeRemote iPod_iOS6 */,
+				CBD0FBD51CA731F500C26FF3 /* BoxeeRemote iPhone5c */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB8DE7B51C4BCCCC004D8C67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB34DB371CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */,
+				CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */,
+				CB86B7141CB0210C0069530D /* AppMessages.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBD0FBE01CA731F500C26FF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB34DB381CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */,
+				CBD0FBE21CA731F500C26FF3 /* appAssets.xcassets in Resources */,
+				CB86B7151CB0210C0069530D /* AppMessages.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47B56DFB175BFFA070A87D92 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E6DC7E0735D797325BE70C9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D294A3DA6DB47EA6A20A6DB9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB8DE7B31C4BCCCC004D8C67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB3CA7B41C69168C007D48EA /* ConnectingViewController.m in Sources */,
+				CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */,
+				CB3CA7BA1C691AF6007D48EA /* RemoteStandardViewController.m in Sources */,
+				CB66515D1C7A400D004ABF96 /* BoxeeConnectionManager.m in Sources */,
+				CB879BFA1C4C60F800B1CDB9 /* AppBaseViewController.m in Sources */,
+				CB3CA7B71C6917EB007D48EA /* ConnectionSettingsViewController.m in Sources */,
+				CB8DE7BF1C4BCCCD004D8C67 /* AppDelegate.m in Sources */,
+				CB8DE7BC1C4BCCCD004D8C67 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBD0FBD61CA731F500C26FF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBD0FBD71CA731F500C26FF3 /* ConnectingViewController.m in Sources */,
+				CBD0FBD81CA731F500C26FF3 /* ViewControllerRouter.m in Sources */,
+				CBD0FBD91CA731F500C26FF3 /* RemoteStandardViewController.m in Sources */,
+				CBD0FBDA1CA731F500C26FF3 /* BoxeeConnectionManager.m in Sources */,
+				CBD0FBDB1CA731F500C26FF3 /* AppBaseViewController.m in Sources */,
+				CBD0FBDC1CA731F500C26FF3 /* ConnectionSettingsViewController.m in Sources */,
+				CBD0FBDD1CA731F500C26FF3 /* AppDelegate.m in Sources */,
+				CBD0FBDE1CA731F500C26FF3 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CB34DB3A1CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBE14F671CA8746200C76936 /* Base */,
+				CBE14F691CA89E1100C76936 /* pt-BR */,
+			);
+			name = ConnectionSettingsViewController.xib;
+			sourceTree = "<group>";
+		};
+		CB86B7171CB0210C0069530D /* AppMessages.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB86B7161CB0210C0069530D /* Base */,
+				CB86B7181CB021210069530D /* pt-BR */,
+			);
+			name = AppMessages.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CB8DE7CC1C4BCCCE004D8C67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB8DE7CD1C4BCCCE004D8C67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB8DE7CF1C4BCCCE004D8C67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53941A891E2B39BEFEB9A696 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = BoxeeRemote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.BoxeeRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB8DE7D01C4BCCCE004D8C67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87938D2B0FF02A772F164502 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = BoxeeRemote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.BoxeeRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CBD0FBE41CA731F500C26FF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = BoxeeRemote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.boxeeRemoteControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBD0FBE51CA731F500C26FF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = BoxeeRemote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.boxeeRemoteControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB8DE7B21C4BCCCC004D8C67 /* Build configuration list for PBXProject "BoxeeRemote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB8DE7CC1C4BCCCE004D8C67 /* Debug */,
+				CB8DE7CD1C4BCCCE004D8C67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB8DE7CE1C4BCCCE004D8C67 /* Build configuration list for PBXNativeTarget "BoxeeRemote iPod_iOS6" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB8DE7CF1C4BCCCE004D8C67 /* Debug */,
+				CB8DE7D01C4BCCCE004D8C67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBD0FBE31CA731F500C26FF3 /* Build configuration list for PBXNativeTarget "BoxeeRemote iPhone5c" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBD0FBE41CA731F500C26FF3 /* Debug */,
+				CBD0FBE51CA731F500C26FF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB8DE7AF1C4BCCCC004D8C67 /* Project object */;
+}

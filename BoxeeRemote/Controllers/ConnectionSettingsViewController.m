@@ -84,7 +84,33 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) doConnectToBoxee {
     
-    // TODO: add field validation - display error messages using UIView+Toast. If everything is fine, go ahead and use BoxeeConnectionManager to get things going
+    // Validate the connection parameters entered by the user
+    
+    NSMutableArray<NSString *> *validationErrors = [[NSMutableArray<NSString *> alloc] initWithCapacity:2];
+    if (self.txtBoxeeHost.text.length < 1) {
+        [validationErrors addObject: NSLocalizedString(@"hostNotSpecified", @"Empty boxee hostname validation error")];
+    }
+    if (self.txtBoxeePort.text.length < 1) {
+        [validationErrors addObject: NSLocalizedString(@"portNotSpecified", @"Empty boxee port validation error")];
+    }
+    else {
+        NSScanner *portScanner = [[NSScanner alloc] initWithString:self.txtBoxeePort.text];
+        int boxeePort = -1;
+        BOOL isPortValid = [portScanner scanInt:&boxeePort];
+        if (!isPortValid) {
+            [validationErrors addObject: NSLocalizedString(@"invalidPort", @"Invalid boxee port validation error")];
+        }
+    }
+    
+    if ([validationErrors count] == 1) {
+        
+    }
+    else if ([validationErrors count] > 1) {
+        
+    }
+    else {
+        // No validation error found - go ahead an try to connect to the Boxee.
+    }
     
 }
 
@@ -135,6 +161,8 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     self.txtBoxeePassword.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.txtBoxeePassword.delegate = self;
 }
+
+
 
 
 
