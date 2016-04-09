@@ -7,6 +7,7 @@
 //
 
 #import "ConnectionSettingsViewController.h"
+#import "UIView+Toast.h"
 
 @interface ConnectionSettingsViewController () <UITextFieldDelegate>
 
@@ -84,7 +85,41 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) doConnectToBoxee {
     
-    // Validate the connection parameters entered by the user
+    [self hideKeyboard];
+    
+    NSArray<NSString *> *validationErrors = [self validateConnectionParams];
+    
+    if ([validationErrors count] > 0) {
+        CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
+        errorStyle.backgroundColor = [UIColor redColor];
+        
+        if ([validationErrors count] == 1) {
+            [self.view makeToast:[validationErrors objectAtIndex:0] duration:3.5f position:CSToastPositionBottom style:errorStyle];
+        }
+        else if ([validationErrors count] > 1) {
+            NSString *errorMsg = [validationErrors objectAtIndex:0];
+            for (int i = 1; i < [validationErrors count]; i++) {
+                errorMsg = [NSString stringWithFormat:@"%@\n\n%@", errorMsg, [validationErrors objectAtIndex:i]];
+            }
+            [self.view makeToast:errorMsg duration:4.5f position:CSToastPositionBottom style:errorStyle];
+        }
+    }
+    else {
+        // No validation error found - go ahead an try to connect to the Boxee.
+    }
+    
+}
+
+
+-(void) doFindBoxees {
+    
+}
+
+
+#pragma mark - Internal utility methods
+
+
+-(NSArray<NSString *> *)validateConnectionParams {
     
     NSMutableArray<NSString *> *validationErrors = [[NSMutableArray<NSString *> alloc] initWithCapacity:2];
     if (self.txtBoxeeHost.text.length < 1) {
@@ -100,23 +135,16 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
         if (!isPortValid) {
             [validationErrors addObject: NSLocalizedString(@"invalidPort", @"Invalid boxee port validation error")];
         }
+        else {
+            NSString *boxeePortAsString = [NSString stringWithFormat:@"%d",boxeePort];
+            if (boxeePort < 0 || [boxeePortAsString length] != [self.txtBoxeePort.text length]) {
+                // The port is either negative or there are extra characters in the port entry
+                [validationErrors addObject: NSLocalizedString(@"invalidPort", @"Invalid boxee port validation error")];
+            }
+        }
     }
     
-    if ([validationErrors count] == 1) {
-        
-    }
-    else if ([validationErrors count] > 1) {
-        
-    }
-    else {
-        // No validation error found - go ahead an try to connect to the Boxee.
-    }
-    
-}
-
-
--(void) doFindBoxees {
-    
+    return validationErrors;
 }
 
 
@@ -131,6 +159,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     self.btnConnectBoxee.layer.borderColor = [[UIColor colorWithRed:174.0/255.0 green:254.0/255.0 blue:133.0/255.0 alpha:1.0] CGColor];
     self.btnConnectBoxee.layer.borderWidth = 1.0;
     self.btnConnectBoxee.layer.cornerRadius = 5.0;
+    [self.btnConnectBoxee addTarget:self action:@selector(doConnectToBoxee) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -161,8 +190,6 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     self.txtBoxeePassword.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.txtBoxeePassword.delegate = self;
 }
-
-
 
 
 

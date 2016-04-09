@@ -13,11 +13,10 @@
 		CB3CA7B71C6917EB007D48EA /* ConnectionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */; };
 		CB3CA7BA1C691AF6007D48EA /* RemoteStandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */; };
 		CB66515D1C7A400D004ABF96 /* BoxeeConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */; };
-		CB86B7141CB0210C0069530D /* AppMessages.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB86B7171CB0210C0069530D /* AppMessages.strings */; };
-		CB86B7151CB0210C0069530D /* AppMessages.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB86B7171CB0210C0069530D /* AppMessages.strings */; };
 		CB879BFA1C4C60F800B1CDB9 /* AppBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */; };
 		CB8DE7BC1C4BCCCD004D8C67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BB1C4BCCCD004D8C67 /* main.m */; };
 		CB8DE7BF1C4BCCCD004D8C67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */; };
+		CB90BE011CB998DA0037B5E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB90BDFF1CB998DA0037B5E0 /* Localizable.strings */; };
 		CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */; };
 		CBD0FBD71CA731F500C26FF3 /* ConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */; };
 		CBD0FBD81CA731F500C26FF3 /* ViewControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */; };
@@ -47,8 +46,6 @@
 		CB66515B1C7A3ED7004ABF96 /* BoxeeConnectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnectionManager.h; sourceTree = "<group>"; };
 		CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeConnectionManager.m; sourceTree = "<group>"; };
 		CB66515F1C7A4EA7004ABF96 /* BoxeeConnectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnectionDelegate.h; sourceTree = "<group>"; };
-		CB86B7161CB0210C0069530D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/AppMessages.strings; sourceTree = "<group>"; };
-		CB86B7181CB021210069530D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/AppMessages.strings"; sourceTree = "<group>"; };
 		CB879BF81C4C60F800B1CDB9 /* AppBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppBaseViewController.h; sourceTree = "<group>"; };
 		CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppBaseViewController.m; sourceTree = "<group>"; };
 		CB8DE7B71C4BCCCD004D8C67 /* BoxeeRemote iPod_iOS6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoxeeRemote iPod_iOS6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +53,8 @@
 		CB8DE7BD1C4BCCCD004D8C67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CB8DE7CB1C4BCCCE004D8C67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB90BE001CB998DA0037B5E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CB90BE021CB998E80037B5E0 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = appAssets.xcassets; sourceTree = "<group>"; };
 		CBD0FBE61CA731F500C26FF3 /* BoxeeRemote iPhone5c.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BoxeeRemote iPhone5c.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerRouter.h; sourceTree = "<group>"; };
@@ -120,7 +119,7 @@
 		CB86B7101CB020940069530D /* Strings */ = {
 			isa = PBXGroup;
 			children = (
-				CB86B7171CB0210C0069530D /* AppMessages.strings */,
+				CB90BDFF1CB998DA0037B5E0 /* Localizable.strings */,
 			);
 			path = Strings;
 			sourceTree = "<group>";
@@ -289,8 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB34DB371CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */,
+				CB90BE011CB998DA0037B5E0 /* Localizable.strings in Resources */,
 				CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */,
-				CB86B7141CB0210C0069530D /* AppMessages.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +299,6 @@
 			files = (
 				CB34DB381CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */,
 				CBD0FBE21CA731F500C26FF3 /* appAssets.xcassets in Resources */,
-				CB86B7151CB0210C0069530D /* AppMessages.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,13 +395,13 @@
 			name = ConnectionSettingsViewController.xib;
 			sourceTree = "<group>";
 		};
-		CB86B7171CB0210C0069530D /* AppMessages.strings */ = {
+		CB90BDFF1CB998DA0037B5E0 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CB86B7161CB0210C0069530D /* Base */,
-				CB86B7181CB021210069530D /* pt-BR */,
+				CB90BE001CB998DA0037B5E0 /* Base */,
+				CB90BE021CB998E80037B5E0 /* pt-BR */,
 			);
-			name = AppMessages.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
