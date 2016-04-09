@@ -9,6 +9,8 @@
 #ifndef BoxeeConnection_h
 #define BoxeeConnection_h
 
+#import <Foundation/Foundation.h>
+
 @interface BoxeeConnection: NSObject
 
 @property (nonatomic, strong) NSString *hostname;
