@@ -89,6 +89,35 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 }
 
 
+#pragma mark - Connection error handler methods
+
+
+-(void) displayLostConnectionError:(NSError *)error {
+    
+    [self.view hideToastActivity];
+    
+    CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
+    errorStyle.backgroundColor = [UIColor redColor];
+    
+    [self.view makeToast:NSLocalizedString(@"lostConnectionMsg", @"Message to be displayed upon loosing connection to a Boxee") duration:3.5f position:CSToastPositionBottom style:errorStyle];
+    
+}
+
+
+
+-(void) displayFailedToConnectError:(NSError *)error {
+    
+    [self.view hideToastActivity];
+    
+    CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
+    errorStyle.backgroundColor = [UIColor redColor];
+    
+    [self.view makeToast:NSLocalizedString(@"failedToConnectMsg", @"Message to be displayed upon failing to connect to a Boxee") duration:3.5f position:CSToastPositionBottom style:errorStyle];
+    
+}
+
+
+
 #pragma mark - Action methods
 
 
@@ -115,6 +144,14 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     }
     else {
         // No validation error found - go ahead an try to connect to the Boxee.
+        BoxeeConnection *conn = [[BoxeeConnection alloc] init];
+        conn.hostname = self.txtBoxeeHost.text;
+        conn.port = [self.txtBoxeePort.text integerValue];
+        conn.password = self.txtBoxeePassword.text;
+        
+        [self.view makeToastActivity:CSToastPositionCenter];
+        
+        [[BoxeeConnectionManager sharedManager] connectToBoxee:conn];
     }
     
 }

@@ -1,6 +1,5 @@
 //
 //  ConnectionSettingsViewController.h
-//  BoxeeRemote
 //
 //  Created by Raul Costa Junior on 2/8/16.
 //  Copyright © 2016 Digital Streams. All rights reserved.
@@ -9,5 +8,14 @@
 #import "AppBaseViewController.h"
 
 @interface ConnectionSettingsViewController : AppBaseViewController
+
+// Connection error handlers at the UI level: all the handling logic for those kinds of errors are
+// centralized in this ViewController. The ViewControllerRouter takes care of activating this
+// ViewController if any error is detected.
+
+-(void) displayFailedToConnectError:(NSError *)error;
+
+-(void) displayLostConnectionError:(NSError *)error;
+
 
 @end

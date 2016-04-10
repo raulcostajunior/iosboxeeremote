@@ -12,7 +12,21 @@
 #import "BoxeeConnectionManager.h"
 
 
+@interface BoxeeConnectionManager () {
+    BOOL _connectingToBoxee; // Indicates that the next keep alive response must be handled as a "connection request" to the Boxee.
+    BOOL _connectedToBoxee; // Indicates that there's currently a boxee connected - actually, it indicates that the last keep alive was successful.
+}
+
+@property (strong, nonatomic) NSURLSession *urlSession;
+
+@property (strong, nonatomic) BoxeeConnection *currentConnection;
+
+@end
+
+
 @implementation BoxeeConnectionManager
+
+static const NSString *kCmdUrlTemplate = @"http://%@:%ld/xbmcCmds/xbmcHttp?command=%@";
 
 +(instancetype) sharedManager {
     // TODO: implement actual body
@@ -21,21 +35,53 @@
 
 
 -(BoxeeConnection *) lastSuccessfulConnection {
-    // TODO: implement actual body
+    // TODO: get last successful connection from NSUserDefaults
     return nil;
 }
 
 
 -(void) connectToBoxee:(BoxeeConnection *)connectionParams {
-    // TODO: implement actual body
+    
+    self.currentConnection = connectionParams;
+    
+    // Connecting to the Boxee is actually send a keep alive pulse
+    // TODO: setup the urlSession
+    // TODO: invalidate any pending keep alive pulse
+    [self doKeepAlivePulse];
+    
 }
 
 
 -(void) disconnectFromBoxee {
-    // TODO: Stop the connection keepalive pulse
+    // TODO: invalidate any keep alive pulse and send the appropriate info to the delegate
 }
 
 
-// TODO: implement connection keepalive - piggyback on the keepalive response for a BoxeeState refresh.
+#pragma mark - Connection keepalive - updates BoxeeState
+
+-(void) doKeepAlivePulse {
+    
+    // TODO: implement connection keepalive - piggyback on the keepalive response for a BoxeeState refresh.
+    
+    // TODO: on success, if connecting, indicate a successful connection and update lastSuccessful connection. Otherwise, checks for a state change and triggers the event if appropriate
+    
+    // TODO: on success, connecting or not, schedules the next keepAlive request.
+    
+    // TODO: on failure, if connecting, indicate a failedToConnect. Otherwise, signals a connection lost.
+
+}
+
+
+#pragma mark - Send Command methods
+
+
+-(void) sendKeyToBoxee:(BoxeeKeyCode)keyCode {
+    
+    // TODO: dispatches a send key command to the current boxee, if there's one connected. Any error in the command response should be interpreted as a connection loss.
+    
+}
+
+
+// TODO: add send command methods internal to the service that send getCurrentlyPlaying and getKeyboardStatus commands to the Boxee.
 
 @end

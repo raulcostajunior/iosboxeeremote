@@ -9,12 +9,13 @@
 #ifndef BoxeeConnectionManager_h
 #define BoxeeConnectionManager_h
 
+#import "BoxeeKeyCode.h"
+
 @class BoxeeConnection;
 @protocol BoxeeConnectionDelegate;
 
 
 @interface BoxeeConnectionManager: NSObject
-
 
 +(instancetype) sharedManager;
 
@@ -26,6 +27,7 @@
 
 -(void) disconnectFromBoxee;
 
+-(void) sendKeyToBoxee:(BoxeeKeyCode)keyCode;
 
 @end
 
