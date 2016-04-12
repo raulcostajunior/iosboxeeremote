@@ -14,7 +14,9 @@
 
 @interface BoxeeConnectionManager () {
     BOOL _connectingToBoxee; // Indicates that the next keep alive response must be handled as a "connection request" to the Boxee.
-    BOOL _connectedToBoxee;  // Indicates that there's currently a boxee connected - actually, it indicates that the last keep alive was successful.
+    BOOL _connectedToBoxee;  // Indicates that there's a boxee connected - actually, it indicates that the last keep alive was successful.
+    
+    NSTimer *_keepAliveTimer;
 }
 
 @property (strong, nonatomic) NSURLSession *urlSession;
@@ -29,6 +31,10 @@
 @implementation BoxeeConnectionManager
 
 static const NSString *kCmdUrlTemplate = @"http://%@:%ld/xbmcCmds/xbmcHttp?command=%@";
+
+static const NSInteger kIntervalKeepAlive = 10; // Interval between successive keep alive pulses - in seconds.
+
+static const NSString *kBoxeeUsername = @"boxee"; // At least in the boxes I have access to, the user is fixed as "boxee".
 
 
 #pragma mark - Singleton infrastructure 
@@ -79,13 +85,29 @@ static const NSString *kCmdUrlTemplate = @"http://%@:%ld/xbmcCmds/xbmcHttp?comma
 
 
 
+
 -(void) connectToBoxee:(BoxeeConnection *)connectionParams {
     
     self.currentConnection = connectionParams;
     
+    if (_keepAliveTimer) {
+        [_keepAliveTimer invalidate];
+    }
+    
+    // Sets up the urlSession
+    if (self.currentConnection.password.length > 0) {
+        // The user defined a password - set up the corresponding HTTP header in the session so it makes into every request
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSString *plainToken = [NSString stringWithFormat:@"%@:%@", kBoxeeUsername, self.currentConnection.password];
+        NSData *tokenData = [plainToken dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *encodedToken = [tokenData base64EncodedDataWithOptions:0];
+        NSString *authHeaderValue = [NSString stringWithFormat:@"Basic %@", encodedToken];
+        config.HTTPAdditionalHeaders = @{@"Authorization":authHeaderValue};
+        config.timeoutIntervalForRequest = 20; // Lowers the timeout from the 60 seconds default to 20 seconds.
+        self.urlSession = [NSURLSession sessionWithConfiguration:config];
+    }
+    
     // Connecting to the Boxee is actually sending a keep alive pulse
-    // TODO: invalidate any pending keep alive pulse
-    // TODO: setup the urlSession
     [self doKeepAlivePulse];
     
 }
@@ -103,12 +125,23 @@ static const NSString *kCmdUrlTemplate = @"http://%@:%ld/xbmcCmds/xbmcHttp?comma
 
 -(void) sendKeyToBoxee:(BoxeeKeyCode)keyCode {
     
+    // TODO: invalidate pulse timer - a pulse will be requested right after successful command execution.
+    
     // TODO: dispatches a send key command to the current boxee, if there's one connected. Any error in the command response should be interpreted as a connection loss.
     
 }
 
 
-// TODO: add send command methods internal to the service that send getCurrentlyPlaying and getKeyboardStatus commands to the Boxee.
+-(void) sendToggleMuteToBoxee {
+    
+    // TODO: invalidate pulse timer - a pulse will be requested right after successful command execution.
+    
+    // TODO: dispatches a mute command to the current boxee, if there's one connected. Any error in the command response should be interpreted as a connection loss.
+    
+}
+
+
+// TODO: add send command methods internal to the service that send getCurrentlyPlaying and getKeyboardStatus commands to the Boxee; those commands do not interfere with the pulse timer - they are actually called as part of the pulse timer.
 
 
 
@@ -123,6 +156,8 @@ static const NSString *kCmdUrlTemplate = @"http://%@:%ld/xbmcCmds/xbmcHttp?comma
     // TODO: on success, if connecting, indicate a successful connection and update lastSuccessful connection. Otherwise, checks for a state change and triggers the state change event if appropriate
     
     // TODO: on success, connecting or not, schedules the next keepAlive request.
+    
+    // TODO: on success, schedules the next keep alive pulse
     
     // TODO: on failure, if connecting, indicate a failedToConnect. Otherwise, signals a connection lost.
 

@@ -29,6 +29,8 @@
 
 -(void) sendKeyToBoxee:(BoxeeKeyCode)keyCode;
 
+-(void) sendToggleMuteToBoxee;
+
 @end
 
 
