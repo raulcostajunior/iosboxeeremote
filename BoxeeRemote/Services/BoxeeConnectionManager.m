@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 
 #import "BoxeeConnection.h"
+#import "BoxeeConnectionDelegate.h"
 #import "BoxeeConnectionManager.h"
 #import "BoxeeState.h"
 
@@ -79,7 +80,7 @@ static const NSString *kBoxeeUsername = @"boxee"; // At least in the boxes I hav
 
 
 -(BoxeeConnection *) lastSuccessfulConnection {
-    // TODO: get last successful connection from NSUserDefaults
+    // TODO: get last successful connection from NSUserDefaults (and password from Keychain (use SSKeychain)
     return nil;
 }
 
@@ -115,7 +116,16 @@ static const NSString *kBoxeeUsername = @"boxee"; // At least in the boxes I hav
 
 
 -(void) disconnectFromBoxee {
-    // TODO: invalidate any keep alive pulse and send the appropriate info to the delegate
+    if (_keepAliveTimer) {
+        [_keepAliveTimer invalidate];
+    }
+    
+    _connectedToBoxee = NO;
+    _connectingToBoxee = NO;
+    
+    if (self.delegate) {
+        [self.delegate disconnectedFromBoxee:self.currentConnection];
+    }
 }
 
 

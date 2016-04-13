@@ -25,6 +25,7 @@
 
 -(void) connectedBoxeeStateChanged:(BoxeeState *)newState;
 
+-(void) disconnectedFromBoxee:(BoxeeConnection *)disconnectedBoxee;
 
 
 @end

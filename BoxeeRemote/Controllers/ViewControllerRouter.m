@@ -64,4 +64,11 @@
 }
 
 
+
+-(void) disconnectedFromBoxee:(BoxeeConnection *)disconnectedBoxee {
+    
+    
+}
+
+
 @end

@@ -1,10 +1,13 @@
 PODS:
+  - SSKeychain (1.4.0)
   - Toast (3.0)
 
 DEPENDENCIES:
+  - SSKeychain (= 1.4.0)
   - Toast (= 3.0)
 
 SPEC CHECKSUMS:
+  SSKeychain: c71293fa57216a40ab06c23f4085387583293de4
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
 
 COCOAPODS: 0.39.0
