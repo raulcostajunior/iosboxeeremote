@@ -15,6 +15,8 @@
 		CB0512B01CBAD34F0015780A /* BoxeeConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0512AE1CBAD34F0015780A /* BoxeeConnection.m */; };
 		CB0512B21CBB17D20015780A /* BoxeeState.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0512B11CBB17D20015780A /* BoxeeState.m */; };
 		CB0512B31CBB17D20015780A /* BoxeeState.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0512B11CBB17D20015780A /* BoxeeState.m */; };
+		CB1F79A31CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1F79A21CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m */; };
+		CB1F79A41CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1F79A21CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m */; };
 		CB34DB371CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB34DB3A1CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib */; };
 		CB34DB381CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB34DB3A1CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib */; };
 		CB3CA7B41C69168C007D48EA /* ConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */; };
@@ -49,6 +51,8 @@
 		CB0512AD1CBACFBB0015780A /* BoxeeKeyCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeKeyCode.h; sourceTree = "<group>"; };
 		CB0512AE1CBAD34F0015780A /* BoxeeConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeConnection.m; sourceTree = "<group>"; };
 		CB0512B11CBB17D20015780A /* BoxeeState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeState.m; sourceTree = "<group>"; };
+		CB1F79A11CBF16A50022A5C8 /* LastSuccessfulConnectionStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LastSuccessfulConnectionStore.h; sourceTree = "<group>"; };
+		CB1F79A21CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastSuccessfulConnectionStore.m; sourceTree = "<group>"; };
 		CB3CA7B21C69168C007D48EA /* ConnectingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectingViewController.h; sourceTree = "<group>"; };
 		CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectingViewController.m; sourceTree = "<group>"; };
 		CB3CA7B51C6917EB007D48EA /* ConnectionSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionSettingsViewController.h; sourceTree = "<group>"; };
@@ -113,6 +117,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB1F79A01CBF16730022A5C8 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				CB1F79A11CBF16A50022A5C8 /* LastSuccessfulConnectionStore.h */,
+				CB1F79A21CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
 		CB66515A1C7A3EA9004ABF96 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +178,7 @@
 				CBA063451C4BDD8500CEBCA7 /* Models */,
 				CBA063461C4BDDB200CEBCA7 /* Resources */,
 				CB66515A1C7A3EA9004ABF96 /* Services */,
+				CB1F79A01CBF16730022A5C8 /* Stores */,
 				CB8DE7BD1C4BCCCD004D8C67 /* AppDelegate.h */,
 				CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */,
 				CB8DE7CB1C4BCCCE004D8C67 /* Info.plist */,
@@ -380,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB3CA7B41C69168C007D48EA /* ConnectingViewController.m in Sources */,
+				CB1F79A31CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m in Sources */,
 				CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */,
 				CB3CA7BA1C691AF6007D48EA /* RemoteStandardViewController.m in Sources */,
 				CB0512AF1CBAD34F0015780A /* BoxeeConnection.m in Sources */,
@@ -398,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBD0FBD71CA731F500C26FF3 /* ConnectingViewController.m in Sources */,
+				CB1F79A41CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m in Sources */,
 				CBD0FBD81CA731F500C26FF3 /* ViewControllerRouter.m in Sources */,
 				CBD0FBD91CA731F500C26FF3 /* RemoteStandardViewController.m in Sources */,
 				CB0512B01CBAD34F0015780A /* BoxeeConnection.m in Sources */,

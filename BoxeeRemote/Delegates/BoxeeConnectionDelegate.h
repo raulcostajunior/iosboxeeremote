@@ -23,7 +23,7 @@
 
 -(void) lostConnectionToBoxee:(BoxeeConnection *)lostConnection;
 
--(void) connectedBoxeeStateChanged:(BoxeeState *)newState;
+-(void) connectedBoxeeStateChanged:(BoxeeState *)currentState fromPreviousState:(BoxeeState *)previousState;
 
 -(void) disconnectedFromBoxee:(BoxeeConnection *)disconnectedBoxee;
 

@@ -58,7 +58,7 @@
 
 
 
--(void) connectedBoxeeStateChanged:(BoxeeState *)newState {
+-(void) connectedBoxeeStateChanged:(BoxeeState *)currentState fromPreviousState:(BoxeeState *)previousState{
     
     
 }
