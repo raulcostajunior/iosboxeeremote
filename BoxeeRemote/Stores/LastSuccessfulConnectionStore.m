@@ -8,22 +8,60 @@
 #import <Foundation/Foundation.h>
 #import "BoxeeConnection.h"
 #import "LastSuccessfulConnectionStore.h"
+#import "SSKeychain.h"
 
 @implementation LastSuccessfulConnectionStore
 
+static NSString *const kHostKey = @"BoxeeHost";
+static NSString *const kPortKey = @"BoxeePort";
+static NSString *const kKeychainService = @"BoxeeRemoteiOS";
+static NSString *const kKeychainAccount = @"br.com.dstreams.boxeeRemote";
+
+
 -(BoxeeConnection *)loadLastSuccessfulConnection {
     
-    // TODO: define body
+    BOOL hasLastSuccessfuConnection = NO;
+    NSString *hostName;
+    NSInteger port;
+    NSString *password;
     
-    return nil;
+    NSUserDefaults *userPrefs = [NSUserDefaults standardUserDefaults];
+    if ([userPrefs valueForKey:kHostKey] != nil) {
+        hasLastSuccessfuConnection = YES;
+        hostName = [userPrefs objectForKey:kHostKey];
+    }
+    
+    if (!hasLastSuccessfuConnection) {
+        return nil;
+    }
+    
+    if ([userPrefs valueForKey:kPortKey] != nil) {
+        port = [[userPrefs objectForKey:kPortKey] integerValue];
+    }
+    else {
+        port = [BoxeeConnection boxeeDefaultPort];
+    }
+    
+    password = [SSKeychain passwordForService:kKeychainService account:kKeychainAccount];
+    
+    BoxeeConnection *con = [[BoxeeConnection alloc] init];
+    con.hostname = hostName;
+    con.port = port;
+    con.password = password;
+    
+    return con;
 }
 
 
 
 -(void) saveLastSuccessfulConnection:(BoxeeConnection *) lastSuccessfulConnection {
     
-    // TODO: define body
+    NSUserDefaults *userPrefs = [NSUserDefaults standardUserDefaults];
+    [userPrefs setObject:lastSuccessfulConnection.hostname forKey:kHostKey];
+    [userPrefs setObject:[NSNumber numberWithInteger:lastSuccessfulConnection.port] forKey:kPortKey];
+    [userPrefs synchronize];
     
+    [SSKeychain setPassword:lastSuccessfulConnection.password forService:kKeychainService account:kKeychainAccount];
 }
 
 @end

@@ -21,8 +21,6 @@
     NSTimer *_updateStateTimer;
 }
 
-@property (strong, nonatomic) NSURLSession *urlSession;
-
 @property (strong, nonatomic) BoxeeConnection *currentConnection;
 
 @property (strong, nonatomic) BoxeeState *previousBoxeeState; // Boxee state as collected in the most recent update state pulse
@@ -50,7 +48,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
         _sharedInstance = [[BoxeeConnectionManager alloc] initInternal];
     });
     
-    return nil;
+    return _sharedInstance;
 }
 
 
@@ -96,25 +94,12 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
         [_updateStateTimer invalidate];
     }
     
-    // Sets up the urlSession
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    if (self.currentConnection.password.length > 0) {
-        // The user defined a password - set up the corresponding HTTP header in the session so it makes into every request
-        NSString *plainToken = [NSString stringWithFormat:@"%@:%@", kBoxeeUsername, self.currentConnection.password];
-        NSData *tokenData = [plainToken dataUsingEncoding:NSUTF8StringEncoding];
-        NSData *encodedToken = [tokenData base64EncodedDataWithOptions:0];
-        NSString *authHeaderValue = [NSString stringWithFormat:@"Basic %@", encodedToken];
-        config.HTTPAdditionalHeaders = @{@"Authorization":authHeaderValue};
-        config.timeoutIntervalForRequest = 20; // Lowers the timeout from the 60 seconds default to 20 seconds.
-    }
-    if (self.urlSession) {
-        // There was an existing NSURLSession - invalidate it.
-        [self.urlSession invalidateAndCancel];
-    }
-    self.urlSession = [NSURLSession sessionWithConfiguration:config];
-    
     _connectedToBoxee = NO;
     _connectingToBoxee = YES;
+    
+    if (self.delegate) {
+        [self.delegate connectingToBoxee:self.currentConnection];
+    }
     
     // Connecting to the Boxee is actually requesting a state update
     [self updateBoxeeState];
@@ -169,10 +154,32 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     NSString *urlAsString = [NSString stringWithFormat:kCmdUrlTemplate, self.currentConnection.hostname, (long)self.currentConnection.port, @"getcurrentlyplaying()"];
     
     NSURL *updateStateUrl = [[NSURL alloc] initWithString:urlAsString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:updateStateUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:20];
     
-    NSURLSessionDataTask *updateStateTask = [self.urlSession dataTaskWithURL:updateStateUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    if (self.currentConnection.password.length > 0) {
+        request = [self addAuthenticationHeaderToRequest:request withUser:kBoxeeUsername andPassword:self.currentConnection.password];
+    }
+    
+
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         
-        
+        if (!connectionError) {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            NSLog(@"Http status code for response: %ld", (long)httpResponse.statusCode);
+            NSLog(@"Http response body:");
+            NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+            
+            if (httpResponse.statusCode == 200) {
+                [[[LastSuccessfulConnectionStore alloc] init] saveLastSuccessfulConnection:self.currentConnection];
+                if (self.delegate) {
+                // TODO: retrieve boxee state from response
+                [self.delegate connectedToBoxee:self.currentConnection withState:nil];
+                }
+            }
+        }
+        else {
+            NSLog(@"updateBoxeeState completed with error %@", connectionError.description);
+        }
         
         // TODO: on success, if connecting, indicate a successful connection and update lastSuccessful connection. Otherwise, checks for a state change and triggers the state change event if appropriate
         
@@ -183,10 +190,31 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
         // TODO: on failure, if connecting, indicate a failedToConnect. Otherwise, signals a connection lost.
     }];
     
-    [updateStateTask resume];
-    
 }
 
+
+#pragma mark - Internal utility methods
+
+
+-(NSURLRequest *)addAuthenticationHeaderToRequest:(NSURLRequest *)request withUser:(NSString*)user andPassword:(NSString *)password {
+    
+    NSMutableURLRequest *mutRequest = [request mutableCopy];
+    
+    NSString *plainToken = [NSString stringWithFormat:@"%@:%@", user, password];
+    NSData *tokenData = [plainToken dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *encodedToken = [tokenData base64EncodedDataWithOptions:0];
+    NSString *authHeaderValue = [NSString stringWithFormat:@"Basic %@", encodedToken];
+    
+    if ([mutRequest valueForHTTPHeaderField:@"Authorization"] != nil) {
+        [mutRequest setValue:authHeaderValue forHTTPHeaderField:@"Authorization"];
+    }
+    else {
+        [mutRequest addValue:authHeaderValue forHTTPHeaderField:@"Authorization"];
+    }
+    
+    return mutRequest;
+    
+}
 
 
 

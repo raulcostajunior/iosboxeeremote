@@ -19,6 +19,8 @@
 
 -(void) connectedToBoxee:(BoxeeConnection *)connectedBoxee withState:(BoxeeState *)connectedBoxeeState;
 
+-(void) cancelledConnectingToBoxee:(BoxeeConnection *)cancelledConnection;
+
 -(void) failedConnectingToBoxee:(BoxeeConnection *)failedConnection withError:(NSError *)error;
 
 -(void) lostConnectionToBoxee:(BoxeeConnection *)lostConnection;

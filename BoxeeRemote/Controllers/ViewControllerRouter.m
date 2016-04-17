@@ -36,11 +36,18 @@
 
 
 
-
 -(void) connectedToBoxee:(BoxeeConnection *)connectedBoxee withState:(BoxeeState *)connectedBoxeeState {
     
     
 }
+
+
+
+-(void) cancelledConnectingToBoxee:(BoxeeConnection *)cancelledConnection {
+    
+    
+}
+
 
 
 

@@ -149,7 +149,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
         conn.port = [self.txtBoxeePort.text integerValue];
         conn.password = self.txtBoxeePassword.text;
         
-        [self.view makeToastActivity:CSToastPositionCenter];
+        [self.view makeToastActivity:CSToastPositionBottom];
         
         [[BoxeeConnectionManager sharedManager] connectToBoxee:conn];
     }
@@ -226,6 +226,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     self.txtBoxeePort.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.txtBoxeePort.tag = TXT_PORT_TAG;
     self.txtBoxeePort.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.txtBoxeePort.text = [NSString stringWithFormat:@"%ld", (long)[BoxeeConnection boxeeDefaultPort]];
     self.txtBoxeePort.delegate = self;
     
     self.txtBoxeePassword.autocorrectionType = UITextAutocorrectionTypeNo;

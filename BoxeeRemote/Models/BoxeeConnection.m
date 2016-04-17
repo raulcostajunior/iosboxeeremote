@@ -12,4 +12,8 @@
 @implementation BoxeeConnection
 
 
++(NSInteger) boxeeDefaultPort {
+    return 8800;
+}
+
 @end
