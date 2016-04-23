@@ -23,6 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnConnectBoxee;
 
+@property (weak, nonatomic) IBOutlet UIView *viewToastContainer;
+
 @end
 
 @implementation ConnectionSettingsViewController
@@ -36,7 +38,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupButtons];
+    [self setupButtonsDefaultState];
     [self setupTextFields];
     
     BoxeeConnection *lastConnection = [[BoxeeConnectionManager sharedManager] lastSuccessfulConnection];
@@ -89,17 +91,39 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 }
 
 
+#pragma mark - Connection progress handler methods
+
+-(void) connectingToBoxee {
+    
+    [self setupButtonsConnectingState];
+    
+}
+
+
+-(void) cancelledConnectionToBoxee {
+    
+    [self.viewToastContainer hideToastActivity];
+    
+    CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
+    errorStyle.backgroundColor = [UIColor darkGrayColor];
+    
+    [self.viewToastContainer makeToast:NSLocalizedString(@"cancelledConnectionMsg", @"Message to be displayed upon cancelling connection to a Boxee") duration:1.5f position:CSToastPositionBottom style:errorStyle];
+    
+    [self setupButtonsDefaultState];
+    
+}
+
 #pragma mark - Connection error handler methods
 
 
 -(void) displayLostConnectionError:(NSError *)error {
     
-    [self.view hideToastActivity];
+    [self.viewToastContainer hideToastActivity];
     
     CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
     errorStyle.backgroundColor = [UIColor redColor];
     
-    [self.view makeToast:NSLocalizedString(@"lostConnectionMsg", @"Message to be displayed upon loosing connection to a Boxee") duration:3.5f position:CSToastPositionBottom style:errorStyle];
+    [self.viewToastContainer makeToast:NSLocalizedString(@"lostConnectionMsg", @"Message to be displayed upon loosing connection to a Boxee") duration:3.5f position:CSToastPositionBottom style:errorStyle];
     
 }
 
@@ -107,12 +131,14 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) displayFailedToConnectError:(NSError *)error {
     
-    [self.view hideToastActivity];
+    [self.viewToastContainer hideToastActivity];
+    
+    [self setupButtonsDefaultState];
     
     CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
     errorStyle.backgroundColor = [UIColor redColor];
     
-    [self.view makeToast:NSLocalizedString(@"failedToConnectMsg", @"Message to be displayed upon failing to connect to a Boxee") duration:3.5f position:CSToastPositionBottom style:errorStyle];
+    [self.viewToastContainer makeToast:NSLocalizedString(@"failedToConnectMsg", @"Message to be displayed upon failing to connect to a Boxee") duration:3.5f position:CSToastPositionBottom style:errorStyle];
     
 }
 
@@ -132,14 +158,14 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
         errorStyle.backgroundColor = [UIColor redColor];
         
         if ([validationErrors count] == 1) {
-            [self.view makeToast:[validationErrors objectAtIndex:0] duration:3.5f position:CSToastPositionBottom style:errorStyle];
+            [self.viewToastContainer makeToast:[validationErrors objectAtIndex:0] duration:3.5f position:CSToastPositionBottom style:errorStyle];
         }
         else if ([validationErrors count] > 1) {
             NSString *errorMsg = [validationErrors objectAtIndex:0];
             for (int i = 1; i < [validationErrors count]; i++) {
                 errorMsg = [NSString stringWithFormat:@"%@\n\n%@", errorMsg, [validationErrors objectAtIndex:i]];
             }
-            [self.view makeToast:errorMsg duration:4.5f position:CSToastPositionBottom style:errorStyle];
+            [self.viewToastContainer makeToast:errorMsg duration:4.5f position:CSToastPositionBottom style:errorStyle];
         }
     }
     else {
@@ -149,7 +175,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
         conn.port = [self.txtBoxeePort.text integerValue];
         conn.password = self.txtBoxeePassword.text;
         
-        [self.view makeToastActivity:CSToastPositionBottom];
+        [self.viewToastContainer makeToastActivity:CSToastPositionCenter];
         
         [[BoxeeConnectionManager sharedManager] connectToBoxee:conn];
     }
@@ -159,6 +185,13 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) doFindBoxees {
     
+    
+}
+
+
+-(void) doCancelConnection {
+    
+    [[BoxeeConnectionManager sharedManager] cancelConnection];
 }
 
 
@@ -197,15 +230,35 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 #pragma mark - Internal UI setup methods
 
 
--(void) setupButtons {
+-(void) setupButtonsDefaultState {
     self.btnScanBoxees.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.btnScanBoxees.layer.borderWidth = 1.0;
     self.btnScanBoxees.layer.cornerRadius = 5.0;
+    self.btnScanBoxees.enabled = YES;
     
     self.btnConnectBoxee.layer.borderColor = [[UIColor colorWithRed:174.0/255.0 green:254.0/255.0 blue:133.0/255.0 alpha:1.0] CGColor];
     self.btnConnectBoxee.layer.borderWidth = 1.0;
     self.btnConnectBoxee.layer.cornerRadius = 5.0;
+    [self.btnConnectBoxee removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
+    [self.btnConnectBoxee setTitle:NSLocalizedString(@"connectBoxeeLabel", @"Button label for connect to Boxee action") forState:UIControlStateNormal];
     [self.btnConnectBoxee addTarget:self action:@selector(doConnectToBoxee) forControlEvents:UIControlEventTouchUpInside];
+    self.btnConnectBoxee.enabled = YES;
+}
+
+
+-(void) setupButtonsConnectingState {
+    self.btnScanBoxees.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.btnScanBoxees.layer.borderWidth = 1.0;
+    self.btnScanBoxees.layer.cornerRadius = 5.0;
+    self.btnScanBoxees.enabled = NO;
+    
+    self.btnConnectBoxee.layer.borderColor = [[UIColor colorWithRed:174.0/255.0 green:254.0/255.0 blue:133.0/255.0 alpha:1.0] CGColor];
+    self.btnConnectBoxee.layer.borderWidth = 1.0;
+    self.btnConnectBoxee.layer.cornerRadius = 5.0;
+    [self.btnConnectBoxee removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
+    [self.btnConnectBoxee setTitle:NSLocalizedString(@"cancelConnectionLabel", @"Button label for cancel ongoing connection action") forState:UIControlStateNormal];
+    [self.btnConnectBoxee addTarget:self action:@selector(doCancelConnection) forControlEvents:UIControlEventTouchUpInside];
+    self.btnConnectBoxee.enabled = YES;
 }
 
 

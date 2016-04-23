@@ -14,9 +14,11 @@
 #import "LastSuccessfulConnectionStore.h"
 
 
-@interface BoxeeConnectionManager () {
-    BOOL _connectingToBoxee; // Indicates that the next keep alive response must be handled as a "connection request" to the Boxee.
-    BOOL _connectedToBoxee;  // Indicates that there's a boxee connected - actually, it indicates that the last keep alive was successful.
+@interface BoxeeConnectionManager () <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
+    BOOL _connectingToBoxee;   // Indicates that the next keep alive response must be handled as a "connection request" to the Boxee.
+    BOOL _connectedToBoxee;    // Indicates that there's a boxee connected - actually, it indicates that the last keep alive was successful.
+    
+    NSURLConnection *_updateStateConnection;
     
     NSTimer *_updateStateTimer;
 }
@@ -108,6 +110,19 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
 
 
 
+-(void) cancelConnection {
+    
+    [_updateStateConnection cancel];
+    
+    if (self.delegate) {
+        [self.delegate cancelledConnectingToBoxee:self.currentConnection];
+    }
+    
+    self.currentConnection = nil;
+}
+
+
+
 -(void) disconnectFromBoxee {
     if (_updateStateTimer) {
         [_updateStateTimer invalidate];
@@ -119,6 +134,8 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     if (self.delegate) {
         [self.delegate disconnectedFromBoxee:self.currentConnection];
     }
+    
+    self.currentConnection = nil;
 }
 
 
@@ -148,7 +165,6 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
 #pragma mark - Connection "keepalive" - updates BoxeeState
 
 
-
 -(void) updateBoxeeState {
     
     NSString *urlAsString = [NSString stringWithFormat:kCmdUrlTemplate, self.currentConnection.hostname, (long)self.currentConnection.port, @"getcurrentlyplaying()"];
@@ -160,37 +176,80 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
         request = [self addAuthenticationHeaderToRequest:request withUser:kBoxeeUsername andPassword:self.currentConnection.password];
     }
     
+    _updateStateConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+    [_updateStateConnection start];
+    
+}
 
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+
+#pragma mark - NSURLConnectionDelegate methods
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
+    NSLog(@"updateBoxeeState completed with error %@", error.description);
+    if (_connectingToBoxee) {
+        _connectingToBoxee = NO;
+        _connectedToBoxee = NO;
+        if (self.delegate) {
+                [self.delegate failedConnectingToBoxee:self.currentConnection withError:error];
+        }
+    }
+    else {
+        _connectedToBoxee = NO;
+        if (self.delegate) {
+            [self.delegate lostConnectionToBoxee:self.currentConnection];
+        }
+    }
+    self.currentConnection = nil;
+}
+
+
+
+#pragma mark - NSURLConnectionDataDelegate methods
+
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    
+    if (((NSHTTPURLResponse *)response).statusCode == 200) {
         
-        if (!connectionError) {
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            NSLog(@"Http status code for response: %ld", (long)httpResponse.statusCode);
-            NSLog(@"Http response body:");
-            NSLog(@"%@", [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
-            
-            if (httpResponse.statusCode == 200) {
-                [[[LastSuccessfulConnectionStore alloc] init] saveLastSuccessfulConnection:self.currentConnection];
-                if (self.delegate) {
-                // TODO: retrieve boxee state from response
+        if (_connectingToBoxee) {
+            _connectedToBoxee = YES;
+            _connectingToBoxee = NO;
+            [[[LastSuccessfulConnectionStore alloc] init] saveLastSuccessfulConnection:self.currentConnection];
+            if (self.delegate) {
+                // TODO: retrieve boxee state from received data stored by didReceiveData
+                // TODO: update current boxee state info
                 [self.delegate connectedToBoxee:self.currentConnection withState:nil];
-                }
             }
         }
         else {
-            NSLog(@"updateBoxeeState completed with error %@", connectionError.description);
+            // TODO: retrieve boxee state from data stored by didReceiveData and trigger a state change event if appropriate
+            // TODO: update current boxee state info
+            NSLog(@"Periodic update boxee state request successful");
         }
         
-        // TODO: on success, if connecting, indicate a successful connection and update lastSuccessful connection. Otherwise, checks for a state change and triggers the state change event if appropriate
+        _updateStateTimer = [NSTimer timerWithTimeInterval:kIntervalUpdateState target:self selector:@selector(updateBoxeeState) userInfo:nil repeats:NO];
         
-        // TODO: on success, connecting or not, schedules the next keepAlive request.
-        
-        // TODO: on success, schedules the next keep alive pulse
-        
-        // TODO: on failure, if connecting, indicate a failedToConnect. Otherwise, signals a connection lost.
-    }];
+    }
+    else {
+        if (_connectingToBoxee) {
+            _connectingToBoxee = NO;
+            _connectedToBoxee = NO;
+            [self.delegate failedConnectingToBoxee:self.currentConnection withError:[NSError errorWithDomain:@"Http error" code:((NSHTTPURLResponse *)response).statusCode userInfo:nil]];
+        }
+        else {
+            _connectedToBoxee = NO;
+            if (self.delegate) {
+                [self.delegate lostConnectionToBoxee:self.currentConnection];
+            }
+        }
+        self.currentConnection = nil;
+    }
     
 }
+
+
+// TODO: handle didReceiveData and store received data in new member - as the Boxee response will never be a large multipart mime type, the received data can be assumed to be the whole chunk.
 
 
 #pragma mark - Internal utility methods

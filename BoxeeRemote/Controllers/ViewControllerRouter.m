@@ -12,6 +12,7 @@
 #import "BoxeeState.h"
 #import "BoxeeConnection.h"
 #import "ConnectionSettingsViewController.h"
+#import "StandardModeViewController.h"
 #import "ViewControllerRouter.h"
 
 
@@ -31,6 +32,13 @@
 
 -(void) connectingToBoxee:(BoxeeConnection *)connectingBoxee {
     
+    AppBaseViewController *currentViewController = (AppBaseViewController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
+    if ([currentViewController isKindOfClass:[ConnectionSettingsViewController class]]) {
+        [((ConnectionSettingsViewController *)currentViewController) connectingToBoxee];
+    }
+    else {
+        NSLog(@"Current view controller should be an instance of 'ConnectionSettingsViewController'. Please check application logic.");
+    }
     
 }
 
@@ -38,6 +46,10 @@
 
 -(void) connectedToBoxee:(BoxeeConnection *)connectedBoxee withState:(BoxeeState *)connectedBoxeeState {
     
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    
+    StandardModeViewController *standardVC = [[StandardModeViewController alloc] init];
+    keyWindow.rootViewController = standardVC;
     
 }
 
@@ -45,6 +57,13 @@
 
 -(void) cancelledConnectingToBoxee:(BoxeeConnection *)cancelledConnection {
     
+    AppBaseViewController *currentViewController = (AppBaseViewController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
+    if ([currentViewController isKindOfClass:[ConnectionSettingsViewController class]]) {
+        [((ConnectionSettingsViewController *)currentViewController) cancelledConnectionToBoxee];
+    }
+    else {
+        NSLog(@"Current view controller should be an instance of 'ConnectionSettingsViewController'. Please check application logic.");
+    }
     
 }
 
@@ -53,6 +72,13 @@
 
 -(void) failedConnectingToBoxee:(BoxeeConnection *)failedConnection withError:(NSError *)error {
     
+    AppBaseViewController *currentViewController = (AppBaseViewController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
+    if ([currentViewController isKindOfClass:[ConnectionSettingsViewController class]]) {
+        [((ConnectionSettingsViewController *)currentViewController) displayFailedToConnectError:error];
+    }
+    else {
+        NSLog(@"Current view controller should be an instance of 'ConnectionSettingsViewController'. Please check application logic.");
+    }
     
 }
 

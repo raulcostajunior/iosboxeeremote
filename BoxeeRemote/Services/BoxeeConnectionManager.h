@@ -25,6 +25,8 @@
 
 -(void) connectToBoxee:(BoxeeConnection *)connectionParams;
 
+-(void) cancelConnection;
+
 -(void) disconnectFromBoxee;
 
 -(void) sendKeyToBoxee:(BoxeeKeyCode)keyCode;
