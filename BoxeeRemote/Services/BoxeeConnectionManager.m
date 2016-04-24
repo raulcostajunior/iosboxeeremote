@@ -187,7 +187,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     NSString *urlAsString = [NSString stringWithFormat:kCmdUrlTemplate, self.currentConnection.hostname, (long)self.currentConnection.port, @"getcurrentlyplaying()"];
     
     NSURL *updateStateUrl = [[NSURL alloc] initWithString:urlAsString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:updateStateUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:20];
+    NSURLRequest *request = [NSURLRequest requestWithURL:updateStateUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:8];
     
     if (self.currentConnection.password.length > 0) {
         request = [self addAuthenticationHeaderToRequest:request withUser:kBoxeeUsername andPassword:self.currentConnection.password];
