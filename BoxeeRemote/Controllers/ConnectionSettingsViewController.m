@@ -25,6 +25,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *viewToastContainer;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 @end
 
 @implementation ConnectionSettingsViewController
@@ -95,6 +97,8 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) connectingToBoxee {
     
+    [self.activityIndicator startAnimating];
+    
     [self setupButtonsConnectingState];
     
 }
@@ -102,12 +106,12 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) cancelledConnectionToBoxee {
     
-    [self.viewToastContainer hideToastActivity];
+    [self.activityIndicator stopAnimating];
     
     CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
     errorStyle.backgroundColor = [UIColor darkGrayColor];
     
-    [self.viewToastContainer makeToast:NSLocalizedString(@"cancelledConnectionMsg", @"Message to be displayed upon cancelling connection to a Boxee") duration:1.5f position:CSToastPositionBottom style:errorStyle];
+    [self.viewToastContainer makeToast:NSLocalizedString(@"cancelledConnectionMsg", @"Message to be displayed upon cancelling connection to a Boxee") duration:1.5f position:CSToastPositionTop style:errorStyle];
     
     [self setupButtonsDefaultState];
     
@@ -116,14 +120,14 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 #pragma mark - Connection error handler methods
 
 
--(void) displayLostConnectionError:(NSError *)error {
+-(void) displayLostConnectionError {
     
-    [self.viewToastContainer hideToastActivity];
+    [self.activityIndicator stopAnimating];
     
     CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
     errorStyle.backgroundColor = [UIColor redColor];
     
-    [self.viewToastContainer makeToast:NSLocalizedString(@"lostConnectionMsg", @"Message to be displayed upon loosing connection to a Boxee") duration:3.5f position:CSToastPositionBottom style:errorStyle];
+    [self.viewToastContainer makeToast:NSLocalizedString(@"lostConnectionMsg", @"Message to be displayed upon loosing connection to a Boxee") duration:3.5f position:CSToastPositionTop style:errorStyle];
     
 }
 
@@ -131,14 +135,14 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) displayFailedToConnectError:(NSError *)error {
     
-    [self.viewToastContainer hideToastActivity];
-    
+    [self.activityIndicator stopAnimating];
+       
     [self setupButtonsDefaultState];
     
     CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
     errorStyle.backgroundColor = [UIColor redColor];
     
-    [self.viewToastContainer makeToast:NSLocalizedString(@"failedToConnectMsg", @"Message to be displayed upon failing to connect to a Boxee") duration:3.5f position:CSToastPositionBottom style:errorStyle];
+    [self.viewToastContainer makeToast:NSLocalizedString(@"failedToConnectMsg", @"Message to be displayed upon failing to connect to a Boxee") duration:3.5f position:CSToastPositionTop style:errorStyle];
     
 }
 
@@ -158,14 +162,14 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
         errorStyle.backgroundColor = [UIColor redColor];
         
         if ([validationErrors count] == 1) {
-            [self.viewToastContainer makeToast:[validationErrors objectAtIndex:0] duration:3.5f position:CSToastPositionBottom style:errorStyle];
+            [self.viewToastContainer makeToast:[validationErrors objectAtIndex:0] duration:3.5f position:CSToastPositionTop style:errorStyle];
         }
         else if ([validationErrors count] > 1) {
             NSString *errorMsg = [validationErrors objectAtIndex:0];
             for (int i = 1; i < [validationErrors count]; i++) {
                 errorMsg = [NSString stringWithFormat:@"%@\n\n%@", errorMsg, [validationErrors objectAtIndex:i]];
             }
-            [self.viewToastContainer makeToast:errorMsg duration:4.5f position:CSToastPositionBottom style:errorStyle];
+            [self.viewToastContainer makeToast:errorMsg duration:4.5f position:CSToastPositionTop style:errorStyle];
         }
     }
     else {
@@ -174,8 +178,6 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
         conn.hostname = self.txtBoxeeHost.text;
         conn.port = [self.txtBoxeePort.text integerValue];
         conn.password = self.txtBoxeePassword.text;
-        
-        [self.viewToastContainer makeToastActivity:CSToastPositionCenter];
         
         [[BoxeeConnectionManager sharedManager] connectToBoxee:conn];
     }

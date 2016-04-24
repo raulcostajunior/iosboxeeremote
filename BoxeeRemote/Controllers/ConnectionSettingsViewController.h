@@ -23,7 +23,7 @@
 
 -(void) displayFailedToConnectError:(NSError *)error;
 
--(void) displayLostConnectionError:(NSError *)error;
+-(void) displayLostConnectionError;
 
 
 @end

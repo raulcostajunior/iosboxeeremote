@@ -86,13 +86,22 @@
 
 -(void) lostConnectionToBoxee:(BoxeeConnection *)lostConnection {
     
-    
+    AppBaseViewController *currentViewController = (AppBaseViewController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
+    if (![currentViewController isKindOfClass:[ConnectionSettingsViewController class]]) {
+        // The current view is not the ConnectionSettingsView; instantiate one and make it the current view.
+        ConnectionSettingsViewController *conSettingsVC = [[ConnectionSettingsViewController alloc] init];
+        [[UIApplication sharedApplication] keyWindow].rootViewController = conSettingsVC;
+        currentViewController = conSettingsVC;
+    }
+    [((ConnectionSettingsViewController *)currentViewController) displayLostConnectionError];
+
 }
 
 
 
 -(void) connectedBoxeeStateChanged:(BoxeeState *)currentState fromPreviousState:(BoxeeState *)previousState{
     
+    // TODO: change the current view depending on whether there's a video or sound being played (media playing view) or there's a text prompt (text entry view).
     
 }
 
@@ -100,6 +109,12 @@
 
 -(void) disconnectedFromBoxee:(BoxeeConnection *)disconnectedBoxee {
     
+    AppBaseViewController *currentViewController = (AppBaseViewController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
+    if (![currentViewController isKindOfClass:[ConnectionSettingsViewController class]]) {
+        // The current view is not the ConnectionSettingsView; instantiate one and make it the current view.
+        ConnectionSettingsViewController *conSettingsVC = [[ConnectionSettingsViewController alloc] init];
+        [[UIApplication sharedApplication] keyWindow].rootViewController = conSettingsVC;
+    }
     
 }
 

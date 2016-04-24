@@ -7,6 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StandardModeViewController">
             <connections>
+                <outlet property="btnBoxeeLogo" destination="bao-ps-h21" id="rnn-Mu-Y71"/>
+                <outlet property="btnDown" destination="Iat-70-GhD" id="eRl-ge-BUd"/>
+                <outlet property="btnEnter" destination="FVN-me-jTO" id="ihN-Nc-hW0"/>
+                <outlet property="btnLeft" destination="RKU-pR-TTb" id="czA-ql-yh4"/>
+                <outlet property="btnOptions" destination="Rct-fr-Bvg" id="u9J-BI-pQi"/>
+                <outlet property="btnRight" destination="YbJ-vd-JJ4" id="YfU-5L-j4t"/>
+                <outlet property="btnUp" destination="Ije-X6-YL6" id="WrK-MN-Y2t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boxee Remote" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeX-sl-q6d">
-                    <rect key="frame" x="102" y="25" width="117" height="21"/>
+                    <rect key="frame" x="102" y="18" width="117" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="IaL-Sf-XC0"/>
                     </constraints>
@@ -24,54 +31,96 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBB-hq-kbC">
-                    <rect key="frame" x="4" y="18" width="44" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rct-fr-Bvg">
+                    <rect key="frame" x="134" y="307" width="52" height="48"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="44" id="AuG-55-r8m"/>
-                        <constraint firstAttribute="height" constant="40" id="wsR-uK-IRQ"/>
+                        <constraint firstAttribute="height" constant="48" id="T6l-bT-MQc"/>
+                        <constraint firstAttribute="width" constant="52" id="cFf-TM-vxq"/>
+                    </constraints>
+                    <state key="normal" image="OptionsButton"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVN-me-jTO">
+                    <rect key="frame" x="131" y="143" width="58" height="58"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="58" id="CnU-dC-SaP"/>
+                        <constraint firstAttribute="height" constant="58" id="NZD-qu-9qc"/>
+                    </constraints>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ije-X6-YL6">
+                    <rect key="frame" x="136" y="75" width="48" height="48"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="7rI-6f-8AP"/>
+                        <constraint firstAttribute="width" constant="48" id="F1R-Zi-cJ8"/>
+                    </constraints>
+                    <state key="normal" image="UpButton"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKU-pR-TTb">
+                    <rect key="frame" x="63" y="148" width="48" height="48"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="G5R-yP-k0d"/>
+                        <constraint firstAttribute="height" constant="48" id="Xbx-aY-sl6"/>
+                    </constraints>
+                    <state key="normal" image="LeftButton"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iat-70-GhD">
+                    <rect key="frame" x="136" y="221" width="48" height="48"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="ZYY-D1-n96"/>
+                        <constraint firstAttribute="width" constant="48" id="eSv-NP-qtF"/>
+                    </constraints>
+                    <state key="normal" image="DownButton"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbJ-vd-JJ4">
+                    <rect key="frame" x="209" y="148" width="48" height="48"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="IYZ-zJ-BEM"/>
+                        <constraint firstAttribute="width" constant="48" id="s8D-cM-qMN"/>
+                    </constraints>
+                    <state key="normal" image="RightButton"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bao-ps-h21">
+                    <rect key="frame" x="127" y="499" width="67" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="67" id="Vvd-98-eXA"/>
+                        <constraint firstAttribute="height" constant="59" id="wFu-0h-2wf"/>
                     </constraints>
                     <state key="normal" image="BoxeeLogoNoCaption"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rct-fr-Bvg">
-                    <rect key="frame" x="132" y="440" width="46" height="30"/>
-                    <state key="normal" title="Back"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVN-me-jTO">
-                    <rect key="frame" x="132" y="261" width="46" height="30"/>
-                    <state key="normal" title="DO"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ije-X6-YL6">
-                    <rect key="frame" x="132" y="190" width="46" height="30"/>
-                    <state key="normal" title="up"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKU-pR-TTb">
-                    <rect key="frame" x="32" y="261" width="46" height="30"/>
-                    <state key="normal" title="left"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iat-70-GhD">
-                    <rect key="frame" x="127" y="331" width="66" height="30"/>
-                    <state key="normal" title="down"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbJ-vd-JJ4">
-                    <rect key="frame" x="243" y="261" width="46" height="30"/>
-                    <state key="normal" title="right"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acy-kB-PrG">
-                    <rect key="frame" x="83" y="89" width="144" height="30"/>
-                    <state key="normal" title="Play / Pause"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="LBB-hq-kbC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="1Av-bO-mFF"/>
-                <constraint firstItem="LBB-hq-kbC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="Q1S-ID-Kcu"/>
+                <constraint firstItem="FVN-me-jTO" firstAttribute="top" secondItem="Ije-X6-YL6" secondAttribute="bottom" constant="20" id="Bji-hz-wWy"/>
+                <constraint firstItem="FVN-me-jTO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CHI-BG-gMM"/>
+                <constraint firstItem="YbJ-vd-JJ4" firstAttribute="top" secondItem="QeX-sl-q6d" secondAttribute="bottom" constant="109" id="GYY-kN-dX7"/>
+                <constraint firstItem="Iat-70-GhD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="K9G-DT-aT1"/>
+                <constraint firstItem="Ije-X6-YL6" firstAttribute="top" secondItem="QeX-sl-q6d" secondAttribute="bottom" constant="36" id="Lc7-hz-qlG"/>
+                <constraint firstItem="FVN-me-jTO" firstAttribute="leading" secondItem="RKU-pR-TTb" secondAttribute="trailing" constant="20" id="RjH-wM-qne"/>
+                <constraint firstAttribute="bottom" secondItem="bao-ps-h21" secondAttribute="bottom" constant="10" id="Zb4-Le-0Ie"/>
                 <constraint firstItem="QeX-sl-q6d" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ax6-35-fCX"/>
-                <constraint firstItem="QeX-sl-q6d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="xAq-gQ-WvK"/>
+                <constraint firstItem="RKU-pR-TTb" firstAttribute="top" secondItem="QeX-sl-q6d" secondAttribute="bottom" constant="109" id="dQy-aC-Ppc"/>
+                <constraint firstItem="Rct-fr-Bvg" firstAttribute="top" secondItem="Iat-70-GhD" secondAttribute="bottom" constant="38" id="h6a-pi-XOc"/>
+                <constraint firstItem="bao-ps-h21" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jpH-zK-mt1"/>
+                <constraint firstItem="Rct-fr-Bvg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nIZ-9S-Ivh"/>
+                <constraint firstItem="Iat-70-GhD" firstAttribute="top" secondItem="FVN-me-jTO" secondAttribute="bottom" constant="20" id="pN3-IF-hzT"/>
+                <constraint firstItem="Ije-X6-YL6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tWw-NF-1gO"/>
+                <constraint firstItem="YbJ-vd-JJ4" firstAttribute="leading" secondItem="FVN-me-jTO" secondAttribute="trailing" constant="20" id="wVJ-Xi-9ls"/>
+                <constraint firstItem="QeX-sl-q6d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="xAq-gQ-WvK"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
         <image name="BoxeeLogoNoCaption" width="141" height="127"/>
+        <image name="DownButton" width="40" height="40"/>
+        <image name="LeftButton" width="40" height="40"/>
+        <image name="OptionsButton" width="40" height="40"/>
+        <image name="RightButton" width="40" height="40"/>
+        <image name="UpButton" width="40" height="40"/>
     </resources>
 </document>

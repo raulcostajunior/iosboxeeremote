@@ -104,7 +104,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     }
     
     // Connecting to the Boxee is actually requesting a state update
-    [self updateBoxeeState];
+    [self updateBoxeeState:nil];
     
 }
 
@@ -145,9 +145,26 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
 
 -(void) sendKeyToBoxee:(BoxeeKeyCode)keyCode {
     
-    // TODO: invalidate pulse timer - a pulse will be requested right after successful command execution.
+    if (_updateStateTimer) {
+        [_updateStateTimer invalidate];
+    }
     
-    // TODO: dispatches a send key command to the current boxee, if there's one connected. Any error in the command response should be interpreted as a connection loss.
+    NSString *keyCmd = [NSString stringWithFormat:@"SendKey(%ld)", (long)keyCode];
+    NSString *urlAsString = [NSString stringWithFormat:kCmdUrlTemplate, self.currentConnection.hostname, (long)self.currentConnection.port, keyCmd];
+    NSURL *sendKeyUrl = [NSURL URLWithString:urlAsString];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:sendKeyUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:4];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        // Response is intentionally ignored, as an UpdateRequest is immediatelly dispatched - leave any potential connection health issue be handled by the next update cycle.
+        
+        if (connectionError) {
+            NSLog(@"Error during sendKeyToBoxee command: '%@'", connectionError.description);
+        }
+        
+        [self updateBoxeeState:nil];
+        
+    }];
     
 }
 
@@ -165,7 +182,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
 #pragma mark - Connection "keepalive" - updates BoxeeState
 
 
--(void) updateBoxeeState {
+-(void) updateBoxeeState:(NSTimer *)timer {
     
     NSString *urlAsString = [NSString stringWithFormat:kCmdUrlTemplate, self.currentConnection.hostname, (long)self.currentConnection.port, @"getcurrentlyplaying()"];
     
@@ -228,7 +245,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
             NSLog(@"Periodic update boxee state request successful");
         }
         
-        _updateStateTimer = [NSTimer timerWithTimeInterval:kIntervalUpdateState target:self selector:@selector(updateBoxeeState) userInfo:nil repeats:NO];
+        _updateStateTimer = [NSTimer scheduledTimerWithTimeInterval:kIntervalUpdateState target:self selector:@selector(updateBoxeeState:) userInfo:nil repeats:NO];
         
     }
     else {
