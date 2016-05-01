@@ -10,7 +10,9 @@
 #import "BoxeeConnectionManager.h"
 #import "BoxeeKeyCode.h"
 
-@interface StandardModeViewController ()
+@interface StandardModeViewController () {
+    BoxeeKeyCode _touchedKeyCode;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *btnOptions;
 
@@ -34,6 +36,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupButtons];
+    
+    _touchedKeyCode = BoxeeKeyCodeNone;
 }
 
 
@@ -43,37 +47,40 @@
 }
 
 
-#pragma mark - Send command methods
+#pragma mark - Touch handling methods
 
--(void) sendMoveUp {
-    [[BoxeeConnectionManager sharedManager] sendKeyToBoxee:BoxeeKeyCodeUp];
+-(void) touchedDownButton:(UIButton *)sender {
+    
+    if (_touchedKeyCode != BoxeeKeyCodeNone) {
+        // Another button is already being touched. The remote is not multi-touched, so ignore this touch
+        return;
+    }
+    
+    sender.layer.shadowRadius = 22.0f;
+    sender.layer.shadowColor = [[UIColor greenColor] CGColor];//[[UIColor colorWithRed:178.0 green:254.0 blue:135.0 alpha:1.0] CGColor];
+    sender.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+    sender.layer.shadowOpacity = 1.0;
+    sender.layer.masksToBounds = NO;
+    
+    // Sends the key code corresponding to the touched button once and keep sending it while the user keeps touching the button and no key send command error happens.
+    _touchedKeyCode = sender.tag;
+    [[BoxeeConnectionManager sharedManager] startSendKeyToBoxee:sender.tag];
+    
 }
 
 
--(void) sendMoveDown {
-    [[BoxeeConnectionManager sharedManager] sendKeyToBoxee:BoxeeKeyCodeDown];
+-(void) touchedUpButton:(UIButton *)sender {
+    
+    // Interrupts the send key code sequence.
+    _touchedKeyCode = BoxeeKeyCodeNone;
+    
+    [[BoxeeConnectionManager sharedManager] stopSendKeyToBoxee];
+    
+    sender.layer.shadowRadius = 0;
+    sender.layer.shadowColor = [[UIColor clearColor] CGColor];
+    sender.layer.masksToBounds = YES;
+    
 }
-
-
--(void) sendMoveRight {
-    [[BoxeeConnectionManager sharedManager] sendKeyToBoxee:BoxeeKeyCodeRight];
-}
-
-
--(void) sendMoveLeft{
-    [[BoxeeConnectionManager sharedManager] sendKeyToBoxee:BoxeeKeyCodeLeft];
-}
-
-
--(void) sendGo {
-    [[BoxeeConnectionManager sharedManager] sendKeyToBoxee:BoxeeKeyCodeGo];
-}
-
-
--(void) sendBack {
-    [[BoxeeConnectionManager sharedManager] sendKeyToBoxee:BoxeeKeyCodeBack];
-}
-
 
 
 #pragma mark - Internal utility methods
@@ -82,22 +89,34 @@
 -(void) setupButtons {
     
     self.btnUp.layer.cornerRadius = 8.0f;
-    [self.btnUp addTarget:self action:@selector(sendMoveUp) forControlEvents:UIControlEventTouchUpInside];
+    self.btnUp.tag = BoxeeKeyCodeUp;
+    [self.btnUp addTarget:self action:@selector(touchedDownButton:) forControlEvents:UIControlEventTouchDown];
+    [self.btnUp addTarget:self action:@selector(touchedUpButton:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpInside];
     
     self.btnRight.layer.cornerRadius = 8.0f;
-    [self.btnRight addTarget:self action:@selector(sendMoveRight) forControlEvents:UIControlEventTouchUpInside];
+    self.btnRight.tag = BoxeeKeyCodeRight;
+    [self.btnRight addTarget:self action:@selector(touchedDownButton:) forControlEvents:UIControlEventTouchDown];
+    [self.btnRight addTarget:self action:@selector(touchedUpButton:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpInside];
     
     self.btnDown.layer.cornerRadius = 8.0f;
-    [self.btnDown addTarget:self action:@selector(sendMoveDown) forControlEvents:UIControlEventTouchUpInside];
+    self.btnDown.tag = BoxeeKeyCodeDown;
+    [self.btnDown addTarget:self action:@selector(touchedDownButton:) forControlEvents:UIControlEventTouchDown];
+    [self.btnDown addTarget:self action:@selector(touchedUpButton:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpInside];
     
     self.btnLeft.layer.cornerRadius = 8.0f;
-    [self.btnLeft addTarget:self action:@selector(sendMoveLeft) forControlEvents:UIControlEventTouchUpInside];
+    self.btnLeft.tag = BoxeeKeyCodeLeft;
+    [self.btnLeft addTarget:self action:@selector(touchedDownButton:) forControlEvents:UIControlEventTouchDown];
+    [self.btnLeft addTarget:self action:@selector(touchedUpButton:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpInside];
     
     self.btnEnter.layer.cornerRadius = 29.0f;
-    [self.btnEnter addTarget:self action:@selector(sendGo) forControlEvents:UIControlEventTouchUpInside];
+    self.btnEnter.tag = BoxeeKeyCodeGo;
+    [self.btnEnter addTarget:self action:@selector(touchedDownButton:) forControlEvents:UIControlEventTouchDown];
+    [self.btnEnter addTarget:self action:@selector(touchedUpButton:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpInside];
     
     self.btnOptions.layer.cornerRadius = 8.0f;
-    [self.btnOptions addTarget:self action:@selector(sendBack) forControlEvents:UIControlEventTouchUpInside];
+    self.btnOptions.tag = BoxeeKeyCodeBack;
+    [self.btnOptions addTarget:self action:@selector(touchedDownButton:) forControlEvents:UIControlEventTouchDown];
+    [self.btnOptions addTarget:self action:@selector(touchedUpButton:) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpInside];
     
     [self.btnBoxeeLogo addTarget:self action:@selector(doDisconnectBoxee) forControlEvents:UIControlEventTouchUpInside];
 

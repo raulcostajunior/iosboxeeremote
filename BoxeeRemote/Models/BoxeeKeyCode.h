@@ -12,6 +12,7 @@
 // TODO: add key codes for the characters available in the original Boxee Remote
 
 typedef NS_ENUM(NSInteger, BoxeeKeyCode) {
+    BoxeeKeyCodeNone = -1,
     BoxeeKeyCodeLeft = 272,
     BoxeeKeyCodeUp = 270,
     BoxeeKeyCodeRight = 273,

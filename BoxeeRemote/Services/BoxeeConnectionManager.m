@@ -17,6 +17,8 @@
 @interface BoxeeConnectionManager () <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
     BOOL _connectingToBoxee;   // Indicates that the next keep alive response must be handled as a "connection request" to the Boxee.
     BOOL _connectedToBoxee;    // Indicates that there's a boxee connected - actually, it indicates that the last keep alive was successful.
+    BOOL _autoRepeatKeyOn;     // Indicates whether auto repeat mode for send key to Boxee is active.
+    NSInteger  _autoRepeatCount;     // Keeps track of how many times a key has been sent in auto repeat mode - used to progressively decrease auto repeat interval.
     
     NSURLConnection *_updateStateConnection;
     
@@ -35,6 +37,7 @@
 static NSString *const kCmdUrlTemplate = @"http://%@:%ld/xbmcCmds/xbmcHttp?command=%@";
 
 static const NSInteger kIntervalUpdateState = 10; // Interval between successive update state pulses - in seconds.
+static const NSInteger kIntervalUpdateStateAutoRepeat = 1; // Interval between successive update state pulses - in seconds - while in autorepeat mode.
 
 static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I have access to, the user is fixed as "boxee".
 
@@ -61,6 +64,8 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     if (self) {
         _connectedToBoxee = NO;
         _connectingToBoxee = NO;
+        _autoRepeatKeyOn = NO;
+        _autoRepeatCount = 0;
     }
     
     return self;
@@ -130,6 +135,8 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     
     _connectedToBoxee = NO;
     _connectingToBoxee = NO;
+    _autoRepeatKeyOn = NO;
+    _autoRepeatCount = 0;
     
     if (self.delegate) {
         [self.delegate disconnectedFromBoxee:self.currentConnection];
@@ -142,12 +149,31 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
 
 #pragma mark - Send Command methods
 
-
--(void) sendKeyToBoxee:(BoxeeKeyCode)keyCode {
+-(void) startSendKeyToBoxee:(BoxeeKeyCode)keyCode {
     
+    _autoRepeatKeyOn = YES;
+    _autoRepeatCount = 0;
+    
+    [self sendKeyToBoxee:keyCode];
+    
+    // Resets the update timer to the auto repeat interval - during an auto repeat sequence the state updates must be more frequent.
     if (_updateStateTimer) {
         [_updateStateTimer invalidate];
     }
+    [self updateBoxeeState:nil];
+
+}
+
+
+-(void) stopSendKeyToBoxee {
+    
+    _autoRepeatKeyOn = NO;
+    
+}
+
+
+
+-(void) sendKeyToBoxee:(BoxeeKeyCode)keyCode {
     
     NSString *keyCmd = [NSString stringWithFormat:@"SendKey(%ld)", (long)keyCode];
     NSString *urlAsString = [NSString stringWithFormat:kCmdUrlTemplate, self.currentConnection.hostname, (long)self.currentConnection.port, keyCmd];
@@ -156,13 +182,30 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     NSURLRequest *request = [NSURLRequest requestWithURL:sendKeyUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:4];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        // Response is intentionally ignored, as an UpdateRequest is immediatelly dispatched - leave any potential connection health issue be handled by the next update cycle.
         
+        if (!connectionError) {
+            // Command has been sent successfully; after waiting for a progressively decreasing delay - to prevent flooding the Boxee with commands - send the command again if autoRepeat mode is still active
+            double delayInSeconds = 0.5 - 0.25*_autoRepeatCount;
+            if (delayInSeconds > 0.0) {
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    if (_autoRepeatKeyOn) {
+                        _autoRepeatCount++;
+                        [self sendKeyToBoxee:keyCode];
+                    }
+                });
+            }
+            else {
+                if (_autoRepeatKeyOn) {
+                    _autoRepeatCount++;
+                    [self sendKeyToBoxee:keyCode];
+                }
+            }
+        }
+           
         if (connectionError) {
             NSLog(@"Error during sendKeyToBoxee command: '%@'", connectionError.description);
         }
-        
-        [self updateBoxeeState:nil];
         
     }];
     
@@ -245,7 +288,8 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
             NSLog(@"Periodic update boxee state request successful");
         }
         
-        _updateStateTimer = [NSTimer scheduledTimerWithTimeInterval:kIntervalUpdateState target:self selector:@selector(updateBoxeeState:) userInfo:nil repeats:NO];
+        NSInteger updateInterval = (_autoRepeatKeyOn ? kIntervalUpdateStateAutoRepeat : kIntervalUpdateState);
+        _updateStateTimer = [NSTimer scheduledTimerWithTimeInterval:updateInterval target:self selector:@selector(updateBoxeeState:) userInfo:nil repeats:NO];
         
     }
     else {
@@ -291,8 +335,6 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     return mutRequest;
     
 }
-
-
 
 
 @end

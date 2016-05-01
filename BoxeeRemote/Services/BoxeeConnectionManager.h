@@ -29,7 +29,9 @@
 
 -(void) disconnectFromBoxee;
 
--(void) sendKeyToBoxee:(BoxeeKeyCode)keyCode;
+-(void) startSendKeyToBoxee:(BoxeeKeyCode)keyCode;
+
+-(void) stopSendKeyToBoxee;
 
 -(void) sendToggleMuteToBoxee;
 
