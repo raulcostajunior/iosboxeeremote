@@ -37,7 +37,6 @@
 static NSString *const kCmdUrlTemplate = @"http://%@:%ld/xbmcCmds/xbmcHttp?command=%@";
 
 static const NSInteger kIntervalUpdateState = 10; // Interval between successive update state pulses - in seconds.
-static const NSInteger kIntervalUpdateStateAutoRepeat = 1; // Interval between successive update state pulses - in seconds - while in autorepeat mode.
 
 static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I have access to, the user is fixed as "boxee".
 
@@ -156,11 +155,10 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     
     [self sendKeyToBoxee:keyCode];
     
-    // Resets the update timer to the auto repeat interval - during an auto repeat sequence the state updates must be more frequent.
+    // Resets the update timer during an auto repeat sequence the state updates must be stopped.
     if (_updateStateTimer) {
         [_updateStateTimer invalidate];
     }
-    [self updateBoxeeState:nil];
 
 }
 
@@ -169,6 +167,14 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     
     _autoRepeatKeyOn = NO;
     
+    // Resumes update cycles after a small delay to prevent lack of responsiveness after an auto repeat sequence
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        if (!_autoRepeatKeyOn) {
+            [self updateBoxeeState:nil];
+        }
+    });
 }
 
 
@@ -185,24 +191,16 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
         
         if (!connectionError) {
             // Command has been sent successfully; after waiting for a progressively decreasing delay - to prevent flooding the Boxee with commands - send the command again if autoRepeat mode is still active
-            double delayInSeconds = 0.5 - 0.25*_autoRepeatCount;
-            if (delayInSeconds > 0.0) {
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    if (_autoRepeatKeyOn) {
-                        _autoRepeatCount++;
-                        [self sendKeyToBoxee:keyCode];
-                    }
-                });
-            }
-            else {
+            double delayInSeconds = (_autoRepeatCount == 0 ? 0.8 : 0.05);
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 if (_autoRepeatKeyOn) {
                     _autoRepeatCount++;
                     [self sendKeyToBoxee:keyCode];
                 }
-            }
+            });
         }
-           
+        
         if (connectionError) {
             NSLog(@"Error during sendKeyToBoxee command: '%@'", connectionError.description);
         }
@@ -288,8 +286,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
             NSLog(@"Periodic update boxee state request successful");
         }
         
-        NSInteger updateInterval = (_autoRepeatKeyOn ? kIntervalUpdateStateAutoRepeat : kIntervalUpdateState);
-        _updateStateTimer = [NSTimer scheduledTimerWithTimeInterval:updateInterval target:self selector:@selector(updateBoxeeState:) userInfo:nil repeats:NO];
+        _updateStateTimer = [NSTimer scheduledTimerWithTimeInterval:kIntervalUpdateState target:self selector:@selector(updateBoxeeState:) userInfo:nil repeats:NO];
         
     }
     else {
