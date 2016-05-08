@@ -46,7 +46,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     BoxeeConnection *lastConnection = [[BoxeeConnectionManager sharedManager] lastSuccessfulConnection];
     if (lastConnection) {
         self.txtBoxeeHost.text = lastConnection.hostname;
-        self.txtBoxeePort.text = [NSString stringWithFormat:@"%d", lastConnection.port];
+        self.txtBoxeePort.text = [NSString stringWithFormat:@"%ld", (long)lastConnection.port];
         self.txtBoxeePassword.text = lastConnection.password;
     }
 }

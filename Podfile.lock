@@ -1,12 +1,21 @@
 PODS:
+  - CocoaAsyncSocket (7.4.3):
+    - CocoaAsyncSocket/All (= 7.4.3)
+  - CocoaAsyncSocket/All (7.4.3):
+    - CocoaAsyncSocket/GCD
+    - CocoaAsyncSocket/RunLoop
+  - CocoaAsyncSocket/GCD (7.4.3)
+  - CocoaAsyncSocket/RunLoop (7.4.3)
   - SSKeychain (1.4.0)
   - Toast (3.0)
 
 DEPENDENCIES:
+  - CocoaAsyncSocket (= 7.4.3)
   - SSKeychain (= 1.4.0)
   - Toast (= 3.0)
 
 SPEC CHECKSUMS:
+  CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   SSKeychain: c71293fa57216a40ab06c23f4085387583293de4
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
 

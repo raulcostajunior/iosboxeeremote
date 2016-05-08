@@ -9,7 +9,7 @@
 #define BoxeeKeyCode_h
 
 
-// TODO: add key codes for the characters available in the original Boxee Remote
+// TODO: add key codes for the characters available in the original Boxee Remote physical keyboard
 
 typedef NS_ENUM(NSInteger, BoxeeKeyCode) {
     BoxeeKeyCodeNone = -1,

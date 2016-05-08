@@ -94,6 +94,15 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
 
 -(void) connectToBoxee:(BoxeeConnection *)connectionParams {
     
+    
+    if (_connectingToBoxee) {
+        NSLog(@"Wrong usage warning: Boxee connection manager only supports one ongoing connection at a time. You're attempting to simultaneously estabilish multiple connections.");
+        NSLog(@"Connection request will be ignored.");
+        
+        return;
+    }
+    
+    
     self.currentConnection = connectionParams;
     
     if (_updateStateTimer) {

@@ -16,7 +16,6 @@
 
 @property (nonatomic, strong) NSString *hostname;
 @property (nonatomic) NSInteger port;
-@property (nonatomic, readonly) NSInteger defaultPort;
 @property (nonatomic, strong) NSString *password;
 
 @end

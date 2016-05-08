@@ -12,6 +12,7 @@
 		CB0512AF1CBAD34F0015780A /* BoxeeConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0512AE1CBAD34F0015780A /* BoxeeConnection.m */; };
 		CB0512B21CBB17D20015780A /* BoxeeState.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0512B11CBB17D20015780A /* BoxeeState.m */; };
 		CB1F79A31CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1F79A21CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m */; };
+		CB212D081CDF7FE50097BDAB /* BoxeeScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = CB212D071CDF7FE50097BDAB /* BoxeeScanner.m */; };
 		CB34DB371CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB34DB3A1CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib */; };
 		CB3CA7B41C69168C007D48EA /* ConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */; };
 		CB3CA7B71C6917EB007D48EA /* ConnectionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */; };
@@ -38,6 +39,9 @@
 		CB0512B11CBB17D20015780A /* BoxeeState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeState.m; sourceTree = "<group>"; };
 		CB1F79A11CBF16A50022A5C8 /* LastSuccessfulConnectionStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LastSuccessfulConnectionStore.h; sourceTree = "<group>"; };
 		CB1F79A21CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastSuccessfulConnectionStore.m; sourceTree = "<group>"; };
+		CB212D051CDF53790097BDAB /* BoxeeScanningDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeScanningDelegate.h; sourceTree = "<group>"; };
+		CB212D061CDF565A0097BDAB /* BoxeeScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeScanner.h; sourceTree = "<group>"; };
+		CB212D071CDF7FE50097BDAB /* BoxeeScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeScanner.m; sourceTree = "<group>"; };
 		CB3CA7B21C69168C007D48EA /* ConnectingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectingViewController.h; sourceTree = "<group>"; };
 		CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectingViewController.m; sourceTree = "<group>"; };
 		CB3CA7B51C6917EB007D48EA /* ConnectionSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionSettingsViewController.h; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 			children = (
 				CB66515B1C7A3ED7004ABF96 /* BoxeeConnectionManager.h */,
 				CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */,
+				CB212D061CDF565A0097BDAB /* BoxeeScanner.h */,
+				CB212D071CDF7FE50097BDAB /* BoxeeScanner.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -116,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				CB66515F1C7A4EA7004ABF96 /* BoxeeConnectionDelegate.h */,
+				CB212D051CDF53790097BDAB /* BoxeeScanningDelegate.h */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -346,6 +353,7 @@
 				CB66515D1C7A400D004ABF96 /* BoxeeConnectionManager.m in Sources */,
 				CB0512B21CBB17D20015780A /* BoxeeState.m in Sources */,
 				CB0512A91CBAA9D60015780A /* StandardModeViewController.m in Sources */,
+				CB212D081CDF7FE50097BDAB /* BoxeeScanner.m in Sources */,
 				CB879BFA1C4C60F800B1CDB9 /* AppBaseViewController.m in Sources */,
 				CB3CA7B71C6917EB007D48EA /* ConnectionSettingsViewController.m in Sources */,
 				CB8DE7BF1C4BCCCD004D8C67 /* AppDelegate.m in Sources */,
@@ -473,7 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.BoxeeRemote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -491,7 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.dstreams.BoxeeRemote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
