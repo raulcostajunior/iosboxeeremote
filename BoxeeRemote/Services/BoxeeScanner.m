@@ -4,17 +4,23 @@
 //  Created by Raul Costa Junior on 5/8/16.
 //  Copyright © 2016 Digital Streams. All rights reserved.
 //
+//  The documentation for Boxee's discovery request and response can be found at
+//  https://web.archive.org/web/20130603035923/http://developer.boxee.tv/Remote_Control_Interface
+//  (the original site is not available anymore).
 
+#import <CommonCrypto/CommonDigest.h>
 #import <Foundation/Foundation.h>
 
 #import "BoxeeConnection.h"
 #import "BoxeeScanner.h"
 #import "BoxeeScanningDelegate.h"
+#import "GCDAsyncUdpSocket.h"
 
 
-@interface BoxeeScanner() {
+@interface BoxeeScanner() <GCDAsyncUdpSocketDelegate> {
     
     BOOL _scanningBoxees;
+    GCDAsyncUdpSocket *_udpSocket;
     
 }
 
@@ -23,6 +29,16 @@
 
 
 @implementation BoxeeScanner
+
+
+#pragma mark - Boxee scanning parameters - no need to externalize as they're not configurable
+
+static NSString *const BOXEE_APP = @"iphone_remote";
+static NSString *const BOXEE_KEY = @"b0xeeRem0tE!";
+static NSString *const BOXEE_CHALLENGE = @"boxeeChallenge"; // Can be any string
+static NSInteger BOXEE_UDP_PORT = 2562;
+static NSString *const BOXEE_UDP_BROADCAST_ADDR = @"255.255.255.255";
+static NSTimeInterval SCAN_TIMEOUT_SECONDS = 4.0;
 
 
 #pragma mark - Singleton life cycle
@@ -74,14 +90,167 @@
         return;
     }
     
-    // TODO: add method body
+    _scanningBoxees = YES;
+    
+    if (self.delegate) {
+        [self.delegate startedScanningForBoxees];
+    }
+    
+    NSError *error;
+    BOOL socketInitialized = [self initUdpSocket:&error];
+    
+    if (!socketInitialized) {
+        NSLog(@"UDP socket could not be initialized. Scan process aborted.");
+        if (self.delegate) {
+            [self.delegate errorWhileScanningForBoxees:error];
+        }
+        _scanningBoxees = NO;
+        return;
+    }
+    
+    
+    [self broadcastScanMessage];
+    
 }
+
 
 -(void) cancelBoxeeScanning {
     
-    // TODO: add method body
+    [_udpSocket close];
+    
+    _scanningBoxees = NO;
+    
+    if (self.delegate) {
+        [self.delegate cancelledScanningForBoxees];
+    }
+    
+    _udpSocket = nil;
+    
 }
 
+
+#pragma mark - UDP based communication (includes GCDAsyncUdpSocketDelegate methods)
+
+
+-(BOOL) initUdpSocket:(NSError *__autoreleasing *)errorPtr {
+
+    _udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    
+    NSError *__autoreleasing error;
+    
+    [_udpSocket bindToPort:0 error:&error];
+    if (error) {
+        NSLog(@"Error initializing socket - binding to port 0: %@", error.description);
+        errorPtr = &error;
+        return NO;
+    }
+    
+    [_udpSocket beginReceiving:&error];
+    if (error) {
+        NSLog(@"Error initializing socket - in beginReceiving call: %@", error.description);
+        errorPtr = &error;
+        return NO;
+    }
+    
+    
+    [_udpSocket enableBroadcast:YES error:&error];
+    if (error) {
+        NSLog(@"Error initializing socket - in enableBroadcast call: %@", error.description);
+        errorPtr = &error;
+        return NO;
+    }
+    else {
+        errorPtr = nil;
+        return YES;
+    }
+    
+}
+
+
+
+-(void) broadcastScanMessage {
+    
+    NSString *signature = [self signatureFromChallenge:BOXEE_CHALLENGE];
+    NSString *scanMsg = [NSString stringWithFormat:@"<?xml version=\"1.0\"?>\n<BDP1 cmd=\"discover\" application=\"%@\" challenge=\"%@\" signature=\"%@\"/>", BOXEE_APP, BOXEE_CHALLENGE, signature];
+    NSData *scanMsgData = [scanMsg dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [_udpSocket sendData:scanMsgData toHost:BOXEE_UDP_BROADCAST_ADDR port:BOXEE_UDP_PORT withTimeout:SCAN_TIMEOUT_SECONDS tag:1];
+}
+
+
+
+// Method from GCDAsyncUdpSocketDelegate
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error {
+    
+    [_udpSocket close];
+    
+    _scanningBoxees = NO;
+    
+    if (self.delegate) {
+        [self.delegate errorWhileScanningForBoxees:error];
+    }
+    
+    _udpSocket = nil;
+    
+}
+
+
+// Method from GCDAsyncUdpSocketDelegate
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext {
+    
+    // TODO: parse response into multiple BoxeeConnections and call the delegate's method to signal a successful scan
+    
+    // Temporary code to dump the results in the logging console
+    NSString *scanResponseContents = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"Scan response:");
+    NSLog(@"%@",scanResponseContents);
+    
+    [_udpSocket close];
+    
+    _scanningBoxees = NO;
+    
+    _udpSocket = nil;
+    
+}
+
+
+- (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error {
+    
+    NSLog(@"Socket closed");
+    if (error) {
+        NSLog(@"Socket closed with error: %@", error.description);
+    }
+    
+}
+
+
+#pragma mark - Internal utility functions
+
+
+-(NSString *)signatureFromChallenge:(NSString *)challenge {
+    
+    NSString *md5Entry = [NSString stringWithFormat:@"%@%@", challenge, BOXEE_KEY];
+    return [self md5ForString:md5Entry];
+    
+}
+
+
+// Extracted from http://stackoverflow.com/questions/652300/using-md5-hash-on-a-string-in-cocoa?rq=1
+-(NSString *) md5ForString:(NSString *)str {
+    const char *cStr = [str UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5( cStr, (CC_LONG)strlen(cStr), result );
+    return [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
+            result[0], result[1],
+            result[2], result[3],
+            result[4], result[5],
+            result[6], result[7],
+            result[8], result[9],
+            result[10], result[11],
+            result[12], result[13],
+            result[14], result[15]
+            ];
+}
 
 
 @end

@@ -8,10 +8,12 @@
 
 #import "BoxeeConnection.h"
 #import "BoxeeConnectionManager.h"
+#import "BoxeeScanner.h"
+#import "BoxeeScanningDelegate.h"
 #import "ConnectionSettingsViewController.h"
 #import "UIView+Toast.h"
 
-@interface ConnectionSettingsViewController () <UITextFieldDelegate>
+@interface ConnectionSettingsViewController () <UITextFieldDelegate, BoxeeScanningDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *txtBoxeeHost;
 
@@ -147,6 +149,40 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 }
 
 
+#pragma mark - BoxeeScanningDelegate methods
+
+
+-(void) startedScanningForBoxees {
+    
+    // TODO: add method body
+    
+}
+
+
+
+-(void) cancelledScanningForBoxees {
+    
+    // TODO: add method body
+    
+}
+
+
+
+-(void) finishedScanningForBoxees:(NSArray<BoxeeConnection *> *)boxeesFound {
+    
+    // TODO: add method body
+    
+}
+
+
+
+-(void) errorWhileScanningForBoxees:(NSError *)error {
+    
+    // TODO: add method body
+    
+}
+
+
 
 #pragma mark - Action methods
 
@@ -186,7 +222,9 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 
 -(void) doFindBoxees {
-    
+
+    [BoxeeScanner sharedScanner].delegate = self;
+    [[BoxeeScanner sharedScanner] scanForBoxees];
     
 }
 
@@ -194,6 +232,14 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 -(void) doCancelConnection {
     
     [[BoxeeConnectionManager sharedManager] cancelConnection];
+}
+
+
+
+-(void) doCancelBoxeeScan {
+    
+    [[BoxeeScanner sharedScanner] cancelBoxeeScanning];
+    
 }
 
 
@@ -236,6 +282,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     self.btnScanBoxees.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.btnScanBoxees.layer.borderWidth = 1.0;
     self.btnScanBoxees.layer.cornerRadius = 5.0;
+    [self.btnScanBoxees addTarget:self action:@selector(doFindBoxees) forControlEvents:UIControlEventTouchUpInside];
     self.btnScanBoxees.enabled = YES;
     
     self.btnConnectBoxee.layer.borderColor = [[UIColor colorWithRed:174.0/255.0 green:254.0/255.0 blue:133.0/255.0 alpha:1.0] CGColor];
