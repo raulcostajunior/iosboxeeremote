@@ -127,6 +127,15 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     
     [_updateStateConnection cancel];
     
+    _connectedToBoxee = NO;
+    _connectingToBoxee = NO;
+    _autoRepeatKeyOn = NO;
+    _autoRepeatCount = 0;
+    
+    if (_updateStateTimer) {
+        [_updateStateTimer invalidate];
+    }
+    
     if (self.delegate) {
         [self.delegate cancelledConnectingToBoxee:self.currentConnection];
     }
@@ -325,7 +334,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
 -(NSURLRequest *)addAuthenticationHeaderToRequest:(NSURLRequest *)request withUser:(NSString*)user andPassword:(NSString *)password {
     
     NSMutableURLRequest *mutRequest = [request mutableCopy];
-    
+
     NSString *plainToken = [NSString stringWithFormat:@"%@:%@", user, password];
     NSData *tokenData = [plainToken dataUsingEncoding:NSUTF8StringEncoding];
     NSData *encodedToken = [tokenData base64EncodedDataWithOptions:0];

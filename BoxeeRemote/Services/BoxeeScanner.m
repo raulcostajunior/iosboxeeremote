@@ -8,19 +8,22 @@
 //  https://web.archive.org/web/20130603035923/http://developer.boxee.tv/Remote_Control_Interface
 //  (the original site is not available anymore).
 
+#import <arpa/inet.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <Foundation/Foundation.h>
 
-#import "BoxeeConnection.h"
+#import "BoxeeScanInfo.h"
 #import "BoxeeScanner.h"
 #import "BoxeeScanningDelegate.h"
+#import "DDXML.h"
 #import "GCDAsyncUdpSocket.h"
 
 
 @interface BoxeeScanner() <GCDAsyncUdpSocketDelegate> {
     
-    BOOL _scanningBoxees;
+    BOOL _scanningBoxee;
     GCDAsyncUdpSocket *_udpSocket;
+    NSTimer *_scanTimeoutTimer;
     
 }
 
@@ -38,7 +41,7 @@ static NSString *const BOXEE_KEY = @"b0xeeRem0tE!";
 static NSString *const BOXEE_CHALLENGE = @"boxeeChallenge"; // Can be any string
 static NSInteger BOXEE_UDP_PORT = 2562;
 static NSString *const BOXEE_UDP_BROADCAST_ADDR = @"255.255.255.255";
-static NSTimeInterval SCAN_TIMEOUT_SECONDS = 4.0;
+static NSTimeInterval SCAN_TIMEOUT_SECONDS = 5.0;
 
 
 #pragma mark - Singleton life cycle
@@ -61,7 +64,7 @@ static NSTimeInterval SCAN_TIMEOUT_SECONDS = 4.0;
     self = [super init];
     
     if (self) {
-        _scanningBoxees = NO;
+        _scanningBoxee = NO;
     }
     
     return self;
@@ -83,14 +86,14 @@ static NSTimeInterval SCAN_TIMEOUT_SECONDS = 4.0;
 
 -(void) scanForBoxees {
     
-    if (_scanningBoxees) {
+    if (_scanningBoxee) {
         NSLog(@"Wrong usage warning: Boxee scanner only supports one device scan at a time. You're attempting to start multiple simultaneous scannings.");
         NSLog(@"Scanning request will be ignored.");
         
         return;
     }
     
-    _scanningBoxees = YES;
+    _scanningBoxee = YES;
     
     if (self.delegate) {
         [self.delegate startedScanningForBoxees];
@@ -104,11 +107,10 @@ static NSTimeInterval SCAN_TIMEOUT_SECONDS = 4.0;
         if (self.delegate) {
             [self.delegate errorWhileScanningForBoxees:error];
         }
-        _scanningBoxees = NO;
+        _scanningBoxee = NO;
         return;
     }
-    
-    
+
     [self broadcastScanMessage];
     
 }
@@ -118,7 +120,7 @@ static NSTimeInterval SCAN_TIMEOUT_SECONDS = 4.0;
     
     [_udpSocket close];
     
-    _scanningBoxees = NO;
+    _scanningBoxee = NO;
     
     if (self.delegate) {
         [self.delegate cancelledScanningForBoxees];
@@ -174,7 +176,30 @@ static NSTimeInterval SCAN_TIMEOUT_SECONDS = 4.0;
     NSString *scanMsg = [NSString stringWithFormat:@"<?xml version=\"1.0\"?>\n<BDP1 cmd=\"discover\" application=\"%@\" challenge=\"%@\" signature=\"%@\"/>", BOXEE_APP, BOXEE_CHALLENGE, signature];
     NSData *scanMsgData = [scanMsg dataUsingEncoding:NSUTF8StringEncoding];
     
-    [_udpSocket sendData:scanMsgData toHost:BOXEE_UDP_BROADCAST_ADDR port:BOXEE_UDP_PORT withTimeout:SCAN_TIMEOUT_SECONDS tag:1];
+    // Send data with negative timeout to prevent time outs from the AsyncSocket layer - relying on soft timeouts controlled by a timer owned by the service instance instead.
+    [_udpSocket sendData:scanMsgData toHost:BOXEE_UDP_BROADCAST_ADDR port:BOXEE_UDP_PORT withTimeout:-1 tag:1];
+    _scanTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:SCAN_TIMEOUT_SECONDS target:self selector:@selector(scanTimedOut:) userInfo:nil repeats:NO];
+}
+
+
+-(void) scanTimedOut:(NSTimer *)timer {
+    
+    if (_scanningBoxee) {
+        
+        [_udpSocket close];
+        _scanningBoxee = NO;
+        _udpSocket = nil;
+        
+        // A timeout scanning for boxees is interpreted as a finished scan process that didn't manage to find any boxee.
+        if (self.delegate) {
+            [self.delegate finishedScanningForBoxees:nil];
+        }
+    }
+    
+    if (_scanTimeoutTimer) {
+        [_scanTimeoutTimer invalidate];
+    }
+    
 }
 
 
@@ -183,14 +208,12 @@ static NSTimeInterval SCAN_TIMEOUT_SECONDS = 4.0;
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error {
     
     [_udpSocket close];
-    
-    _scanningBoxees = NO;
+    _scanningBoxee = NO;
+    _udpSocket = nil;
     
     if (self.delegate) {
         [self.delegate errorWhileScanningForBoxees:error];
     }
-    
-    _udpSocket = nil;
     
 }
 
@@ -198,22 +221,54 @@ static NSTimeInterval SCAN_TIMEOUT_SECONDS = 4.0;
 // Method from GCDAsyncUdpSocketDelegate
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext {
     
-    // TODO: parse response into multiple BoxeeConnections and call the delegate's method to signal a successful scan
-    
-    // Temporary code to dump the results in the logging console
-    NSString *scanResponseContents = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"Scan response:");
-    NSLog(@"%@",scanResponseContents);
-    
     [_udpSocket close];
-    
-    _scanningBoxees = NO;
-    
+    _scanningBoxee = NO;
     _udpSocket = nil;
     
+    struct sockaddr_in *fromAddr;
+    fromAddr = (struct sockaddr_in *)[address bytes];
+    NSString *boxeeIpAddr = [NSString stringWithCString:inet_ntoa(fromAddr->sin_addr) encoding:NSASCIIStringEncoding];
+    
+    NSString *scanResponseContents = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    BoxeeScanInfo *boxeeInfo = [[BoxeeScanInfo alloc] init];
+    boxeeInfo.ipAddress = boxeeIpAddr;
+
+    NSError *error = [[NSError alloc] init];
+    NSXMLDocument *respDoc = [[NSXMLDocument alloc] initWithXMLString:scanResponseContents options:1 << 9 error:&error];
+    if (error.domain != nil && error.code != 0) {
+        
+        if (self.delegate) {
+            [self.delegate errorWhileScanningForBoxees:error];
+        }
+        
+    }
+    else {
+        for (NSXMLNode *attrib in respDoc.rootElement.attributes) {
+            if ([attrib.name isEqualToString:@"version"]) {
+                boxeeInfo.version = [attrib stringValue];
+            }
+            else if ([attrib.name isEqualToString:@"httpPort"]) {
+                boxeeInfo.port = [[attrib stringValue] integerValue];
+            }
+            else if ([attrib.name isEqualToString:@"httpAuthRequired"]) {
+                boxeeInfo.authenticationRequired = [[attrib stringValue] boolValue];
+            }
+            else if ([attrib.name isEqualToString:@"name"]) {
+                boxeeInfo.name = [attrib stringValue];
+            }
+        }
+        
+        if (self.delegate) {
+            [self.delegate finishedScanningForBoxees:boxeeInfo];
+        }
+    }
+
 }
 
 
+
+// Method from GCDAsyncUdpSocketDelegate
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error {
     
     NSLog(@"Socket closed");

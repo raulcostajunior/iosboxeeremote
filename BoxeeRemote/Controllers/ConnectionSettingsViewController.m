@@ -8,6 +8,7 @@
 
 #import "BoxeeConnection.h"
 #import "BoxeeConnectionManager.h"
+#import "BoxeeScanInfo.h"
 #import "BoxeeScanner.h"
 #import "BoxeeScanningDelegate.h"
 #import "ConnectionSettingsViewController.h"
@@ -154,7 +155,9 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) startedScanningForBoxees {
     
-    // TODO: add method body
+    [self.activityIndicator startAnimating];
+    
+    [self setupButtonsScanningState];
     
 }
 
@@ -162,15 +165,34 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) cancelledScanningForBoxees {
     
-    // TODO: add method body
+    // TODO: add method body as soon as scan action becomes cancellable. For now it is now cancellable as it has a very short timeout, 5 secs.
     
 }
 
 
 
--(void) finishedScanningForBoxees:(NSArray<BoxeeConnection *> *)boxeesFound {
+-(void) finishedScanningForBoxees:(BoxeeScanInfo *)boxeeFound {
     
-    // TODO: add method body
+    [self.activityIndicator stopAnimating];
+    
+    [self setupButtonsDefaultState];
+    
+    if (boxeeFound) {
+        
+        // TODO: localize information, add authentication required details to it and implement UIAlertViewDelegate to connect if user presses YES.
+        UIAlertView *boxeeInfoMsg = [[UIAlertView alloc] initWithTitle:@"Boxee Found" message:[NSString stringWithFormat:@"A Boxee was found at %@, port %ld.\nConnect to it?", boxeeFound.ipAddress, (long)boxeeFound.port] delegate:nil cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        [boxeeInfoMsg show];
+        
+    }
+    else {
+        
+        CSToastStyle *infoStyle = [[CSToastStyle alloc] initWithDefaultStyle];
+        infoStyle.backgroundColor = [UIColor grayColor];
+        
+        // TODO: localize message.
+        [self.viewToastContainer makeToast:@"Please try again" duration:3.5f position:CSToastPositionTop title:@"No Boxee found" image:nil style:infoStyle completion:nil];
+        
+    }
     
 }
 
@@ -178,7 +200,15 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) errorWhileScanningForBoxees:(NSError *)error {
     
-    // TODO: add method body
+    [self.activityIndicator stopAnimating];
+    
+    [self setupButtonsDefaultState];
+    
+    CSToastStyle *errorStyle = [[CSToastStyle alloc] initWithDefaultStyle];
+    errorStyle.backgroundColor = [UIColor redColor];
+    
+    // TODO: Localize message and see if any improvement can be made to it.
+    [self.viewToastContainer makeToast:@"Error searching for Boxee. Please try again." duration:3.5f position:CSToastPositionTop style:errorStyle];
     
 }
 
@@ -282,6 +312,8 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     self.btnScanBoxees.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.btnScanBoxees.layer.borderWidth = 1.0;
     self.btnScanBoxees.layer.cornerRadius = 5.0;
+    [self.btnScanBoxees removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
+    [self.btnScanBoxees setTitle:NSLocalizedString(@"scanBoxeeLabel", @"Button label for scan Boxee action") forState:UIControlStateNormal];
     [self.btnScanBoxees addTarget:self action:@selector(doFindBoxees) forControlEvents:UIControlEventTouchUpInside];
     self.btnScanBoxees.enabled = YES;
     
@@ -308,6 +340,22 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     [self.btnConnectBoxee setTitle:NSLocalizedString(@"cancelConnectionLabel", @"Button label for cancel ongoing connection action") forState:UIControlStateNormal];
     [self.btnConnectBoxee addTarget:self action:@selector(doCancelConnection) forControlEvents:UIControlEventTouchUpInside];
     self.btnConnectBoxee.enabled = YES;
+}
+
+
+
+-(void) setupButtonsScanningState {
+    self.btnScanBoxees.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.btnScanBoxees.layer.borderWidth = 1.0;
+    self.btnScanBoxees.layer.cornerRadius = 5.0;
+    [self.btnScanBoxees setTitle:NSLocalizedString(@"scanningBoxeeLabel", @"Button label for scanning Boxee action") forState:UIControlStateNormal];
+    self.btnScanBoxees.enabled = NO;
+    
+    self.btnConnectBoxee.layer.borderColor = [[UIColor colorWithRed:174.0/255.0 green:254.0/255.0 blue:133.0/255.0 alpha:1.0] CGColor];
+    self.btnConnectBoxee.layer.borderWidth = 1.0;
+    self.btnConnectBoxee.layer.cornerRadius = 5.0;
+    self.btnConnectBoxee.enabled = NO;
+
 }
 
 

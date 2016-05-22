@@ -23,6 +23,7 @@
 		CB8DE7BF1C4BCCCD004D8C67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BE1C4BCCCD004D8C67 /* AppDelegate.m */; };
 		CB90BE011CB998DA0037B5E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB90BDFF1CB998DA0037B5E0 /* Localizable.strings */; };
 		CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */; };
+		CBCF61551CF107B500AFA903 /* BoxeeScanInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCF61541CF107B500AFA903 /* BoxeeScanInfo.m */; };
 		CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */; };
 		DB1A8D3C1BE60135ADBF3107 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 705362119A6FCE1736ED86E6 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		CB90BE001CB998DA0037B5E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CB90BE021CB998E80037B5E0 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = appAssets.xcassets; sourceTree = "<group>"; };
+		CBCF61531CF0F5E600AFA903 /* BoxeeScanInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeScanInfo.h; sourceTree = "<group>"; };
+		CBCF61541CF107B500AFA903 /* BoxeeScanInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeScanInfo.m; sourceTree = "<group>"; };
 		CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerRouter.h; sourceTree = "<group>"; };
 		CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRouter.m; sourceTree = "<group>"; };
 		CBE14F671CA8746200C76936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConnectionSettingsViewController.xib; sourceTree = "<group>"; };
@@ -197,8 +200,10 @@
 				CB6651591C7A3DA6004ABF96 /* BoxeeConnection.h */,
 				CB0512AE1CBAD34F0015780A /* BoxeeConnection.m */,
 				CB0512AD1CBACFBB0015780A /* BoxeeKeyCode.h */,
+				CBCF61531CF0F5E600AFA903 /* BoxeeScanInfo.h */,
 				CB6651581C7A3B40004ABF96 /* BoxeeState.h */,
 				CB0512B11CBB17D20015780A /* BoxeeState.m */,
+				CBCF61541CF107B500AFA903 /* BoxeeScanInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				CB66515D1C7A400D004ABF96 /* BoxeeConnectionManager.m in Sources */,
 				CB0512B21CBB17D20015780A /* BoxeeState.m in Sources */,
 				CB0512A91CBAA9D60015780A /* StandardModeViewController.m in Sources */,
+				CBCF61551CF107B500AFA903 /* BoxeeScanInfo.m in Sources */,
 				CB212D081CDF7FE50097BDAB /* BoxeeScanner.m in Sources */,
 				CB879BFA1C4C60F800B1CDB9 /* AppBaseViewController.m in Sources */,
 				CB3CA7B71C6917EB007D48EA /* ConnectionSettingsViewController.m in Sources */,
