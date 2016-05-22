@@ -10,8 +10,9 @@ The application is localized for English and Portuguese (Brazil).
 
 ### Application Screenshots ###
 
+#### Initial screen with no connection parameter set ####
 ![Initial Screen - No connection set](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/InitialScreen.png)
-Initial screen with no connection parameter set.
+
 
 ![Boxee found on local network](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/BoxeeScanResult.png)
 Boxee found after a local network search.
