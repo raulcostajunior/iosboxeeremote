@@ -42,7 +42,7 @@ iOSBoxeeRemote depends on the following CocoaPods:
 
 I wrote iOSBoxeeRemote for my own consumption (I own a Boxee since 2011 and its original remote is broken). There are similar apps available on the AppStore, but I really wanted to hack my own and let people have full access to its source once it reached minimum usability status.
 
-The application has reached what I consider to be the minimal usable Boxee remote app status. There are other features that were on my initial original plan that haven't been implemented - such as detecting when the Boxee UI is waiting for a text entry and present the virtual keyboard on the iOS device. 
+The application has reached the state of what I consider to be a minimally usable Boxee remote app. There are other features that were on my initial planning that haven't been implemented - such as detecting when the Boxee UI is waiting for a text entry and present the virtual keyboard on the iOS device. 
 
 Unfortunately, my free time for hobby projects is almost zero now. I don't think I'll be able to revisit the project and implement the additional features any time soon. Some of those features are described or hinted at as TODOs comments in the middle of the code.
 
