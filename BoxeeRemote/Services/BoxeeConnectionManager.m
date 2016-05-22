@@ -173,7 +173,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     
     [self sendKeyToBoxee:keyCode];
     
-    // Resets the update timer during an auto repeat sequence the state updates must be stopped.
+    // Resets the update timer; during an auto repeat sequence the state updates must be stopped.
     if (_updateStateTimer) {
         [_updateStateTimer invalidate];
     }

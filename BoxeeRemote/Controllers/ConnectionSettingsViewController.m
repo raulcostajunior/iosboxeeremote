@@ -14,7 +14,11 @@
 #import "ConnectionSettingsViewController.h"
 #import "UIView+Toast.h"
 
-@interface ConnectionSettingsViewController () <UITextFieldDelegate, BoxeeScanningDelegate>
+@interface ConnectionSettingsViewController () <UITextFieldDelegate, UIAlertViewDelegate, BoxeeScanningDelegate> {
+    
+    BoxeeScanInfo *_boxeeFound;
+    
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *txtBoxeeHost;
 
@@ -179,8 +183,10 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     
     if (boxeeFound) {
         
+        _boxeeFound = boxeeFound;
+        
         // TODO: localize information, add authentication required details to it and implement UIAlertViewDelegate to connect if user presses YES.
-        UIAlertView *boxeeInfoMsg = [[UIAlertView alloc] initWithTitle:@"Boxee Found" message:[NSString stringWithFormat:@"A Boxee was found at %@, port %ld.\nConnect to it?", boxeeFound.ipAddress, (long)boxeeFound.port] delegate:nil cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        UIAlertView *boxeeInfoMsg = [[UIAlertView alloc] initWithTitle:@"Boxee Found" message:[NSString stringWithFormat:@"A Boxee was found at %@, port %ld.\nIt %@.\n\nConnect to it?", boxeeFound.ipAddress, (long)boxeeFound.port, boxeeFound.authenticationRequired ? @"requires a password" : @"doesn't require a password"] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
         [boxeeInfoMsg show];
         
     }
@@ -209,6 +215,32 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     
     // TODO: Localize message and see if any improvement can be made to it.
     [self.viewToastContainer makeToast:@"Error searching for Boxee. Please try again." duration:3.5f position:CSToastPositionTop style:errorStyle];
+    
+}
+
+
+#pragma mark - UIAlertViewDelegate methods
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        // User confirmed that wants to connect to the Boxee that has been found by the scanning process
+        self.txtBoxeeHost.text = _boxeeFound.ipAddress;
+        self.txtBoxeePort.text = [NSString stringWithFormat:@"%ld", (long)_boxeeFound.port];
+        if (_boxeeFound.authenticationRequired) {
+            // Authentication is required: put focus on the password field
+            [self.txtBoxeePassword becomeFirstResponder];
+        }
+        else {
+            // No authentication is required: go ahead and try to connect to the Boxee; delays the connection command so that the alert view is completely dismissed
+            // before starting the connection process - needed to guarantee proper UI feedback while connection is taking place.
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self doConnectToBoxee];
+            });
+        }
+    }
+    
+    _boxeeFound = nil;
     
 }
 
