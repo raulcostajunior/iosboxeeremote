@@ -25,4 +25,6 @@ I wrote iOSBoxeeRemote for my own consumption (I own a Boxee since 2011 and its 
 
 The application has reached what I consider to be the minimal usable Boxee remote app status. There are other features that were on my initial original plan that haven't been implemented - such as detecting when the Boxee UI is waiting for a text entry and present the virtual keyboard on the iOS device. 
 
-Unfortunately, my free time for hobby projects is almost zero now. I don't think I'll be able to revisit the project and implement the additional features any time soon. Some of those features are described or hinted at as TODOs comments in the middle of the code. Please let me know if you extend iOSBoxeeRemote feature set. I'd be glad to merge new features into this codebase.
+Unfortunately, my free time for hobby projects is almost zero now. I don't think I'll be able to revisit the project and implement the additional features any time soon. Some of those features are described or hinted at as TODOs comments in the middle of the code.
+
+Please let me know if you extend iOSBoxeeRemote feature set. I'd be glad to merge new features into this codebase.
