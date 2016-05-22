@@ -10,7 +10,7 @@ The application is localized for English and Portuguese (Brazil).
 
 ### Application Screenshots ###
 
-![Initial Screen - No connection set](https://www.dropbox.com/s/6e2o9sfvxvo2rl0/InitialScreen.png?dl=0)
+![Initial Screen - No connection set](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/InitialScreen.png)
 
 ![Boxee found on local network](https://www.dropbox.com/s/bta7uxj8u0vt0fo/BoxeeScanResult.png?dl=0)
 
