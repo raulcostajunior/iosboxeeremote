@@ -1,10 +1,13 @@
 # iOSBoxeeRemote #
 
-A remote control application for the - unfortunately :( - discontinued [Boxee Box](https://en.wikipedia.org/wiki/Boxee_Box). 
+A remote control application for the [Boxee Box](https://en.wikipedia.org/wiki/Boxee_Box). 
 
-iOSBoxeeRemote supports iOS version 6 or newer (it has been tested successfully on devices running iOS 6.x, 7.x and 9.x). The application has been localized for English and Portuguese (Brazil).
+iOSBoxeeRemote implements the Boxee device discovery on a local network and virtual keys that match the keys on the non-keyboard face of the standard [Boxee Box physical remote control]
+
 
 ## Requirements ##
+
+iOSBoxeeRemote supports iOS version 6 or newer (it has been tested successfully on devices running iOS 6.x, 7.x and 9.x). The application has been localized for English and Portuguese (Brazil).
 
 iOSBoxeeRemote depends on the following CocoaPods:
 
