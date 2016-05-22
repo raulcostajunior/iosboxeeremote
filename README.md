@@ -11,21 +11,21 @@ The application is localized for English and Portuguese (Brazil).
 ### Application Screenshots ###
 
 ![Initial Screen - No connection set](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/InitialScreen.png)
-#### Initial screen with no connection parameter set. ####
+> Initial screen with no connection parameter set.
   
 
 ![Boxee found on local network](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/BoxeeScanResult.png)
-#### Boxee found after a local network search.####
+> Boxee found after a local network search.
   
   
 
 ![Connecting to a Boxee](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/ConnectingToBoxee.png)
-#### Connection to a Boxee in progress (cancellable action). ####
+> Connection to a Boxee in progress (cancellable action).
   
   
 
 ![Remote keypad](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/RemoteKeyPad.png)
-#### The Boxee remote keypad (displayed after connecting to the Boxee and while the connection is "healthy"). ####
+>The Boxee remote keypad (displayed after connecting to the Boxee and while the connection is "healthy").
   
   
 
