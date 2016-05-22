@@ -285,6 +285,8 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) doFindBoxees {
 
+    [self hideKeyboard];
+    
     [BoxeeScanner sharedScanner].delegate = self;
     [[BoxeeScanner sharedScanner] scanForBoxees];
     
