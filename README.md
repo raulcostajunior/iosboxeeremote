@@ -1,6 +1,14 @@
-# README #
+# iOSBoxeeRemote #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+A remote control application for the - unfortunately :( - discontinued [Boxee Box](https://en.wikipedia.org/wiki/Boxee_Box). 
+
+iOSBoxeeRemote supports iOS version 6 or newer (it has been tested successfully on devices running iOS 6.x, 7.x and 9.x). The application has been localized for English and Portuguese (Brazil).
+
+## Requirements ##
+
+iOSBoxeeRemote depends on the following CocoaPods:
+
+
 
 ### What is this repository for? ###
 
