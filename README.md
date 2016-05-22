@@ -12,7 +12,7 @@ The application is localized for English and Portuguese (Brazil).
 
 ![Initial Screen - No connection set](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/InitialScreen.png)
 
-![Boxee found on local network](https://www.dropbox.com/s/bta7uxj8u0vt0fo/BoxeeScanResult.png?dl=0)
+![Boxee found on local network](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/BoxeeScanResult.png)
 
 ![Remote keypad](https://www.dropbox.com/s/6u112777r4loh2m/RemoteKeyPad.png?dl=0)
 
