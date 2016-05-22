@@ -2,11 +2,13 @@
 
 An iOS based remote control application for the [Boxee Box](https://en.wikipedia.org/wiki/Boxee_Box). 
 
-iOSBoxeeRemote implements the Boxee device discovery on a local network and virtual keys that match the keys on the non-keyboard face of the standard Boxee Box physical remote control.
+iOSBoxeeRemote implements the Boxee device discovery on a local network and virtual keys that match the keys on the non-keyboard face of the standard Boxee Box physical remote control (shown below).
 
 ![Boxee Box and Remote](http://cdn.slashgear.com/wp-content/uploads/2010/01/D-Link_Boxee_box_and_qwerty_remote.jpg)
 
-The application is localized for English and Portuguese (Brazil).
+The application is localized for English and Portuguese (Brazil). 
+
+### Application Screenshots ###
 
 ## Requirements ##
 
