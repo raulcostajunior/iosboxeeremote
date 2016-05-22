@@ -10,6 +10,12 @@ The application is localized for English and Portuguese (Brazil).
 
 ### Application Screenshots ###
 
+![Initial Screen - No connection set](https://www.dropbox.com/s/6e2o9sfvxvo2rl0/InitialScreen.png?dl=0)
+
+![Boxee found on local network](https://www.dropbox.com/s/bta7uxj8u0vt0fo/BoxeeScanResult.png?dl=0)
+
+![Remote keypad](https://www.dropbox.com/s/6u112777r4loh2m/RemoteKeyPad.png?dl=0)
+
 ## Requirements ##
 
 iOSBoxeeRemote supports iOS version 6 or newer (it has been tested successfully on devices running iOS 6.x, 7.x and 9.x). iOSBoxeeRemote is targeted at iPhones and iPods Touch. It runs on iPads, but its UI hasn't been polished for the bigger iPad screens (I really don't see a point in using an iPad as a remote control :))
