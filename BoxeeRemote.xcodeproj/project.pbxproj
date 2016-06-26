@@ -14,9 +14,7 @@
 		CB1F79A31CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1F79A21CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m */; };
 		CB212D081CDF7FE50097BDAB /* BoxeeScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = CB212D071CDF7FE50097BDAB /* BoxeeScanner.m */; };
 		CB34DB371CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB34DB3A1CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib */; };
-		CB3CA7B41C69168C007D48EA /* ConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */; };
 		CB3CA7B71C6917EB007D48EA /* ConnectionSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */; };
-		CB3CA7BA1C691AF6007D48EA /* RemoteStandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */; };
 		CB66515D1C7A400D004ABF96 /* BoxeeConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB66515C1C7A400D004ABF96 /* BoxeeConnectionManager.m */; };
 		CB879BFA1C4C60F800B1CDB9 /* AppBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */; };
 		CB8DE7BC1C4BCCCD004D8C67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8DE7BB1C4BCCCD004D8C67 /* main.m */; };
@@ -43,12 +41,8 @@
 		CB212D051CDF53790097BDAB /* BoxeeScanningDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeScanningDelegate.h; sourceTree = "<group>"; };
 		CB212D061CDF565A0097BDAB /* BoxeeScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeScanner.h; sourceTree = "<group>"; };
 		CB212D071CDF7FE50097BDAB /* BoxeeScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeScanner.m; sourceTree = "<group>"; };
-		CB3CA7B21C69168C007D48EA /* ConnectingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectingViewController.h; sourceTree = "<group>"; };
-		CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectingViewController.m; sourceTree = "<group>"; };
 		CB3CA7B51C6917EB007D48EA /* ConnectionSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionSettingsViewController.h; sourceTree = "<group>"; };
 		CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionSettingsViewController.m; sourceTree = "<group>"; };
-		CB3CA7B81C691AF6007D48EA /* RemoteStandardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteStandardViewController.h; sourceTree = "<group>"; };
-		CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteStandardViewController.m; sourceTree = "<group>"; };
 		CB6651581C7A3B40004ABF96 /* BoxeeState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeState.h; sourceTree = "<group>"; };
 		CB6651591C7A3DA6004ABF96 /* BoxeeConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnection.h; sourceTree = "<group>"; };
 		CB66515B1C7A3ED7004ABF96 /* BoxeeConnectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeConnectionManager.h; sourceTree = "<group>"; };
@@ -178,13 +172,9 @@
 			children = (
 				CB879BF81C4C60F800B1CDB9 /* AppBaseViewController.h */,
 				CB879BF91C4C60F800B1CDB9 /* AppBaseViewController.m */,
-				CB3CA7B21C69168C007D48EA /* ConnectingViewController.h */,
-				CB3CA7B31C69168C007D48EA /* ConnectingViewController.m */,
 				CB3CA7B51C6917EB007D48EA /* ConnectionSettingsViewController.h */,
 				CB3CA7B61C6917EB007D48EA /* ConnectionSettingsViewController.m */,
 				CB34DB3A1CA81FDF00B9D5C3 /* ConnectionSettingsViewController.xib */,
-				CB3CA7B81C691AF6007D48EA /* RemoteStandardViewController.h */,
-				CB3CA7B91C691AF6007D48EA /* RemoteStandardViewController.m */,
 				CB0512A61CBAA9D50015780A /* StandardModeViewController.h */,
 				CB0512A71CBAA9D50015780A /* StandardModeViewController.m */,
 				CB0512A81CBAA9D50015780A /* StandardModeViewController.xib */,
@@ -201,9 +191,9 @@
 				CB0512AE1CBAD34F0015780A /* BoxeeConnection.m */,
 				CB0512AD1CBACFBB0015780A /* BoxeeKeyCode.h */,
 				CBCF61531CF0F5E600AFA903 /* BoxeeScanInfo.h */,
+				CBCF61541CF107B500AFA903 /* BoxeeScanInfo.m */,
 				CB6651581C7A3B40004ABF96 /* BoxeeState.h */,
 				CB0512B11CBB17D20015780A /* BoxeeState.m */,
-				CBCF61541CF107B500AFA903 /* BoxeeScanInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,10 +340,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB3CA7B41C69168C007D48EA /* ConnectingViewController.m in Sources */,
 				CB1F79A31CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m in Sources */,
 				CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */,
-				CB3CA7BA1C691AF6007D48EA /* RemoteStandardViewController.m in Sources */,
 				CB0512AF1CBAD34F0015780A /* BoxeeConnection.m in Sources */,
 				CB66515D1C7A400D004ABF96 /* BoxeeConnectionManager.m in Sources */,
 				CB0512B21CBB17D20015780A /* BoxeeState.m in Sources */,

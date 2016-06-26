@@ -185,8 +185,15 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
         
         _boxeeFound = boxeeFound;
         
-        // TODO: localize information, add authentication required details to it and implement UIAlertViewDelegate to connect if user presses YES.
-        UIAlertView *boxeeInfoMsg = [[UIAlertView alloc] initWithTitle:@"Boxee Found" message:[NSString stringWithFormat:@"A Boxee was found at %@, port %ld.\nIt %@.\n\nConnect to it?", boxeeFound.ipAddress, (long)boxeeFound.port, boxeeFound.authenticationRequired ? @"requires a password" : @"doesn't require a password"] delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        NSString *authRequiredMsg;
+        if (boxeeFound.authenticationRequired) {
+            authRequiredMsg = NSLocalizedString(@"passwordRequired", @"Password required by Boxee message.");
+        }
+        else {
+            authRequiredMsg = NSLocalizedString(@"passwordNotRequired", @"Password not required by Boxee message.");
+        }
+        UIAlertView *boxeeInfoMsg = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"boxeeFoundTitle", @"Boxee found title") message:[NSString stringWithFormat:NSLocalizedString(@"boxeeFoundMessage", @"Boxee found message."), boxeeFound.ipAddress, (long)boxeeFound.port, authRequiredMsg] delegate:self cancelButtonTitle:NSLocalizedString(@"no", @"No") otherButtonTitles:NSLocalizedString(@"yes", @"Yes"), nil];
+        
         [boxeeInfoMsg show];
         
     }
@@ -196,7 +203,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
         infoStyle.backgroundColor = [UIColor grayColor];
         
         // TODO: localize message.
-        [self.viewToastContainer makeToast:@"Please try again" duration:3.5f position:CSToastPositionTop title:@"No Boxee found" image:nil style:infoStyle completion:nil];
+        [self.viewToastContainer makeToast:NSLocalizedString(@"tryAgainMsg", @"Try again message") duration:3.5f position:CSToastPositionTop title:NSLocalizedString(@"noBoxeeFoundTitle", @"No Boxee found title") image:nil style:infoStyle completion:nil];
         
     }
     
@@ -214,7 +221,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
     errorStyle.backgroundColor = [UIColor redColor];
     
     // TODO: Localize message and see if any improvement can be made to it.
-    [self.viewToastContainer makeToast:@"Error searching for Boxee. Please try again." duration:3.5f position:CSToastPositionTop style:errorStyle];
+    [self.viewToastContainer makeToast:NSLocalizedString(@"errorScanningForBoxeesMsg", @"Message to be displayed when an error happens while scanning for Boxees") duration:3.5f position:CSToastPositionTop style:errorStyle];
     
 }
 
