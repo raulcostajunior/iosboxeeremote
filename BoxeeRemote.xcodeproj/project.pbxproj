@@ -36,6 +36,7 @@
 		CB0512AD1CBACFBB0015780A /* BoxeeKeyCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeKeyCode.h; sourceTree = "<group>"; };
 		CB0512AE1CBAD34F0015780A /* BoxeeConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeConnection.m; sourceTree = "<group>"; };
 		CB0512B11CBB17D20015780A /* BoxeeState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxeeState.m; sourceTree = "<group>"; };
+		CB0BE1FD1D4223D600E29704 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ConnectionSettingsViewController.strings"; sourceTree = "<group>"; };
 		CB1F79A11CBF16A50022A5C8 /* LastSuccessfulConnectionStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LastSuccessfulConnectionStore.h; sourceTree = "<group>"; };
 		CB1F79A21CBF16FE0022A5C8 /* LastSuccessfulConnectionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastSuccessfulConnectionStore.m; sourceTree = "<group>"; };
 		CB212D051CDF53790097BDAB /* BoxeeScanningDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxeeScanningDelegate.h; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerRouter.h; sourceTree = "<group>"; };
 		CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRouter.m; sourceTree = "<group>"; };
 		CBE14F671CA8746200C76936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConnectionSettingsViewController.xib; sourceTree = "<group>"; };
-		CBE14F691CA89E1100C76936 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ConnectionSettingsViewController.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,7 +362,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CBE14F671CA8746200C76936 /* Base */,
-				CBE14F691CA89E1100C76936 /* pt-BR */,
+				CB0BE1FD1D4223D600E29704 /* pt-BR */,
 			);
 			name = ConnectionSettingsViewController.xib;
 			sourceTree = "<group>";

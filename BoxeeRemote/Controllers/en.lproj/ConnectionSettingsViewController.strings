@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "Faf-eT-W3d"; */
+"Faf-eT-W3d.text" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Find Boxees"; ObjectID = "dL8-a4-qEh"; */
+"dL8-a4-qEh.normalTitle" = "Find Boxees";
+
+/* Class = "UILabel"; text = "by Digital Streams Ltda, 2016"; ObjectID = "ep1-x4-QDY"; */
+"ep1-x4-QDY.text" = "by Digital Streams Ltda, 2016";
+
+/* Class = "UILabel"; text = "Boxee Host"; ObjectID = "i7f-fs-L2a"; */
+"i7f-fs-L2a.text" = "Boxee Host";
+
+/* Class = "UILabel"; text = "Boxee Remote"; ObjectID = "jCN-nd-jgB"; */
+"jCN-nd-jgB.text" = "Boxee Remote";
+
+/* Class = "UITextField"; placeholder = "optional password"; ObjectID = "nvj-C9-Aod"; */
+"nvj-C9-Aod.placeholder" = "optional password";
+
+/* Class = "UITextField"; placeholder = "hostname or IP address"; ObjectID = "r6I-AQ-eU9"; */
+"r6I-AQ-eU9.placeholder" = "hostname or IP address";
+
+/* Class = "UILabel"; text = "Boxee Port"; ObjectID = "sNl-AI-mnT"; */
+"sNl-AI-mnT.text" = "Boxee Port";
+
+/* Class = "UIButton"; normalTitle = "Connect Boxee"; ObjectID = "zrU-Ot-sS4"; */
+"zrU-Ot-sS4.normalTitle" = "Connect Boxee";
