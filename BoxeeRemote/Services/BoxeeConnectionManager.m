@@ -14,6 +14,9 @@
 #import "LastSuccessfulConnectionStore.h"
 
 
+// TODO: prevent multiple simultaneous UpdateRequest "on the wire". Prevent multiple simultaneous SendKeysRequest "on the wire".
+// TODO: only send key to Boxee if the current "connection" is healthy; only start a send key sequence if the "connection" is healthy.
+
 @interface BoxeeConnectionManager () <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
     BOOL _connectingToBoxee;   // Indicates that the next keep alive response must be handled as a "connection request" to the Boxee.
     BOOL _connectedToBoxee;    // Indicates that there's a boxee connected - actually, it indicates that the last keep alive was successful.
@@ -37,6 +40,10 @@
 static NSString *const kCmdUrlTemplate = @"http://%@:%ld/xbmcCmds/xbmcHttp?command=%@";
 
 static const NSInteger kIntervalUpdateState = 10; // Interval between successive update state pulses - in seconds.
+
+static const NSInteger kUpdateStateTimeout = 8;
+
+static const NSInteger kSendKeyTimeout = 4;
 
 static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I have access to, the user is fixed as "boxee".
 
@@ -203,7 +210,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     NSString *urlAsString = [NSString stringWithFormat:kCmdUrlTemplate, self.currentConnection.hostname, (long)self.currentConnection.port, keyCmd];
     NSURL *sendKeyUrl = [NSURL URLWithString:urlAsString];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:sendKeyUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:4];
+    NSURLRequest *request = [NSURLRequest requestWithURL:sendKeyUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:kSendKeyTimeout];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         
@@ -246,7 +253,7 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
     NSString *urlAsString = [NSString stringWithFormat:kCmdUrlTemplate, self.currentConnection.hostname, (long)self.currentConnection.port, @"getcurrentlyplaying()"];
     
     NSURL *updateStateUrl = [[NSURL alloc] initWithString:urlAsString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:updateStateUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:8];
+    NSURLRequest *request = [NSURLRequest requestWithURL:updateStateUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:kUpdateStateTimeout];
     
     if (self.currentConnection.password.length > 0) {
         request = [self addAuthenticationHeaderToRequest:request withUser:kBoxeeUsername andPassword:self.currentConnection.password];
