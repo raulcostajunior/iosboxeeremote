@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StandardModeViewController">
@@ -23,16 +24,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boxee Remote" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeX-sl-q6d">
-                    <rect key="frame" x="102" y="18" width="117" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="IaL-Sf-XC0"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bao-ps-h21">
-                    <rect key="frame" x="127" y="503" width="67" height="59"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="67" id="Vvd-98-eXA"/>
                         <constraint firstAttribute="height" constant="59" id="wFu-0h-2wf"/>
@@ -40,11 +39,9 @@
                     <state key="normal" image="BoxeeLogoNoCaption"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YND-SZ-aU6">
-                    <rect key="frame" x="39" y="144" width="242" height="280"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbJ-vd-JJ4">
-                            <rect key="frame" x="170" y="72" width="48" height="48"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="IYZ-zJ-BEM"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="UzJ-Kx-pr3"/>
@@ -54,8 +51,7 @@
                             <state key="normal" image="RightButton"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKU-pR-TTb">
-                            <rect key="frame" x="24" y="72" width="48" height="48"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="48" id="G5R-yP-k0d"/>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="Omf-tf-xnG"/>
@@ -65,8 +61,7 @@
                             <state key="normal" image="LeftButton"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ije-X6-YL6">
-                            <rect key="frame" x="97" y="0.0" width="48" height="48"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="2C6-ds-cXl"/>
                                 <constraint firstAttribute="height" constant="48" id="7rI-6f-8AP"/>
@@ -76,8 +71,7 @@
                             <state key="normal" image="UpButton"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVN-me-jTO">
-                            <rect key="frame" x="92" y="68" width="58" height="58"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="58" id="CnU-dC-SaP"/>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="58" id="K2D-cv-PKr"/>
@@ -86,8 +80,7 @@
                             </constraints>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rct-fr-Bvg">
-                            <rect key="frame" x="97" y="232" width="48" height="48"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="T6l-bT-MQc"/>
                                 <constraint firstAttribute="width" constant="48" id="cFf-TM-vxq"/>
@@ -95,8 +88,7 @@
                             <state key="normal" image="OptionsButton"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iat-70-GhD">
-                            <rect key="frame" x="97" y="146" width="48" height="48"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="ZYY-D1-n96"/>
                                 <constraint firstAttribute="width" constant="48" id="eSv-NP-qtF"/>
@@ -104,7 +96,7 @@
                             <state key="normal" image="DownButton"/>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="FVN-me-jTO" firstAttribute="top" secondItem="Ije-X6-YL6" secondAttribute="bottom" constant="20" id="0Nh-yq-bGO"/>
                         <constraint firstItem="FVN-me-jTO" firstAttribute="leading" secondItem="RKU-pR-TTb" secondAttribute="trailing" constant="20" id="8Hc-ds-cxe"/>
@@ -123,7 +115,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="YND-SZ-aU6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="NoA-eC-qzJ"/>
                 <constraint firstAttribute="bottom" secondItem="bao-ps-h21" secondAttribute="bottom" constant="6" id="Zb4-Le-0Ie"/>
@@ -132,11 +124,10 @@
                 <constraint firstItem="bao-ps-h21" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jpH-zK-mt1"/>
                 <constraint firstItem="YND-SZ-aU6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uJw-aR-Bvf"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="BoxeeLogoNoCaption" width="141" height="127"/>
+        <image name="BoxeeLogoNoCaption" width="141" height="126"/>
         <image name="DownButton" width="40" height="40"/>
         <image name="LeftButton" width="40" height="40"/>
         <image name="OptionsButton" width="32" height="32"/>

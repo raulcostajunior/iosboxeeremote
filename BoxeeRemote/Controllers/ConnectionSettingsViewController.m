@@ -34,6 +34,9 @@
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblVersion;
+
+
 @end
 
 @implementation ConnectionSettingsViewController
@@ -46,6 +49,9 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSString *verNumFmtStr = NSLocalizedString(@"versionNumberLabel", @"Application version number label");
+    self.lblVersion.text = [NSString stringWithFormat:verNumFmtStr, [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"]];
     
     [self setupButtonsDefaultState];
     [self setupTextFields];
@@ -169,7 +175,7 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
 
 -(void) cancelledScanningForBoxees {
     
-    // TODO: add method body as soon as scan action becomes cancellable. For now it is now cancellable as it has a very short timeout, 5 secs.
+    // TODO: add method body as soon as scan action becomes cancellable. For now it is not cancellable as it has a very short timeout, 5 secs.
     
 }
 
@@ -202,7 +208,6 @@ static const NSInteger TXT_PASSWORD_TAG = 3;
         CSToastStyle *infoStyle = [[CSToastStyle alloc] initWithDefaultStyle];
         infoStyle.backgroundColor = [UIColor grayColor];
         
-        // TODO: localize message.
         [self.viewToastContainer makeToast:NSLocalizedString(@"tryAgainMsg", @"Try again message") duration:3.5f position:CSToastPositionTop title:NSLocalizedString(@"noBoxeeFoundTitle", @"No Boxee found title") image:nil style:infoStyle completion:nil];
         
     }
