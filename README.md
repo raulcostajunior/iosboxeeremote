@@ -23,7 +23,7 @@ The application is localized for English and Portuguese (Brazil).
 
 ## Requirements ##
 
-iOSBoxeeRemote supports iOS version 6 or newer (it has been tested successfully on devices running iOS 6.x, 7.x and 9.x). iOSBoxeeRemote is targeted at iPhones and iPods Touch. It runs on iPads, but its UI hasn't been polished for the bigger iPad screens (I really don't see a point in using an iPad as a remote control :))
+iOSBoxeeRemote supports iOS version 6 or newer (it has been tested successfully on devices running iOS 6.x, 7.x and 9.x). iOSBoxeeRemote is targeted at iPhones and iPods Touch. It runs on iPads, but its UI hasn't been polished for the bigger iPad screens.
 
 iOSBoxeeRemote depends on the following CocoaPods:
 
@@ -36,15 +36,11 @@ iOSBoxeeRemote depends on the following CocoaPods:
 
 I wrote iOSBoxeeRemote for my own use (I own a Boxee since 2011 and its original remote is broken). There are similar apps available on the AppStore, but I really wanted to write my own and let people have full access to its source once it reached minimum usability status.
 
-The application has reached the state of what I consider to be a minimally usable Boxee remote app. There are other features that were on my initial planning that haven't been implemented - such as detecting when the Boxee UI is waiting for a text entry and present the virtual keyboard on the iOS device. 
+The application has reached the state of what I consider to be a minimally usable Boxee remote app. There are other features that were on the  initial plan that haven't yet been implemented - such as detecting when the Boxee UI is waiting for a text entry and present the virtual keyboard on the iOS device and detecting when the Boxee starts playing media and present the appropriate controls in the remote control UI.
 
 As of October, 2016, the application is being published in the AppStore. 
 If iOSBoxeeRemote turns out to generate a certain level of interest around it, I'll continue its development and complete its initially planned feature set.
 
-The features that were in the initial plan that are missing are:
-
-*Present the iOS device keyboard and allow the user to enter text as soon as the Boxee signals it is waiting the user to enter text; 
-*Transition to media playing mode as soon as the Boxee signals it is playing media. In media playing mode, iOSBoxeeRemote will present controls that will allow the user to navigate directly to a specific point of a video, slide show or music.
 
 
 
