@@ -15,13 +15,7 @@ The application is localized for English and Portuguese (Brazil).
   
 
 ![Boxee found on local network](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/BoxeeScanResult.png)
-> Boxee found after a local network search.  
-
-    
-
-![Connecting to a Boxee](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/ConnectingToBoxee.png)
-> Connection in progress (cancellable action).  
-  
+> Boxee found after a local network search.   
   
 
 ![Remote keypad](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/RemoteKeyPad.png)
@@ -44,6 +38,17 @@ I wrote iOSBoxeeRemote for my own use (I own a Boxee since 2011 and its original
 
 The application has reached the state of what I consider to be a minimally usable Boxee remote app. There are other features that were on my initial planning that haven't been implemented - such as detecting when the Boxee UI is waiting for a text entry and present the virtual keyboard on the iOS device. 
 
-Unfortunately, my free time for hobby projects is almost zero now. I don't think I'll be able to revisit the project and implement the additional features any time soon. Some of those features are described or hinted at as TODOs comments in the middle of the code.
+As of October, 2016, the application is being published in the AppStore. 
+If iOSBoxeeRemote turns out to generate a certain level of interest around it, I'll continue its development and complete its initially planned feature set.
 
-Please let me know if you extend iOSBoxeeRemote feature set. I'd be glad to merge new features into this codebase.
+The features that were in the initial plan that are missing are:
+
+*Present the iOS device keyboard and allow the user to enter text as soon as the Boxee signals it is waiting the user to enter text; 
+*Transition to media playing mode as soon as the Boxee signals it is playing media. In media playing mode, iOSBoxeeRemote will present controls that will allow the user to navigate directly to a specific point of a video, slide show or music.
+
+
+
+
+
+
+
