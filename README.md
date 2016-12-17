@@ -15,13 +15,7 @@ The application is localized for English and Portuguese (Brazil).
   
 
 ![Boxee found on local network](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/BoxeeScanResult.png)
-> Boxee found after a local network search.  
-
-    
-
-![Connecting to a Boxee](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/ConnectingToBoxee.png)
-> Connection in progress (cancellable action).  
-  
+> Boxee found after a local network search.   
   
 
 ![Remote keypad](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/RemoteKeyPad.png)
@@ -29,7 +23,7 @@ The application is localized for English and Portuguese (Brazil).
 
 ## Requirements ##
 
-iOSBoxeeRemote supports iOS version 6 or newer (it has been tested successfully on devices running iOS 6.x, 7.x and 9.x). iOSBoxeeRemote is targeted at iPhones and iPods Touch. It runs on iPads, but its UI hasn't been polished for the bigger iPad screens (I really don't see a point in using an iPad as a remote control :))
+iOSBoxeeRemote supports iOS version 6 or newer (it has been tested successfully on devices running iOS 6.x, 7.x and 9.x). iOSBoxeeRemote is targeted at iPhones and iPods Touch. It runs on iPads, but its UI hasn't been polished for the bigger iPad screens.
 
 iOSBoxeeRemote depends on the following CocoaPods:
 
@@ -40,10 +34,18 @@ iOSBoxeeRemote depends on the following CocoaPods:
 
 ## Motivation and Status ##
 
-I wrote iOSBoxeeRemote for my own use (I own a Boxee since 2011 and its original remote is broken). There are similar apps available on the AppStore, but I really wanted to write my own and let people have full access to its source once it reached minimum usability status.
+I wrote iOSBoxeeRemote for my own use (I have a Boxee Box since 2011 and its original remote is broken). There are similar apps available on the AppStore, but I was really curious about their internal workings and decided to write one and make its source code public.
 
-The application has reached the state of what I consider to be a minimally usable Boxee remote app. There are other features that were on my initial planning that haven't been implemented - such as detecting when the Boxee UI is waiting for a text entry and present the virtual keyboard on the iOS device. 
+The application has reached the state of what I consider to be a minimally usable Boxee remote app. There are other features that were on the  initial plan that haven't yet been implemented - such as detecting when the Boxee UI is waiting for a text entry and present the virtual keyboard on the iOS device or detecting when the Boxee starts playing media and present the appropriate controls in the remote control UI.
 
-Unfortunately, my free time for hobby projects is almost zero now. I don't think I'll be able to revisit the project and implement the additional features any time soon. Some of those features are described or hinted at as TODOs comments in the middle of the code.
+As of October, 2016, the application is being published in the AppStore. 
 
-Please let me know if you extend iOSBoxeeRemote feature set. I'd be glad to merge new features into this codebase.
+If iOSBoxeeRemote turns out to generate a certain level of interest around it, I intend to continue its development and complete its initially planned feature set.
+
+
+
+
+
+
+
+
