@@ -2,7 +2,6 @@
 //  BoxeeScanner.m
 //
 //  Created by Raul Costa Junior on 5/8/16.
-//  Copyright © 2016 Digital Streams. All rights reserved.
 //
 //  The documentation for Boxee's discovery request and response can be found at
 //  https://web.archive.org/web/20130603035923/http://developer.boxee.tv/Remote_Control_Interface

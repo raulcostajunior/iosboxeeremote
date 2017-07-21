@@ -3,7 +3,6 @@
 //  Orchestrates the application view controllers in response to events communicated by the BoxeeConnectionManager.
 //
 //  Created by Raul Costa Junior on 3/12/16.
-//  Copyright © 2016 Digital Streams. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

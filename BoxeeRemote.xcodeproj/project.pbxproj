@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB293FD991C06F9CB70CDA22 /* libPods-BoxeeRemote.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C110B21E84DF8025A15EC5B5 /* libPods-BoxeeRemote.a */; };
 		CB0512A91CBAA9D60015780A /* StandardModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0512A71CBAA9D50015780A /* StandardModeViewController.m */; };
 		CB0512AB1CBAA9D60015780A /* StandardModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0512A81CBAA9D50015780A /* StandardModeViewController.xib */; };
 		CB0512AF1CBAD34F0015780A /* BoxeeConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0512AE1CBAD34F0015780A /* BoxeeConnection.m */; };
@@ -23,13 +24,11 @@
 		CBA0634C1C4BE74600CEBCA7 /* appAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA0634B1C4BE74600CEBCA7 /* appAssets.xcassets */; };
 		CBCF61551CF107B500AFA903 /* BoxeeScanInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCF61541CF107B500AFA903 /* BoxeeScanInfo.m */; };
 		CBD5CEE41C9465FD005966BC /* ViewControllerRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */; };
-		DB1A8D3C1BE60135ADBF3107 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 705362119A6FCE1736ED86E6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		53941A891E2B39BEFEB9A696 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		705362119A6FCE1736ED86E6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		87938D2B0FF02A772F164502 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		0D00F11864D0B5A071158533 /* Pods-BoxeeRemote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxeeRemote.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoxeeRemote/Pods-BoxeeRemote.release.xcconfig"; sourceTree = "<group>"; };
+		C110B21E84DF8025A15EC5B5 /* libPods-BoxeeRemote.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BoxeeRemote.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0512A61CBAA9D50015780A /* StandardModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardModeViewController.h; sourceTree = "<group>"; };
 		CB0512A71CBAA9D50015780A /* StandardModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardModeViewController.m; sourceTree = "<group>"; };
 		CB0512A81CBAA9D50015780A /* StandardModeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardModeViewController.xib; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		CBD5CEE21C94656D005966BC /* ViewControllerRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerRouter.h; sourceTree = "<group>"; };
 		CBD5CEE31C9465FD005966BC /* ViewControllerRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerRouter.m; sourceTree = "<group>"; };
 		CBE14F671CA8746200C76936 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ConnectionSettingsViewController.xib; sourceTree = "<group>"; };
+		F9CC0F636B0782F693572064 /* Pods-BoxeeRemote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoxeeRemote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoxeeRemote/Pods-BoxeeRemote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,28 +71,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB1A8D3C1BE60135ADBF3107 /* libPods.a in Frameworks */,
+				BB293FD991C06F9CB70CDA22 /* libPods-BoxeeRemote.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9DCF8D67FBD7770448FEC473 /* Pods */ = {
+		2B3A7B33E50583BAAE2C119B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				53941A891E2B39BEFEB9A696 /* Pods.debug.xcconfig */,
-				87938D2B0FF02A772F164502 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		ADE93F5ECA22AA8B7DC80F23 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				705362119A6FCE1736ED86E6 /* libPods.a */,
+				C110B21E84DF8025A15EC5B5 /* libPods-BoxeeRemote.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		745F22D50753A8A645808BBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9CC0F636B0782F693572064 /* Pods-BoxeeRemote.debug.xcconfig */,
+				0D00F11864D0B5A071158533 /* Pods-BoxeeRemote.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CB1F79A01CBF16730022A5C8 /* Stores */ = {
@@ -137,8 +137,8 @@
 			children = (
 				CB8DE7B91C4BCCCD004D8C67 /* BoxeeRemote */,
 				CB8DE7B81C4BCCCD004D8C67 /* Products */,
-				9DCF8D67FBD7770448FEC473 /* Pods */,
-				ADE93F5ECA22AA8B7DC80F23 /* Frameworks */,
+				745F22D50753A8A645808BBA /* Pods */,
+				2B3A7B33E50583BAAE2C119B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,12 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB8DE7CE1C4BCCCE004D8C67 /* Build configuration list for PBXNativeTarget "BoxeeRemote" */;
 			buildPhases = (
-				6E6DC7E0735D797325BE70C9 /* Check Pods Manifest.lock */,
+				8A85CA173F01C70894F4CDD0 /* [CP] Check Pods Manifest.lock */,
 				CB8DE7B31C4BCCCC004D8C67 /* Sources */,
 				CB8DE7B41C4BCCCC004D8C67 /* Frameworks */,
 				CB8DE7B51C4BCCCC004D8C67 /* Resources */,
-				D294A3DA6DB47EA6A20A6DB9 /* Embed Pods Frameworks */,
-				47B56DFB175BFFA070A87D92 /* Copy Pods Resources */,
+				49FBAF740F36E00E6798BEBA /* [CP] Embed Pods Frameworks */,
+				F25FA31F19EE5CB2923FD72C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -288,49 +288,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		47B56DFB175BFFA070A87D92 /* Copy Pods Resources */ = {
+		49FBAF740F36E00E6798BEBA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BoxeeRemote/Pods-BoxeeRemote-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6E6DC7E0735D797325BE70C9 /* Check Pods Manifest.lock */ = {
+		8A85CA173F01C70894F4CDD0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D294A3DA6DB47EA6A20A6DB9 /* Embed Pods Frameworks */ = {
+		F25FA31F19EE5CB2923FD72C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BoxeeRemote/Pods-BoxeeRemote-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -469,7 +469,7 @@
 		};
 		CB8DE7CF1C4BCCCE004D8C67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53941A891E2B39BEFEB9A696 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = F9CC0F636B0782F693572064 /* Pods-BoxeeRemote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -488,7 +488,7 @@
 		};
 		CB8DE7D01C4BCCCE004D8C67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87938D2B0FF02A772F164502 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 0D00F11864D0B5A071158533 /* Pods-BoxeeRemote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
