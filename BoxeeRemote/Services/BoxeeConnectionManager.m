@@ -331,7 +331,12 @@ static  NSString *const kBoxeeUsername = @"boxee"; // At least in the boxes I ha
 }
 
 
-// TODO: handle didReceiveData and store received data in new member - as the Boxee response will never be a large multipart mime type, the received data can be assumed to be the whole chunk.
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    // TODO: handle didReceiveData and store received data in new member - as the Boxee response will never be a large multipart mime type, the received data can be assumed to be the whole chunk.
+    NSLog(@"Received data in response for periodic state update request:");
+    NSString *respBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", respBody);
+}
 
 
 #pragma mark - Internal utility methods
