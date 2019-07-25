@@ -4,22 +4,18 @@ An iOS based remote control application for the [Boxee Box](https://en.wikipedia
 
 iOSBoxeeRemote implements the Boxee device discovery on a local network and virtual keys that match the keys on the non-keyboard face of the standard Boxee Box physical remote control (shown below).
 
-![Boxee Box and Remote](http://cdn.slashgear.com/wp-content/uploads/2010/01/D-Link_Boxee_box_and_qwerty_remote.jpg)
-
 The application is localized for English and Portuguese (Brazil). 
 
-### Application Screenshots ###
+## UPDATE (jun/2019) ##
 
-![Initial Screen - No connection set](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/InitialScreen.png)
-> Initial screen with no connection parameter set.  
-  
+Work on a new version of iOSBoxeeRemote has been interrupted (and won't be resumed) due to the reasons described below.
 
-![Boxee found on local network](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/BoxeeScanResult.png)
-> Boxee found after a local network search.   
-  
+As of June, 2019, some Boxee servers that were in charge of managing and authenticating Boxee accounts are no longer available. Boxee Boxes can no longer authenticate users and report they have no Internet Connection even when they are connected to a network that has access to the Internet. Further details about the issue can be seen 
+[here](https://www.reddit.com/r/boxee/comments/bzb2wn/boxee_can_not_connect_to_the_internet_nor_wifi_or/). 
 
-![Remote keypad](https://dl.dropboxusercontent.com/u/3752865/iOSBoxeeRemote/RemoteKeyPad.png)
->The Boxee remote keypad (displayed once connected to a Boxee and while the connection is "healthy").  
+My Boxee Box is currently unusable and, infering from what has been written on the discussion above, mine is not an exception. As all candidate fixes are too hacky for most users (including myself), I decided to let my beloved Boxee Box go and stop investing time and energy on both the [boxee-simulator](https://github.com/raulcostajunior/boxee-simulator) and a new version of [iOSBoxeeRemote](https://github.com/raulcostajunior/iosboxeeremote) that I had already started and would finish after concluding the first version of the simulator. 
+
+R.I.P Boxee Box :(
 
 ## Requirements ##
 
