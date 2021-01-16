@@ -1,9 +1,9 @@
 target 'BoxeeRemote' do
 
-platform :ios, '6.0'
-pod 'Toast', '3.0'
+platform :ios, '10.3'
+pod 'Toast', '4.0.0'
 pod 'SSKeychain', '1.4.0'
-pod 'CocoaAsyncSocket', '7.4.3'
-pod 'KissXML', '5.0.3'
+pod 'CocoaAsyncSocket', '7.6.4'
+pod 'KissXML', '5.3.1'
 
 end

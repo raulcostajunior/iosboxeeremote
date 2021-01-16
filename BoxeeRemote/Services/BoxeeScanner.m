@@ -142,14 +142,12 @@ static NSTimeInterval SCAN_TIMEOUT_SECONDS = 5.0;
     [_udpSocket bindToPort:0 error:&error];
     if (error) {
         NSLog(@"Error initializing socket - binding to port 0: %@", error.description);
-        errorPtr = &error;
         return NO;
     }
     
     [_udpSocket beginReceiving:&error];
     if (error) {
         NSLog(@"Error initializing socket - in beginReceiving call: %@", error.description);
-        errorPtr = &error;
         return NO;
     }
     
@@ -157,11 +155,9 @@ static NSTimeInterval SCAN_TIMEOUT_SECONDS = 5.0;
     [_udpSocket enableBroadcast:YES error:&error];
     if (error) {
         NSLog(@"Error initializing socket - in enableBroadcast call: %@", error.description);
-        errorPtr = &error;
         return NO;
     }
     else {
-        errorPtr = nil;
         return YES;
     }
     
